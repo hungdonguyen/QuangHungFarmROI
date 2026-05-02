@@ -39,13 +39,13 @@ export default function Dashboard({ includeFee, priceCache }) {
     etaSeconds: null,
   });
   const [cooldown, setCooldown] = useState(null);
+  const [loadingCollId, setLoadingCollId] = useState(null);
   const abortRef = useRef(false);
 
   const orderedCollections = DASHBOARD_ORDER
     .map(slug => armoryCollections.find(c => c.id === slug))
     .filter(Boolean);
 
-  // Subscribe to queue status (429 cooldowns)
   useEffect(() => {
     const unsub = onQueueStatus((status) => {
       if (status.type === 'cooldown') {
@@ -57,11 +57,15 @@ export default function Dashboard({ includeFee, priceCache }) {
     return unsub;
   }, []);
 
-  const handleLoad = useCallback(async (mode) => {
+  /**
+   * Load prices for a specific collection or all collections.
+   */
+  const handleLoad = useCallback(async (mode, targetCollection = null) => {
     if (loadState.active) return;
     abortRef.current = false;
 
-    const allItems = collectAllSkinWears(orderedCollections);
+    const collections = targetCollection ? [targetCollection] : orderedCollections;
+    const allItems = collectAllSkinWears(collections);
 
     let itemsToLoad;
     if (mode === 'missing') {
@@ -75,8 +79,11 @@ export default function Dashboard({ includeFee, priceCache }) {
 
     if (itemsToLoad.length === 0) {
       setLoadState(prev => ({ ...prev, active: false, mode: null }));
+      setLoadingCollId(null);
       return;
     }
+
+    if (targetCollection) setLoadingCollId(targetCollection.id);
 
     const startTime = Date.now();
     setLoadState({
@@ -87,7 +94,7 @@ export default function Dashboard({ includeFee, priceCache }) {
       skipped: 0,
       currentSkin: '',
       currentWear: '',
-      currentCollection: '',
+      currentCollection: targetCollection ? targetCollection.name : '',
       startTime,
       etaSeconds: null,
     });
@@ -105,20 +112,15 @@ export default function Dashboard({ includeFee, priceCache }) {
         if (cached[wear] && cached[wear].success) {
           skippedCount++;
           setLoadState(prev => ({
-            ...prev,
-            current: i + 1,
-            skipped: skippedCount,
-            currentSkin: skin.name,
-            currentWear: wear,
-            currentCollection: collectionName,
+            ...prev, current: i + 1, skipped: skippedCount,
+            currentSkin: skin.name, currentWear: wear, currentCollection: collectionName,
           }));
           continue;
         }
       }
 
       setLoadState(prev => ({
-        ...prev,
-        current: i + 1,
+        ...prev, current: i + 1,
         currentSkin: skin.name,
         currentWear: wear === 'Normal' ? '' : wear,
         currentCollection: collectionName,
@@ -137,10 +139,7 @@ export default function Dashboard({ includeFee, priceCache }) {
         : Math.max(0, remaining - Math.round(skippedCount * (remaining / (i + 1))));
       const eta = Math.round(avgPerItem * remainingToFetch);
 
-      setLoadState(prev => ({
-        ...prev,
-        etaSeconds: eta > 0 ? eta : null,
-      }));
+      setLoadState(prev => ({ ...prev, etaSeconds: eta > 0 ? eta : null }));
     }
 
     setLoadState({
@@ -148,6 +147,7 @@ export default function Dashboard({ includeFee, priceCache }) {
       currentSkin: '', currentWear: '', currentCollection: '',
       startTime: null, etaSeconds: null,
     });
+    setLoadingCollId(null);
   }, [loadState.active, orderedCollections, priceCache]);
 
   const formatEta = (seconds) => {
@@ -181,16 +181,16 @@ export default function Dashboard({ includeFee, priceCache }) {
             title="Only load prices that haven't been cached yet"
           >
             <Download size={14} />
-            {loadState.active && loadState.mode === 'missing' ? 'Loading...' : 'Load Missing'}
+            {loadState.active && loadState.mode === 'missing' && !loadingCollId ? 'Loading...' : 'Load Missing'}
           </button>
           <button
-            className={`reload-btn ${loadState.active && loadState.mode === 'reload' ? 'loading' : ''}`}
+            className={`reload-btn ${loadState.active && loadState.mode === 'reload' && !loadingCollId ? 'loading' : ''}`}
             onClick={() => handleLoad('reload')}
             disabled={loadState.active}
             title="Reload all prices (skips already cached)"
           >
             <RefreshCw size={14} />
-            {loadState.active && loadState.mode === 'reload' ? 'Reloading...' : 'Reload Prices'}
+            {loadState.active && loadState.mode === 'reload' && !loadingCollId ? 'Reloading...' : 'Reload Prices'}
           </button>
         </div>
       </div>
@@ -222,7 +222,6 @@ export default function Dashboard({ includeFee, priceCache }) {
             </div>
           </div>
 
-          {/* 429 Cooldown warning */}
           {cooldown && cooldown.seconds > 0 && (
             <div className="load-cooldown-warning">
               <AlertTriangle size={14} />
@@ -247,6 +246,7 @@ export default function Dashboard({ includeFee, priceCache }) {
           const roiData = priceCache.getCollectionROI(coll, includeFee);
           const cost = coll.costStars * STAR_COST_VND;
           const avgValue = roiData ? roiData.avgValue : null;
+          const isThisLoading = loadingCollId === coll.id;
 
           return (
             <Link key={coll.id} to={`/${coll.id}`} className="dashboard-card">
@@ -280,6 +280,18 @@ export default function Dashboard({ includeFee, priceCache }) {
                 <span>
                   {coll.costStars} ★ / {formatVND(cost)} → {avgValue ? formatVND(avgValue) : '—'} AVG
                 </span>
+                <button
+                  className={`card-reload-btn ${isThisLoading ? 'spinning' : ''}`}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    handleLoad('missing', coll);
+                  }}
+                  disabled={loadState.active}
+                  title={`Reload ${coll.name}`}
+                >
+                  <RefreshCw size={12} />
+                </button>
               </div>
             </Link>
           );
@@ -288,3 +300,4 @@ export default function Dashboard({ includeFee, priceCache }) {
     </main>
   );
 }
+
