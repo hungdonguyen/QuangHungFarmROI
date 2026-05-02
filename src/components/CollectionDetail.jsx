@@ -256,9 +256,30 @@ export default function CollectionDetail({ onSelectSkin, priceCache, includeFee 
           {(() => {
             const numTiers = collection.rarities.length;
             const correctChances = getCorrectRarityChances(numTiers);
-            const sortedRarities = [...collection.rarities].sort((a, b) => b.odds - a.odds);
+            // CS2 rarity order: rarest (left) → most common (right)
+            // Gold > Red > Pink > Purple > Dark Blue > Light Blue > White
+            const RARITY_ORDER = {
+              '#e4ae39': 0, // Extraordinary (gold)
+              '#eb4b4b': 1, // Covert (red)
+              '#d32ce6': 2, // Classified (pink)
+              '#8847ff': 3, // Restricted (purple)
+              '#4b69ff': 4, // Mil-Spec Grade (dark blue)
+              '#5e98d9': 5, // Industrial Grade (light blue)
+              '#b0c3d9': 6, // Consumer Grade (white/grey)
+            };
+            const sortedRarities = [...collection.rarities].sort((a, b) => {
+              const orderA = RARITY_ORDER[a.color] ?? 99;
+              const orderB = RARITY_ORDER[b.color] ?? 99;
+              return orderA - orderB;
+            });
             return sortedRarities.map((rarity, idx) => {
               const chanceData = correctChances[idx];
+              // Sort skins within rarity by price (highest first)
+              const sortedSkins = [...rarity.skins].sort((a, b) => {
+                const priceA = priceCache?.getWeightedAvgPrice(a.marketHashNameBase, a.wears) || 0;
+                const priceB = priceCache?.getWeightedAvgPrice(b.marketHashNameBase, b.wears) || 0;
+                return priceB - priceA;
+              });
               return (
                 <div className="rarity-column" key={rarity.id}>
                   <div className="rarity-header" style={{
@@ -268,7 +289,7 @@ export default function CollectionDetail({ onSelectSkin, priceCache, includeFee 
                     <span className="rarity-odds">1 in {chanceData ? chanceData.odds : rarity.odds}</span>
                   </div>
                   <div className="rarity-items">
-                    {rarity.skins.map(skin => {
+                    {sortedSkins.map(skin => {
                       const avgPrice = priceCache?.getWeightedAvgPrice(skin.marketHashNameBase, skin.wears);
                       return (
                         <button key={skin.id} className="skin-card"

@@ -193,7 +193,13 @@ export function usePriceCache() {
 
     const numTiers = collection.rarities.length;
     const correctChances = getCorrectRarityChances(numTiers);
-    const sortedRarities = [...collection.rarities].sort((a, b) => b.odds - a.odds);
+    const RARITY_ORDER = {
+      '#e4ae39': 0, '#eb4b4b': 1, '#d32ce6': 2, '#8847ff': 3,
+      '#4b69ff': 4, '#5e98d9': 5, '#b0c3d9': 6,
+    };
+    const sortedRarities = [...collection.rarities].sort((a, b) =>
+      (RARITY_ORDER[a.color] ?? 99) - (RARITY_ORDER[b.color] ?? 99)
+    );
 
     for (let i = 0; i < sortedRarities.length; i++) {
       const rarity = sortedRarities[i];
