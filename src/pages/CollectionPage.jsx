@@ -10,6 +10,20 @@ export default function CollectionPage({ includeFee, setIncludeFee, lastUpdated,
   const collection = armoryCollections.find(c => c.id === id);
   const [selectedSkin, setSelectedSkin] = useState(null);
 
+  const handleSelectSkin = (data) => {
+    const { skin } = data;
+    const isNormalOnly = skin.wears.length === 1 && skin.wears[0] === 'Normal';
+
+    if (isNormalOnly) {
+      // Sticker/Charm — open Steam Market directly
+      const steamUrl = `https://steamcommunity.com/market/listings/730/${encodeURIComponent(skin.marketHashNameBase)}`;
+      window.open(steamUrl, '_blank');
+    } else {
+      // Weapon skin — open detail modal
+      setSelectedSkin(data);
+    }
+  };
+
   return (
     <div className="app-container">
       <Sidebar
@@ -20,7 +34,7 @@ export default function CollectionPage({ includeFee, setIncludeFee, lastUpdated,
         priceCache={priceCache}
       />
       <CollectionDetail
-        onSelectSkin={setSelectedSkin}
+        onSelectSkin={handleSelectSkin}
         priceCache={priceCache}
         includeFee={includeFee}
       />
