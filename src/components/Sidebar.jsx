@@ -32,7 +32,7 @@ export default function Sidebar({ lastUpdated, includeFee, setIncludeFee, collec
   return (
     <aside className="sidebar">
       <Link to="/" className="logo">
-        CSROI<span>.com</span>
+        <img src="/logo.png" alt="HungChikaFarm ROI" className="logo-img" />
       </Link>
 
       {collection ? (

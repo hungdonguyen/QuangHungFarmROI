@@ -42,16 +42,19 @@
 }
 
 .logo {
-  font-size: 22px;
-  font-weight: 800;
-  color: var(--accent-red);
+  display: block;
   margin-bottom: 24px;
   text-align: center;
   text-decoration: none;
-  display: block;
-  letter-spacing: 0.5px;
+  transition: opacity 0.2s;
 }
-.logo span { color: #ffffff; }
+.logo:hover { opacity: 0.85; }
+.logo-img {
+  max-width: 160px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
 
 .sidebar-nav {
   display: flex;
