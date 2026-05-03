@@ -2,14 +2,16 @@ import React, { useState, useMemo, useEffect } from 'react';
 import { Trash2, Plus, Edit2, Check, X } from 'lucide-react';
 import { formatCurrency, getRoiColorClass } from '../utils/formatters';
 
-import { STAR_COST_VND, DASHBOARD_ORDER } from '../utils/constants';
+import { DASHBOARD_ORDER } from '../utils/constants';
 
 export default function CalculatorView({ 
   simulationsHook, 
   armoryCollections, 
   priceCache, 
-  includeFee 
+  includeFee,
+  activeCurrency
 }) {
+
   const {
     simulations,
     activeSimulation,
@@ -64,6 +66,7 @@ export default function CalculatorView({
             value: `${skin.id}|${wear}`,
             label: `${skin.name} (${wear}) - ${formatCurrency(price, activeCurrency)}`,
 
+
           });
         });
       });
@@ -99,9 +102,11 @@ export default function CalculatorView({
             wear: 'Average',
             rarityColor: '#fff',
             image: col.image,
-            unitCost: col.costStars * STAR_COST_VND,
+            unitCost: col.costStars * priceCache.starCost,
+
             unitReturn: avgValue,
-            cost: col.costStars * qty * STAR_COST_VND,
+            cost: col.costStars * qty * priceCache.starCost,
+
             returnValue: avgValue * qty,
             isRandom: true
           });
@@ -131,9 +136,9 @@ export default function CalculatorView({
               wear: wear === 'Normal' ? 'Default' : wear,
               rarityColor,
               image: skinObj.image,
-              unitCost: col.costStars * STAR_COST_VND,
+              unitCost: col.costStars * priceCache.starCost,
               unitReturn: itemValue,
-              cost: col.costStars * qty * STAR_COST_VND,
+              cost: col.costStars * qty * priceCache.starCost,
               returnValue: itemValue * qty,
               isRandom: false
             });
@@ -142,7 +147,7 @@ export default function CalculatorView({
       });
     }
 
-    const totalCost = totalStars * STAR_COST_VND;
+    const totalCost = totalStars * priceCache.starCost;
     const profit = expectedReturn - totalCost;
     const roi = totalCost > 0 ? (expectedReturn / totalCost) * 100 : 0;
 

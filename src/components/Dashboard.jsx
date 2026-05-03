@@ -3,7 +3,8 @@ import { Link, useSearchParams } from 'react-router-dom';
 import { RefreshCw, Download, AlertTriangle } from 'lucide-react';
 import { armoryCollections } from '../data';
 import { formatCurrency, getRoiColorClass } from '../utils/formatters';
-import { DASHBOARD_ORDER, STAR_COST_VND } from '../utils/constants';
+import { DASHBOARD_ORDER } from '../utils/constants';
+
 import { fetchItemPrice, onQueueStatus } from '../api';
 import { useSimulations } from '../hooks/useSimulations';
 import CalculatorView from './CalculatorView';

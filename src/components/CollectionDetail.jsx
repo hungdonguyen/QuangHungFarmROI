@@ -3,7 +3,8 @@ import { useParams } from 'react-router-dom';
 import { RefreshCw, Download, AlertTriangle } from 'lucide-react';
 import { armoryCollections } from '../data';
 import { formatCurrency } from '../utils/formatters';
-import { STAR_COST_VND, getCorrectRarityChances } from '../utils/constants';
+import { getCorrectRarityChances } from '../utils/constants';
+
 import { fetchItemPrice, onQueueStatus } from '../api';
 
 function collectSkinWears(collection) {
