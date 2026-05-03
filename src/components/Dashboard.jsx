@@ -107,18 +107,6 @@ export default function Dashboard({ includeFee, priceCache }) {
 
       const { skin, wear, collectionName } = itemsToLoad[i];
 
-      if (mode === 'reload') {
-        const cached = priceCache.getPrice(skin.marketHashNameBase);
-        if (cached[wear] && cached[wear].success) {
-          skippedCount++;
-          setLoadState(prev => ({
-            ...prev, current: i + 1, skipped: skippedCount,
-            currentSkin: skin.name, currentWear: wear, currentCollection: collectionName,
-          }));
-          continue;
-        }
-      }
-
       setLoadState(prev => ({
         ...prev, current: i + 1,
         currentSkin: skin.name,
