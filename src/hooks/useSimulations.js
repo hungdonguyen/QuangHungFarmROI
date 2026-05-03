@@ -14,16 +14,16 @@ export function useSimulations() {
   const [loading, setLoading] = useState(true);
   
   // Local UUID for anonymous user tracking
-  const getUserId = () => {
+  // Stable userId for the lifetime of the component
+  const [userId] = useState(() => {
     let uid = localStorage.getItem('csroi_user_id');
     if (!uid) {
       uid = uuidv4();
       localStorage.setItem('csroi_user_id', uid);
     }
     return uid;
-  };
+  });
 
-  const userId = getUserId();
   const syncTimeoutRef = useRef({});
 
   // Initial load
@@ -55,7 +55,9 @@ export function useSimulations() {
     return () => { isMounted = false; };
   }, [userId]);
 
-  const activeSimulation = simulations.find(s => s.id === activeSimulationId) || null;
+  const activeSimulation = useMemo(() => {
+    return simulations.find(s => s.id === activeSimulationId) || simulations[0] || null;
+  }, [simulations, activeSimulationId]);
 
   // Actions
   const handleCreateSimulation = async (name) => {
@@ -76,11 +78,13 @@ export function useSimulations() {
     // If it's the last one, don't delete (or create a new one instead)
     if (simulations.length <= 1) return;
 
-    setSimulations(prev => prev.filter(s => s.id !== id));
-    if (activeSimulationId === id) {
-      const remaining = simulations.filter(s => s.id !== id);
-      if (remaining.length > 0) setActiveSimulationId(remaining[0].id);
-    }
+    setSimulations(prev => {
+      const updated = prev.filter(s => s.id !== id);
+      if (activeSimulationId === id && updated.length > 0) {
+        setActiveSimulationId(updated[0].id);
+      }
+      return updated;
+    });
     await deleteSimulation(id);
   };
 
