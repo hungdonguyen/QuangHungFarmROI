@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { ChevronLeft, Cloud, CloudOff, Loader2 } from 'lucide-react';
-import { formatVND, formatTimeAgo } from '../utils/formatters';
+import { formatVND, formatTimeAgo, getRoiColorClass } from '../utils/formatters';
 import { STAR_COST_VND, getCorrectRarityChances } from '../utils/constants';
 
 export default function Sidebar({ lastUpdated, includeFee, setIncludeFee, collection, priceCache }) {
@@ -55,11 +55,13 @@ export default function Sidebar({ lastUpdated, includeFee, setIncludeFee, collec
               <div className="sidebar-roi-stats">
                 <div className="sidebar-roi-stat">
                   <span className="label">Unboxing ROI</span>
-                  <span className="value">{roiData.roi.toFixed(1)}%</span>
+                  <span className={`value ${getRoiColorClass(roiData.roi)}`}>
+                    {roiData.roi.toFixed(1)}%
+                  </span>
                 </div>
                 <div className="sidebar-roi-stat">
                   <span className="label">Profit</span>
-                  <span className={`value ${roiData.profit > 0 ? 'green' : 'red'}`}>
+                  <span className={`value ${roiData.profit > 0 ? 'roi-green' : 'roi-red'}`}>
                     {roiData.profit.toFixed(2)}%
                   </span>
                 </div>

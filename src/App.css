@@ -10,6 +10,9 @@
   --accent-red: #dc2626;
   --accent-green: #22c55e;
   --accent-yellow: #eab308;
+  --roi-orange: #f97316;
+  --roi-pink: #ec4899;
+  --roi-green: #10b981;
   --border-color: #1a2040;
   --rarity-covert: #eb4b4b;
   --rarity-classified: #d32ce6;
@@ -154,8 +157,10 @@
   font-weight: 800;
   color: var(--accent-yellow);
 }
-.sidebar-roi-stat .value.green { color: var(--accent-green); }
-.sidebar-roi-stat .value.red { color: var(--accent-red); }
+.sidebar-roi-stat .value.roi-orange { color: var(--roi-orange); }
+.sidebar-roi-stat .value.roi-pink { color: var(--roi-pink); }
+.sidebar-roi-stat .value.roi-green { color: var(--roi-green); }
+.sidebar-roi-stat .value.roi-red { color: var(--accent-red); }
 
 /* Open in Steam button */
 .open-steam-btn {
@@ -583,9 +588,10 @@
   font-size: 18px;
   font-weight: 800;
 }
-.stat-value.yellow { color: var(--accent-yellow); }
-.stat-value.green { color: var(--accent-green); }
-.stat-value.red { color: var(--accent-red); }
+.stat-value.roi-orange { color: var(--roi-orange); }
+.stat-value.roi-pink { color: var(--roi-pink); }
+.stat-value.roi-green { color: var(--roi-green); }
+.stat-value.roi-red { color: var(--accent-red); }
 .stat-value.muted { color: var(--text-muted); font-size: 13px; }
 
 .card-image {
@@ -1035,15 +1041,119 @@
   .chart-container, .chart-labels { margin-left: 120px; }
   .modal-skin-img { max-width: 120px; }
 }
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .app-container { flex-direction: column; }
+  
+  /* Sidebar top nav for mobile */
   .sidebar {
     width: 100%; min-width: 100%;
-    height: auto; position: static;
-    flex-direction: row; flex-wrap: wrap;
-    gap: 12px; padding: 12px;
+    height: auto; position: relative;
+    border-right: none;
+    border-bottom: 1px solid var(--border-color);
+    padding: 16px;
   }
-  .sidebar-footer { margin-top: 0; border-top: none; }
+
+  .logo { margin-bottom: 12px; }
+  .logo-img { max-width: 140px; }
+
+  .sidebar-nav {
+    flex-direction: row;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+
+  .collection-info {
+    margin-bottom: 16px;
+  }
+
+  .sidebar-roi-stats {
+    flex-direction: row;
+    gap: 16px;
+  }
+
+  .sidebar-footer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 16px;
+    text-align: left;
+    border-top: 1px solid var(--border-color);
+    padding-top: 16px;
+  }
+
+  .sidebar-footer p { margin-bottom: 0; }
+
+  /* Dashboard mobile layout */
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  
+  .header-actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .dashboard-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 12px;
+    padding: 12px;
+  }
+
+  .card-banner { padding: 8px; }
+  .card-title { font-size: 10px; }
+  .card-body { padding: 12px; }
+  .card-stats { flex-direction: column; gap: 8px; align-items: center; }
+  .stat-value { font-size: 14px; }
+  .card-image {
+    max-width: 80px;
+    max-height: 50px;
+    right: 8px;
+  }
+
+  /* Collection Detail mobile layout */
+  .collection-detail { padding: 12px; }
+  
+  .rarity-grid {
+    flex-direction: column;
+    overflow-y: visible;
+  }
+
+  .rarity-column {
+    min-width: unset;
+    border-right: none;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 16px;
+  }
+
+  .rarity-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 8px;
+    max-height: none;
+    padding-right: 0;
+  }
+
+  /* Modal */
+  .modal-content {
+    width: 95%;
+    max-height: 90vh;
+  }
+  
+  .modal-header h2 { font-size: 18px; }
+  
+  .modal-body {
+    flex-direction: column;
+  }
+  
+  .modal-skin-img {
+    position: static;
+    transform: none;
+    max-width: 140px;
+    margin: 0 auto 16px;
+  }
+
   .chart-container, .chart-labels { margin-left: 0; }
-  .modal-skin-img { position: static; transform: none; max-width: 120px; margin: 0 auto 16px; }
 }

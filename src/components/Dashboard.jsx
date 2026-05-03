@@ -2,7 +2,7 @@ import React, { useState, useCallback, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { RefreshCw, Download, AlertTriangle } from 'lucide-react';
 import { armoryCollections } from '../data';
-import { formatVND } from '../utils/formatters';
+import { formatVND, getRoiColorClass } from '../utils/formatters';
 import { DASHBOARD_ORDER, STAR_COST_VND } from '../utils/constants';
 import { fetchItemPrice, onQueueStatus } from '../api';
 
@@ -247,13 +247,13 @@ export default function Dashboard({ includeFee, priceCache }) {
                 <div className="card-stats">
                   <div className="stat">
                     <span className="stat-label">Star ROI</span>
-                    <span className={`stat-value ${roiData ? 'yellow' : 'muted'}`}>
+                    <span className={`stat-value ${getRoiColorClass(roiData ? roiData.roi : null)}`}>
                       {roiData ? `${roiData.roi.toFixed(1)}%` : '—'}
                     </span>
                   </div>
                   <div className="stat">
                     <span className="stat-label">Profit</span>
-                    <span className={`stat-value ${roiData ? (roiData.profit > 0 ? 'green' : 'red') : 'muted'}`}>
+                    <span className={`stat-value ${roiData ? (roiData.profit > 0 ? 'roi-green' : 'roi-red') : 'muted'}`}>
                       {roiData ? `${roiData.profit.toFixed(2)}%` : '—'}
                     </span>
                   </div>

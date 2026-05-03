@@ -50,3 +50,16 @@ export const getSteamMarketUrl = (marketHashNameBase, wear) => {
 export const slugify = (name) => {
   return name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
 };
+
+/**
+ * Determine ROI color class based on percentage.
+ * >= 120% : orange
+ * >= 100% : pink
+ * < 100% : green
+ */
+export const getRoiColorClass = (roi) => {
+  if (roi == null) return 'muted';
+  if (roi >= 120) return 'roi-orange';
+  if (roi >= 100) return 'roi-pink';
+  return 'roi-green';
+};
