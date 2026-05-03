@@ -25,13 +25,13 @@ class RequestQueue {
         this.onStatusChange = null;
     }
 
-    async add(url) {
+    async add(url, currency = 15) {
         if (this.cache.has(url)) {
             return this.cache.get(url);
         }
 
         return new Promise((resolve, reject) => {
-            this.queue.push({ url, resolve, reject, retries: 0 });
+            this.queue.push({ url, currency, resolve, reject, retries: 0 });
             if (!this.isProcessing) {
                 this.processQueue();
             }
@@ -46,17 +46,17 @@ class RequestQueue {
 
         this.isProcessing = true;
         const item = this.queue.shift();
-        const { url, resolve, reject, retries } = item;
+        const { url, currency, resolve, reject, retries } = item;
         const MAX_RETRIES = 5;
 
         try {
             let apiUrl;
             if (isDev) {
                 // Vite dev proxy
-                apiUrl = `/api/steam/market/priceoverview/?appid=730&currency=15&market_hash_name=${encodeURIComponent(url)}`;
+                apiUrl = `/api/steam/market/priceoverview/?appid=730&currency=${currency}&market_hash_name=${encodeURIComponent(url)}`;
             } else {
                 // Vercel serverless function
-                apiUrl = `/api/steam?market_hash_name=${encodeURIComponent(url)}`;
+                apiUrl = `/api/steam?market_hash_name=${encodeURIComponent(url)}&currency=${currency}`;
             }
 
             const response = await axios.get(apiUrl);
@@ -109,7 +109,7 @@ class RequestQueue {
                         this.onStatusChange({ type: 'resumed' });
                     }
 
-                    this.queue.unshift({ url, resolve, reject, retries: retries + 1 });
+                    this.queue.unshift({ url, currency, resolve, reject, retries: retries + 1 });
                 } else {
                     console.error(`[429] Max retries exceeded for "${url}"`);
                     reject(new Error(`Rate limited: max retries exceeded for ${url}`));
@@ -158,14 +158,14 @@ export function onQueueStatus(callback) {
     return () => { queue.onStatusChange = null; };
 }
 
-export async function fetchItemPrice(marketHashNameBase, wear) {
+export async function fetchItemPrice(marketHashNameBase, wear, currency = 15) {
     let fullHashName = marketHashNameBase;
     if (wear) {
         fullHashName = `${marketHashNameBase} (${wear})`;
     }
     
     try {
-        const data = await queue.add(fullHashName);
+        const data = await queue.add(fullHashName, currency);
         return {
             price: data.lowest_price ? parseInt(data.lowest_price.replace(/[^\d]/g, '')) : null,
             volume: data.volume ? parseInt(data.volume.replace(/,/g, '')) : 0,
@@ -181,3 +181,4 @@ export async function fetchItemPrice(marketHashNameBase, wear) {
         };
     }
 }
+

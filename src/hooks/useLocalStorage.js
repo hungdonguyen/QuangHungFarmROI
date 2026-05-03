@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
-import { getCorrectRarityChances, WEAR_CHANCES, STAR_COST_VND } from '../utils/constants';
+import { getCorrectRarityChances, WEAR_CHANCES, STAR_COST_VND, STAR_COST_USD } from '../utils/constants';
+
 import {
   isSupabaseConfigured,
   loadAllPricesFromCloud,
@@ -101,7 +102,8 @@ export function usePriceCache(currencyCode = 15) {
     }
 
     loadFromCloud();
-  }, [userId, currencyCode]);
+  }, [currencyCode]);
+
 
 
   // Flush sync queue to Supabase (batched every 3 seconds)

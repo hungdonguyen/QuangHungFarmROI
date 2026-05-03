@@ -137,8 +137,10 @@ export default function Dashboard({ includeFee, priceCache, activeCurrency }) {
       }));
 
       const wearParam = wear === 'Normal' ? '' : wear;
-      const result = await fetchItemPrice(skin.marketHashNameBase, wearParam, activeCurrency);
+      const currencyCode = activeCurrency === 'USD' ? 1 : 15;
+      const result = await fetchItemPrice(skin.marketHashNameBase, wearParam, currencyCode);
       priceCache.updatePrice(skin.marketHashNameBase, wear, result);
+
 
       fetched++;
 

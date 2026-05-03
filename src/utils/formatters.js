@@ -1,10 +1,17 @@
 // === Formatting Utilities ===
 
 /**
- * Format a number as Vietnamese Dong
+ * Format a number based on currency (VND or USD)
  */
-export const formatVND = (amount) => {
+export const formatCurrency = (amount, currencyType = 'VND') => {
   if (amount == null || isNaN(amount)) return 'N/A';
+  if (currencyType === 'USD') {
+    return '$' + Number(amount).toLocaleString('en-US', { 
+      minimumFractionDigits: 2, 
+      maximumFractionDigits: 2 
+    });
+  }
+  // Default VND
   return Math.round(Number(amount)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.') + ' ₫';
 };
 
@@ -24,15 +31,17 @@ export const formatTimeAgo = (timestamp) => {
 /**
  * Calculate profit percentage
  * @param {number} price - Market price
- * @param {number} stars - Star cost
+ * @param {number} stars - Star count
  * @param {boolean} includeFee - Whether to subtract Steam's 15% fee
+ * @param {number} starCost - Cost per star in active currency
  */
-export const calculateProfit = (price, stars, includeFee) => {
-  if (!price || price === 0) return 0;
-  const cost = stars * 10500;
+export const calculateProfit = (price, stars, includeFee, starCost) => {
+  if (!price || price === 0 || !starCost) return 0;
+  const cost = stars * starCost;
   const netPrice = includeFee ? price / 1.15 : price;
   return ((netPrice / cost) - 1) * 100;
 };
+
 
 /**
  * Build Steam Market URL for a specific item + wear
