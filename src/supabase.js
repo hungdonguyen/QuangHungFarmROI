@@ -293,3 +293,68 @@ export async function deleteSimulation(simulationId) {
     console.error('[Supabase] Delete simulation failed:', e);
   }
 }
+
+/**
+ * Get a specific simulation by ID.
+ */
+export async function getSimulationById(simulationId) {
+  const client = getClient();
+  if (!client || !simulationId) return null;
+
+  try {
+    const { data, error } = await client
+      .from('simulations')
+      .select('*')
+      .eq('id', simulationId)
+      .single();
+
+    if (error) {
+      console.error('[Supabase] Get simulation by ID error:', error.message);
+      return null;
+    }
+    return data;
+  } catch (e) {
+    console.error('[Supabase] Get simulation by ID failed:', e);
+    return null;
+  }
+}
+
+/**
+ * Save a snapshot to the simulation's snapshots array.
+ */
+export async function saveSnapshot(simulationId, snapshotData) {
+  const client = getClient();
+  if (!client || !simulationId || !snapshotData) return false;
+
+  try {
+    // Fetch current snapshots
+    const { data, error: fetchError } = await client
+      .from('simulations')
+      .select('snapshots')
+      .eq('id', simulationId)
+      .single();
+
+    if (fetchError) {
+      console.error('[Supabase] Fetch snapshots error:', fetchError.message);
+      return false;
+    }
+
+    const currentSnapshots = Array.isArray(data.snapshots) ? data.snapshots : [];
+    const updatedSnapshots = [...currentSnapshots, snapshotData];
+
+    const { error: updateError } = await client
+      .from('simulations')
+      .update({ snapshots: updatedSnapshots })
+      .eq('id', simulationId);
+
+    if (updateError) {
+      console.error('[Supabase] Update snapshots error:', updateError.message);
+      return false;
+    }
+
+    return true;
+  } catch (e) {
+    console.error('[Supabase] Save snapshot failed:', e);
+    return false;
+  }
+}

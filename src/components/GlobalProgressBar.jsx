@@ -1,5 +1,5 @@
-import React from 'react';
-import { AlertTriangle } from 'lucide-react';
+import React, { useState } from 'react';
+import { AlertTriangle, ChevronRight, ChevronLeft, Loader } from 'lucide-react';
 import { useLoader } from '../contexts/LoaderContext';
 
 const formatEta = (seconds) => {
@@ -12,12 +12,34 @@ const formatEta = (seconds) => {
 
 export default function GlobalProgressBar() {
   const { loadState, cooldown } = useLoader();
+  const [isCollapsed, setIsCollapsed] = useState(false);
 
   if (!loadState.active) return null;
 
+  if (isCollapsed) {
+    return (
+      <div 
+        className="global-load-progress-bar collapsed" 
+        onClick={() => setIsCollapsed(false)}
+        title="Show progress bar"
+      >
+        <Loader size={20} className="spinning" style={{ color: '#818cf8' }} />
+        <div style={{ position: 'absolute', top: 0, right: 0, background: '#ef4444', borderRadius: '50%', width: 8, height: 8 }} />
+      </div>
+    );
+  }
+
   return (
     <div className="global-load-progress-bar">
-      <div className="load-progress-info">
+      <button 
+        className="progress-collapse-btn" 
+        onClick={() => setIsCollapsed(true)}
+        title="Hide progress"
+      >
+        <ChevronRight size={16} />
+      </button>
+
+      <div className="load-progress-info" style={{ paddingRight: 24 }}>
         <div className="load-progress-main">
           <span className="load-progress-count">
             {loadState.current}/{loadState.total}

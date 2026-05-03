@@ -1,6 +1,7 @@
 import React, { useState, useMemo, useEffect } from 'react';
-import { Trash2, Plus, Edit2, Check, X } from 'lucide-react';
+import { Trash2, Plus, Edit2, Check, X, Copy, Camera, History } from 'lucide-react';
 import { formatCurrency, getRoiColorClass } from '../utils/formatters';
+import { saveSnapshot, getSimulationById } from '../supabase';
 
 import { DASHBOARD_ORDER } from '../utils/constants';
 
@@ -19,11 +20,15 @@ export default function CalculatorView({
     createSimulation,
     renameSimulation,
     deleteSimulation,
-    setSimulationItems
+    setSimulationItems,
+    joinSimulation
   } = simulationsHook;
 
   const [isEditingName, setIsEditingName] = useState(false);
   const [editName, setEditName] = useState('');
+  const [showSnapshots, setShowSnapshots] = useState(false);
+  const [snapshotHistory, setSnapshotHistory] = useState([]);
+  const [loadingSnapshots, setLoadingSnapshots] = useState(false);
 
   // Add Form State
   const sortedCollections = useMemo(() => {
@@ -161,6 +166,49 @@ export default function CalculatorView({
     </div>
   );
 
+  const handleAddClick = async () => {
+    const input = window.prompt("Nhập ID bảng để kết nối, hoặc để trống / Cancel để tạo mới:");
+    if (input === null) return; 
+    if (input.trim() === '') {
+      await createSimulation(`Simulation ${simulations.length + 1}`);
+    } else {
+      const success = await joinSimulation(input.trim());
+      if (!success) {
+        alert("Không tìm thấy bảng với ID này!");
+      }
+    }
+  };
+
+  const handleSaveSnapshot = async () => {
+    const snapshotData = {
+      timestamp: new Date().toISOString(),
+      totalStars: stats.totalStars,
+      totalCost: stats.totalCost,
+      expectedReturn: stats.expectedReturn,
+      profit: stats.profit,
+      items: stats.parsedItems
+    };
+    const success = await saveSnapshot(activeSimulation.id, snapshotData);
+    if (success) {
+      alert("Đã lưu snapshot thành công!");
+    } else {
+      alert("Lỗi khi lưu snapshot!");
+    }
+  };
+
+  const openSnapshots = async () => {
+    setShowSnapshots(true);
+    setLoadingSnapshots(true);
+    const sim = await getSimulationById(activeSimulation.id);
+    if (sim && sim.snapshots) {
+      // Sort newest first
+      setSnapshotHistory([...sim.snapshots].reverse());
+    } else {
+      setSnapshotHistory([]);
+    }
+    setLoadingSnapshots(false);
+  };
+
   const handleAdd = () => {
     if (!activeCol || addQty <= 0) return;
     const key = selectedProduct === 'random' 
@@ -232,7 +280,7 @@ export default function CalculatorView({
             </button>
           ))}
           
-          <button onClick={() => createSimulation(`Simulation ${simulations.length + 1}`)} className="add-sim-btn">
+          <button onClick={handleAddClick} className="add-sim-btn" title="Add or Join Simulation">
             <Plus size={16} />
           </button>
         </div>
@@ -261,6 +309,19 @@ export default function CalculatorView({
               >
                 <Trash2 size={14}/>
               </button>
+              <div className="sim-id-display">
+                <span>ID: {activeSimulation.id}</span>
+                <button 
+                  className="icon-btn" 
+                  onClick={() => {
+                    navigator.clipboard.writeText(activeSimulation.id);
+                    alert("Đã copy ID!");
+                  }} 
+                  title="Copy ID"
+                >
+                  <Copy size={12}/>
+                </button>
+              </div>
             </>
           )}
         </div>
@@ -410,7 +471,60 @@ export default function CalculatorView({
             </span>
           </div>
         </div>
+        <div className="summary-row main-result" style={{ marginTop: 12, borderTop: '1px solid rgba(255,255,255,0.05)', paddingTop: 12 }}>
+          <div className="summary-stat" style={{ flexDirection: 'row', gap: 12 }}>
+            <button className="btn-secondary" onClick={openSnapshots} style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 13 }}>
+              <History size={16} /> Lịch sử Snapshots
+            </button>
+            <button className="btn-primary" onClick={handleSaveSnapshot} style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 13, background: 'var(--accent-green)' }}>
+              <Camera size={16} /> Lưu Snapshot
+            </button>
+          </div>
+        </div>
       </div>
+      {showSnapshots && (
+        <div className="modal-overlay" onClick={() => setShowSnapshots(false)}>
+          <div className="modal-content" onClick={e => e.stopPropagation()} style={{ maxWidth: 600 }}>
+            <div className="modal-header">
+              <h3>Lịch sử Snapshots</h3>
+              <button className="icon-btn" onClick={() => setShowSnapshots(false)}><X size={20}/></button>
+            </div>
+            <div className="modal-body" style={{ maxHeight: '60vh', overflowY: 'auto' }}>
+              {loadingSnapshots ? (
+                <div style={{ textAlign: 'center', padding: 20 }}>Đang tải...</div>
+              ) : snapshotHistory.length === 0 ? (
+                <div style={{ textAlign: 'center', padding: 20, color: 'var(--text-muted)' }}>Chưa có snapshot nào được lưu.</div>
+              ) : (
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+                  {snapshotHistory.map((snap, idx) => (
+                    <div key={idx} style={{ background: 'var(--bg-card)', padding: 12, borderRadius: 8, border: '1px solid var(--border-color)' }}>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 8, borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: 8 }}>
+                        <strong style={{ color: '#818cf8' }}>{new Date(snap.timestamp).toLocaleString()}</strong>
+                        <span className={snap.profit > 0 ? 'roi-green' : 'roi-red'} style={{ fontWeight: 'bold' }}>
+                          Profit: {formatCurrency(snap.profit, activeCurrency)}
+                        </span>
+                      </div>
+                      <div style={{ display: 'flex', gap: 16, fontSize: 12, color: 'var(--text-secondary)', marginBottom: 8 }}>
+                        <span>Stars: {snap.totalStars}/200</span>
+                        <span>Cost: {formatCurrency(snap.totalCost, activeCurrency)}</span>
+                        <span>Return: {formatCurrency(snap.expectedReturn, activeCurrency)}</span>
+                      </div>
+                      <div style={{ display: 'flex', gap: 4, flexWrap: 'wrap' }}>
+                        {snap.items && snap.items.map((item, i) => (
+                          <div key={i} title={`${item.name} (${item.qty}x)`} style={{ position: 'relative' }}>
+                            <img src={item.image} alt={item.name} style={{ width: 32, height: 24, objectFit: 'contain' }} />
+                            <span style={{ position: 'absolute', bottom: -4, right: -4, fontSize: 9, background: '#111', padding: '0 4px', borderRadius: 4, border: `1px solid ${item.rarityColor}` }}>x{item.qty}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

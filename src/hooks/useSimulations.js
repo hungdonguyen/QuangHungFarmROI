@@ -5,7 +5,8 @@ import {
   createSimulation,
   updateSimulationItems,
   renameSimulation,
-  deleteSimulation
+  deleteSimulation,
+  getSimulationById
 } from '../supabase';
 
 export function useSimulations() {
@@ -68,6 +69,24 @@ export function useSimulations() {
     }
   };
 
+  const handleJoinSimulation = async (id) => {
+    // Check if already in list
+    const exists = simulations.find(s => s.id === id);
+    if (exists) {
+      setActiveSimulationId(id);
+      return true;
+    }
+    
+    // Fetch from Supabase
+    const sim = await getSimulationById(id);
+    if (sim) {
+      setSimulations(prev => [...prev, sim]);
+      setActiveSimulationId(sim.id);
+      return true;
+    }
+    return false;
+  };
+
   const handleRenameSimulation = async (id, newName) => {
     // Optimistic update
     setSimulations(prev => prev.map(s => s.id === id ? { ...s, name: newName } : s));
@@ -113,6 +132,7 @@ export function useSimulations() {
     setActiveSimulationId,
     loading,
     createSimulation: handleCreateSimulation,
+    joinSimulation: handleJoinSimulation,
     renameSimulation: handleRenameSimulation,
     deleteSimulation: handleDeleteSimulation,
     setSimulationItems
