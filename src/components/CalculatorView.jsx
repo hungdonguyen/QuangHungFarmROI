@@ -318,10 +318,11 @@ export default function CalculatorView({
               <th>Wear</th>
               <th>Qty</th>
               <th>Cost (★)</th>
-              <th>Cost ({activeCurrency})</th>
-              <th>Value</th>
+              <th>Price</th>
+              <th>Total Value</th>
               <th>Profit</th>
               <th>Actions</th>
+
 
             </tr>
           </thead>
@@ -354,8 +355,9 @@ export default function CalculatorView({
                       </div>
                     </td>
                     <td>{item.qty * item.col.costStars} ★</td>
-                    <td>{formatCurrency(item.cost, activeCurrency)}</td>
+                    <td>{formatCurrency(item.unitReturn, activeCurrency)}</td>
                     <td>{formatCurrency(item.returnValue, activeCurrency)}</td>
+
 
                     <td className={profit > 0 ? 'roi-green' : profit < 0 ? 'roi-red' : ''}>
                       {profit > 0 ? '+' : ''}{formatCurrency(profit, activeCurrency)}
