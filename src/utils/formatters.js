@@ -1,6 +1,11 @@
 // === Formatting Utilities ===
 
 /**
+ * Format a number as Vietnamese Dong (legacy alias)
+ */
+export const formatVND = (amount) => formatCurrency(amount, 'VND');
+
+/**
  * Format a number based on currency (VND or USD)
  */
 export const formatCurrency = (amount, currencyType = 'VND') => {
@@ -14,6 +19,7 @@ export const formatCurrency = (amount, currencyType = 'VND') => {
   // Default VND
   return Math.round(Number(amount)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.') + ' ₫';
 };
+
 
 /**
  * Format a timestamp as relative time (e.g. "5 mins ago")
