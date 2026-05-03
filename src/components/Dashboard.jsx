@@ -6,7 +6,9 @@ import { formatCurrency, getRoiColorClass } from '../utils/formatters';
 import { DASHBOARD_ORDER } from '../utils/constants';
 
 import { fetchItemPrice, onQueueStatus } from '../api';
+import { syncPriceToCloud } from '../supabase';
 import { useSimulations } from '../hooks/useSimulations';
+
 import CalculatorView from './CalculatorView';
 
 /**
@@ -152,11 +154,10 @@ export default function Dashboard({ includeFee, priceCache, activeCurrency }) {
         if (isActiveCode) {
           priceCache.updatePrice(skin.marketHashNameBase, wear, result);
         } else if (result.success) {
-          // For non-active currency, we still want to sync to cloud if successful
-          // We can't easily update the other local cache, but cloud sync is enough
-          // since it will be loaded when the user switches.
-          // Note: fetchItemPrice already logs, but we rely on the next switch to load it.
+          // For non-active currency, we sync directly to cloud
+          syncPriceToCloud(skin.marketHashNameBase, wear, result.price, result.volume, code);
         }
+
 
         fetched++;
         const elapsed = (Date.now() - startTime) / 1000;

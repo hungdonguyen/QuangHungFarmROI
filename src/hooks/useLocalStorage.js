@@ -242,8 +242,9 @@ export function usePriceCache(currencyCode = 15) {
     if (!hasAnyPrice) return null;
 
     const cost = collection.costStars * starCost;
-    const netAvgUnbox = includeFee ? avgUnboxValue / 1.15 : avgUnboxValue;
+    const netAvgUnbox = includeFee ? avgUnboxValue * 0.85 : avgUnboxValue;
     const starROI = (netAvgUnbox / cost) * 100;
+
 
 
     // Profit % = probability of profitable unbox
