@@ -50,7 +50,12 @@ export default function CalculatorView({
     return { totalItems, totalStars, totalCost, expectedReturn, profit, roi };
   }, [activeSimulation, armoryCollections, priceCache, includeFee]);
 
-  if (!activeSimulation) return <div className="calc-loading">Loading...</div>;
+  if (simulationsHook.loading) return <div className="calc-loading">Loading simulations...</div>;
+  if (!activeSimulation) return (
+    <div className="calc-loading" style={{ color: 'var(--accent-red)' }}>
+      Lỗi kết nối Database! Vui lòng tạo bảng `simulations` trên Supabase bằng SQL.
+    </div>
+  );
 
   const startEditName = () => {
     setEditName(activeSimulation.name);
