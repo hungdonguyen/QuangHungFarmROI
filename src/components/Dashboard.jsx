@@ -5,6 +5,8 @@ import { armoryCollections } from '../data';
 import { formatVND, getRoiColorClass } from '../utils/formatters';
 import { DASHBOARD_ORDER, STAR_COST_VND } from '../utils/constants';
 import { fetchItemPrice, onQueueStatus } from '../api';
+import { useSimulations } from '../hooks/useSimulations';
+import CalculatorView from './CalculatorView';
 
 /**
  * Collect all (skin, wear) pairs from a list of collections.
@@ -40,7 +42,10 @@ export default function Dashboard({ includeFee, priceCache }) {
   });
   const [cooldown, setCooldown] = useState(null);
   const [loadingCollId, setLoadingCollId] = useState(null);
+  const [activeTab, setActiveTab] = useState('RARITY VALUES');
   const abortRef = useRef(false);
+
+  const simulationsHook = useSimulations();
 
   const orderedCollections = DASHBOARD_ORDER
     .map(slug => armoryCollections.find(c => c.id === slug))
@@ -229,12 +234,20 @@ export default function Dashboard({ includeFee, priceCache }) {
         </div>
       )}
 
-      <div className="dashboard-grid">
-        {orderedCollections.map((coll, index) => {
-          const roiData = priceCache.getCollectionROI(coll, includeFee);
-          const cost = coll.costStars * STAR_COST_VND;
-          const avgValue = roiData ? roiData.avgValue : null;
-          const isThisLoading = loadingCollId === coll.id;
+      {activeTab === 'CALCULATOR' ? (
+        <CalculatorView 
+          simulationsHook={simulationsHook}
+          armoryCollections={orderedCollections}
+          priceCache={priceCache}
+          includeFee={includeFee}
+        />
+      ) : (
+        <div className="dashboard-grid">
+          {orderedCollections.map((coll, index) => {
+            const roiData = priceCache.getCollectionROI(coll, includeFee);
+            const cost = coll.costStars * STAR_COST_VND;
+            const avgValue = roiData ? roiData.avgValue : null;
+            const isThisLoading = loadingCollId === coll.id;
 
           return (
             <Link key={coll.id} to={`/${coll.id}`} className="dashboard-card">

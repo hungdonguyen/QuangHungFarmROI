@@ -167,3 +167,118 @@ export async function getCloudLastUpdated() {
     return null;
   }
 }
+
+// === Calculator Simulations ===
+
+/**
+ * Load all simulations for a given user ID.
+ */
+export async function loadSimulations(userId) {
+  const client = getClient();
+  if (!client || !userId) return [];
+
+  try {
+    const { data, error } = await client
+      .from('simulations')
+      .select('*')
+      .eq('user_id', userId)
+      .order('created_at', { ascending: true });
+
+    if (error) {
+      console.error('[Supabase] Load simulations error:', error.message);
+      return [];
+    }
+    return data || [];
+  } catch (e) {
+    console.error('[Supabase] Load simulations failed:', e);
+    return [];
+  }
+}
+
+/**
+ * Create a new simulation for a user.
+ */
+export async function createSimulation(userId, name) {
+  const client = getClient();
+  if (!client || !userId) return null;
+
+  try {
+    const { data, error } = await client
+      .from('simulations')
+      .insert([{ user_id: userId, name: name, items: {} }])
+      .select()
+      .single();
+
+    if (error) {
+      console.error('[Supabase] Create simulation error:', error.message);
+      return null;
+    }
+    return data;
+  } catch (e) {
+    console.error('[Supabase] Create simulation failed:', e);
+    return null;
+  }
+}
+
+/**
+ * Update items (JSON) of a specific simulation.
+ */
+export async function updateSimulationItems(simulationId, items) {
+  const client = getClient();
+  if (!client || !simulationId) return;
+
+  try {
+    const { error } = await client
+      .from('simulations')
+      .update({ items, updated_at: new Date().toISOString() })
+      .eq('id', simulationId);
+
+    if (error) {
+      console.error('[Supabase] Update simulation items error:', error.message);
+    }
+  } catch (e) {
+    console.error('[Supabase] Update simulation items failed:', e);
+  }
+}
+
+/**
+ * Rename a simulation.
+ */
+export async function renameSimulation(simulationId, newName) {
+  const client = getClient();
+  if (!client || !simulationId || !newName) return;
+
+  try {
+    const { error } = await client
+      .from('simulations')
+      .update({ name: newName, updated_at: new Date().toISOString() })
+      .eq('id', simulationId);
+
+    if (error) {
+      console.error('[Supabase] Rename simulation error:', error.message);
+    }
+  } catch (e) {
+    console.error('[Supabase] Rename simulation failed:', e);
+  }
+}
+
+/**
+ * Delete a simulation.
+ */
+export async function deleteSimulation(simulationId) {
+  const client = getClient();
+  if (!client || !simulationId) return;
+
+  try {
+    const { error } = await client
+      .from('simulations')
+      .delete()
+      .eq('id', simulationId);
+
+    if (error) {
+      console.error('[Supabase] Delete simulation error:', error.message);
+    }
+  } catch (e) {
+    console.error('[Supabase] Delete simulation failed:', e);
+  }
+}
