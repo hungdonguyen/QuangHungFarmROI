@@ -5,7 +5,14 @@ import Sidebar from '../components/Sidebar';
 import CollectionDetail from '../components/CollectionDetail';
 import SkinModal from '../components/SkinModal';
 
-export default function CollectionPage({ includeFee, setIncludeFee, lastUpdated, priceCache }) {
+export default function CollectionPage({ 
+  includeFee, 
+  setIncludeFee, 
+  lastUpdated, 
+  priceCache, 
+  activeCurrency, 
+  setActiveCurrency 
+}) {
   const { id } = useParams();
   const collection = armoryCollections.find(c => c.id === id);
   const [selectedSkin, setSelectedSkin] = useState(null);
@@ -32,11 +39,14 @@ export default function CollectionPage({ includeFee, setIncludeFee, lastUpdated,
         setIncludeFee={setIncludeFee}
         collection={collection}
         priceCache={priceCache}
+        activeCurrency={activeCurrency}
+        setActiveCurrency={setActiveCurrency}
       />
       <CollectionDetail
         onSelectSkin={handleSelectSkin}
         priceCache={priceCache}
         includeFee={includeFee}
+        activeCurrency={activeCurrency}
       />
 
       {selectedSkin && (
@@ -45,8 +55,10 @@ export default function CollectionPage({ includeFee, setIncludeFee, lastUpdated,
           onClose={() => setSelectedSkin(null)}
           priceCache={priceCache}
           includeFee={includeFee}
+          activeCurrency={activeCurrency}
         />
       )}
     </div>
   );
 }
+

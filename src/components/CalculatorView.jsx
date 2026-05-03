@@ -1,6 +1,7 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { Trash2, Plus, Edit2, Check, X } from 'lucide-react';
-import { formatVND, getRoiColorClass } from '../utils/formatters';
+import { formatCurrency, getRoiColorClass } from '../utils/formatters';
+
 import { STAR_COST_VND, DASHBOARD_ORDER } from '../utils/constants';
 
 export default function CalculatorView({ 
@@ -61,7 +62,8 @@ export default function CalculatorView({
           
           list.push({
             value: `${skin.id}|${wear}`,
-            label: `${skin.name} (${wear}) - ${formatVND(price)}`,
+            label: `${skin.name} (${wear}) - ${formatCurrency(price, activeCurrency)}`,
+
           });
         });
       });
@@ -344,9 +346,10 @@ export default function CalculatorView({
                       </div>
                     </td>
                     <td>{item.qty * item.col.costStars} ★</td>
-                    <td>{formatVND(item.returnValue)}</td>
+                    <td>{formatCurrency(item.returnValue, activeCurrency)}</td>
+
                     <td className={profit > 0 ? 'roi-green' : profit < 0 ? 'roi-red' : ''}>
-                      {profit > 0 ? '+' : ''}{formatVND(profit)}
+                      {profit > 0 ? '+' : ''}{formatCurrency(profit, activeCurrency)}
                     </td>
                     <td>
                       <button className="icon-btn red" onClick={() => removeItem(item.key)}>
@@ -371,11 +374,13 @@ export default function CalculatorView({
           </div>
           <div className="summary-stat">
             <span className="label">Total Cost</span>
-            <span className="value">{formatVND(stats.totalCost)}</span>
+            <span className="value">{formatCurrency(stats.totalCost, activeCurrency)}</span>
+
           </div>
           <div className="summary-stat">
             <span className="label">Expected Return</span>
-            <span className="value">{formatVND(stats.expectedReturn)}</span>
+            <span className="value">{formatCurrency(stats.expectedReturn, activeCurrency)}</span>
+
           </div>
         </div>
         <div className="summary-row main-result">
@@ -388,7 +393,8 @@ export default function CalculatorView({
           <div className="summary-stat">
             <span className="label">Expected Profit/Loss</span>
             <span className={`value ${stats.totalCost > 0 ? (stats.profit > 0 ? 'roi-green' : 'roi-red') : ''}`}>
-              {stats.totalCost > 0 ? formatVND(stats.profit) : '—'}
+              {stats.totalCost > 0 ? formatCurrency(stats.profit, activeCurrency) : '—'}
+
             </span>
           </div>
         </div>

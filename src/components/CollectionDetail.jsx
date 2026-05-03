@@ -2,7 +2,7 @@ import React, { useState, useCallback, useRef, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { RefreshCw, Download, AlertTriangle } from 'lucide-react';
 import { armoryCollections } from '../data';
-import { formatVND } from '../utils/formatters';
+import { formatCurrency } from '../utils/formatters';
 import { STAR_COST_VND, getCorrectRarityChances } from '../utils/constants';
 import { fetchItemPrice, onQueueStatus } from '../api';
 
@@ -20,13 +20,15 @@ function collectSkinWears(collection) {
   return items;
 }
 
-export default function CollectionDetail({ onSelectSkin, priceCache, includeFee }) {
+export default function CollectionDetail({ onSelectSkin, priceCache, includeFee, activeCurrency }) {
   const { id } = useParams();
   const collection = armoryCollections.find(c => c.id === id);
   const [activeTab, setActiveTab] = useState('rarity');
   const [sortBy, setSortBy] = useState('price');
   const [activeRarities, setActiveRarities] = useState(new Set());
   const [cooldown, setCooldown] = useState(null);
+
+  const currencyCode = activeCurrency === 'USD' ? 1 : 15;
 
   const [loadState, setLoadState] = useState({
     active: false, mode: null, current: 0, total: 0, skipped: 0,
@@ -103,7 +105,7 @@ export default function CollectionDetail({ onSelectSkin, priceCache, includeFee 
       }));
 
       const wearParam = wear === 'Normal' ? '' : wear;
-      const result = await fetchItemPrice(skin.marketHashNameBase, wearParam);
+      const result = await fetchItemPrice(skin.marketHashNameBase, wearParam, currencyCode);
       priceCache.updatePrice(skin.marketHashNameBase, wear, result);
       fetched++;
 
@@ -123,7 +125,7 @@ export default function CollectionDetail({ onSelectSkin, priceCache, includeFee 
       currentSkin: '', currentWear: '', currentRarity: '',
       startTime: null, etaSeconds: null,
     });
-  }, [loadState.active, collection, priceCache]);
+  }, [loadState.active, collection, priceCache, currencyCode]);
 
   const formatEta = (seconds) => {
     if (!seconds || seconds <= 0) return '';
@@ -297,7 +299,7 @@ export default function CollectionDetail({ onSelectSkin, priceCache, includeFee 
                           {skin.image && <img src={skin.image} alt={skin.name} />}
                           <span className="skin-name">{skin.name}</span>
                           <span className="skin-avg-label">AVG:</span>
-                          <span className="skin-avg-price">{avgPrice ? formatVND(avgPrice) : '—'}</span>
+                          <span className="skin-avg-price">{avgPrice ? formatCurrency(avgPrice, activeCurrency) : '—'}</span>
                         </button>
                       );
                     })}
@@ -338,7 +340,7 @@ export default function CollectionDetail({ onSelectSkin, priceCache, includeFee 
                 </span>
                 {skin.image && <img src={skin.image} alt={skin.name} />}
                 <span className="item-name">{skin.name}</span>
-                <span className="item-price">{avgPrice ? formatVND(avgPrice) : '—'}</span>
+                <span className="item-price">{avgPrice ? formatCurrency(avgPrice, activeCurrency) : '—'}</span>
               </button>
             ))}
           </div>
@@ -347,3 +349,4 @@ export default function CollectionDetail({ onSelectSkin, priceCache, includeFee 
     </main>
   );
 }
+

@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { WEAR_NAMES } from '../data';
 import { fetchItemPrice } from '../api';
-import { formatVND, getSteamMarketUrl } from '../utils/formatters';
+import { formatCurrency, getSteamMarketUrl } from '../utils/formatters';
 import { WEAR_CHANCES } from '../utils/constants';
 import { RefreshCw, ExternalLink } from 'lucide-react';
 
-export default function SkinModal({ data, onClose, priceCache, includeFee }) {
+export default function SkinModal({ data, onClose, priceCache, includeFee, activeCurrency }) {
   const { skin, color, collection } = data;
   const [loading, setLoading] = useState(false);
   const [prices, setPrices] = useState({});
   const [reloading, setReloading] = useState(false);
+
+  const currencyCode = activeCurrency === 'USD' ? 1 : 15;
 
   const isNormalOnly = skin.wears.includes('Normal') && skin.wears.length === 1;
   const wearsToRender = isNormalOnly 
@@ -57,7 +59,7 @@ export default function SkinModal({ data, onClose, priceCache, includeFee }) {
       if (!forceReload && newPrices[wear]?.price != null) continue;
 
       const wearParam = wear === 'Normal' ? '' : wear;
-      const result = await fetchItemPrice(skin.marketHashNameBase, wearParam);
+      const result = await fetchItemPrice(skin.marketHashNameBase, wearParam, currencyCode);
       
       newPrices[wear] = result;
       priceCache.updatePrice(skin.marketHashNameBase, wear, result);
@@ -105,7 +107,7 @@ export default function SkinModal({ data, onClose, priceCache, includeFee }) {
           <div className="modal-odds">1 in ?</div>
           <h2 className="modal-title">{skin.name}</h2>
           <div className="modal-avg">
-            {avgPrice ? `${formatVND(avgPrice)} AVG` : 'AVG:'}
+            {avgPrice ? `${formatCurrency(avgPrice, activeCurrency)} AVG` : 'AVG:'}
           </div>
         </div>
 
@@ -146,7 +148,7 @@ export default function SkinModal({ data, onClose, priceCache, includeFee }) {
                       className={`wear-price ${netPrice ? 'has-price' : 'no-price'}`}
                       title={`Open ${skin.name} (${wear}) on Steam Market`}
                     >
-                      {netPrice ? formatVND(netPrice) : '—'}
+                      {netPrice ? formatCurrency(netPrice, activeCurrency) : '—'}
                       <ExternalLink size={10} style={{ marginLeft: 4, opacity: 0.6 }} />
                     </a>
                   )}
@@ -182,3 +184,4 @@ export default function SkinModal({ data, onClose, priceCache, includeFee }) {
     </div>
   );
 }
+

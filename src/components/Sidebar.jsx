@@ -126,7 +126,8 @@ export default function Sidebar({
           {roiData && (
             <div className="average-unbox">
               <span className="label">Average Unbox</span><br/>
-              <span className="value">{formatVND(roiData.avgValue)}</span>
+              <span className="value">{formatCurrency(roiData.avgValue, activeCurrency)}</span>
+
             </div>
           )}
         </>
