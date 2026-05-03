@@ -166,12 +166,26 @@ export async function fetchItemPrice(marketHashNameBase, wear, currency = 15) {
     
     try {
         const data = await queue.add(fullHashName, currency);
+        
+        let price = null;
+        if (data.lowest_price) {
+            if (currency === 1) { // USD
+                // Keep the decimal point for USD
+                const cleaned = data.lowest_price.replace(/[^\d.]/g, '');
+                price = parseFloat(cleaned);
+            } else {
+                // Remove everything but digits for VND
+                price = parseInt(data.lowest_price.replace(/[^\d]/g, ''));
+            }
+        }
+
         return {
-            price: data.lowest_price ? parseInt(data.lowest_price.replace(/[^\d]/g, '')) : null,
+            price,
             volume: data.volume ? parseInt(data.volume.replace(/,/g, '')) : 0,
-            success: true
+            success: price !== null
         };
     } catch (e) {
+
         console.warn(`Failed to fetch ${fullHashName}`, e);
         return {
             price: null,

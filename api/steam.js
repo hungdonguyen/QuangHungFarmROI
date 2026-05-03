@@ -5,13 +5,14 @@
  * Route: /api/steam?market_hash_name=...
  */
 export default async function handler(req, res) {
-  const { market_hash_name } = req.query;
+  const { market_hash_name, currency = '15' } = req.query;
 
   if (!market_hash_name) {
     return res.status(400).json({ error: 'market_hash_name is required' });
   }
 
-  const steamUrl = `https://steamcommunity.com/market/priceoverview/?appid=730&currency=15&market_hash_name=${encodeURIComponent(market_hash_name)}`;
+  const steamUrl = `https://steamcommunity.com/market/priceoverview/?appid=730&currency=${currency}&market_hash_name=${encodeURIComponent(market_hash_name)}`;
+
 
   try {
     const response = await fetch(steamUrl, {
