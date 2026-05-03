@@ -2,7 +2,7 @@ import React, { useState, useCallback, useRef, useEffect } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { RefreshCw, Download, AlertTriangle } from 'lucide-react';
 import { armoryCollections } from '../data';
-import { formatVND, getRoiColorClass } from '../utils/formatters';
+import { formatCurrency, getRoiColorClass } from '../utils/formatters';
 import { DASHBOARD_ORDER, STAR_COST_VND } from '../utils/constants';
 import { fetchItemPrice, onQueueStatus } from '../api';
 import { useSimulations } from '../hooks/useSimulations';
@@ -27,7 +27,7 @@ function collectAllSkinWears(collections) {
   return items;
 }
 
-export default function Dashboard({ includeFee, priceCache }) {
+export default function Dashboard({ includeFee, priceCache, activeCurrency }) {
   const [loadState, setLoadState] = useState({
     active: false,
     mode: null,
@@ -137,8 +137,9 @@ export default function Dashboard({ includeFee, priceCache }) {
       }));
 
       const wearParam = wear === 'Normal' ? '' : wear;
-      const result = await fetchItemPrice(skin.marketHashNameBase, wearParam);
+      const result = await fetchItemPrice(skin.marketHashNameBase, wearParam, activeCurrency);
       priceCache.updatePrice(skin.marketHashNameBase, wear, result);
+
       fetched++;
 
       const elapsed = (Date.now() - startTime) / 1000;
@@ -158,7 +159,7 @@ export default function Dashboard({ includeFee, priceCache }) {
       startTime: null, etaSeconds: null,
     });
     setLoadingCollId(null);
-  }, [loadState.active, orderedCollections, priceCache]);
+  }, [loadState.active, orderedCollections, priceCache, activeCurrency]);
 
   const formatEta = (seconds) => {
     if (!seconds || seconds <= 0) return '';
@@ -270,12 +271,14 @@ export default function Dashboard({ includeFee, priceCache }) {
           armoryCollections={orderedCollections}
           priceCache={priceCache}
           includeFee={includeFee}
+          activeCurrency={activeCurrency}
         />
       ) : (
         <div className="dashboard-grid">
           {orderedCollections.map((coll, index) => {
             const roiData = priceCache.getCollectionROI(coll, includeFee);
-            const cost = coll.costStars * STAR_COST_VND;
+            const cost = coll.costStars * priceCache.starCost;
+
             const avgValue = roiData ? roiData.avgValue : null;
             const isThisLoading = loadingCollId === coll.id;
 
@@ -309,8 +312,9 @@ export default function Dashboard({ includeFee, priceCache }) {
 
               <div className="card-footer">
                 <span>
-                  {coll.costStars} ★ / {formatVND(cost)} → {avgValue ? formatVND(avgValue) : '—'} AVG
+                  {coll.costStars} ★ / {formatCurrency(cost, activeCurrency)} → {avgValue ? formatCurrency(avgValue, activeCurrency) : '—'} AVG
                 </span>
+
                 <button
                   className={`card-reload-btn ${isThisLoading ? 'spinning' : ''}`}
                   onClick={(e) => {

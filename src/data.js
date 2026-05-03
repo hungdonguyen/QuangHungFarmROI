@@ -1097,8 +1097,8 @@ export const armoryCollections = [
           },
           {
             "id": "keychain-51",
-            "name": "Charm | PiĂ±atita",
-            "marketHashNameBase": "Charm | PiĂ±atita",
+            "name": "Charm | Piñatita",
+            "marketHashNameBase": "Charm | Piñatita",
             "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGI6zwki4Uf_a0IWsPGiE7Fhy-I764WbkThD8i5jp6Ttkv6PhY6dSLfmAHW6exuJ_vupWXyC9lAkm_TvSnImreCrBbgclApcmELVf4xaxkt3kYu7i4gHajIITmy3-jSxN7np1o7FVfeaxZHk",
             "wears": [
               "Normal"

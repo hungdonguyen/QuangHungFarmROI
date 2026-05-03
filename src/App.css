@@ -1458,3 +1458,31 @@
     font-size: 15px;
   }
 }
+
+.currency-selector {
+  display: flex;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 6px;
+  padding: 2px;
+  margin: 8px 0;
+  border: 1px solid var(--border-color);
+}
+
+.currency-selector button {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  padding: 4px 0;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+.currency-selector button.active {
+  background: #38bdf8;
+  color: #0a0e1a;
+}
+

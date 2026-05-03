@@ -1,10 +1,20 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { ChevronLeft, Cloud, CloudOff, Loader2 } from 'lucide-react';
-import { formatVND, formatTimeAgo, getRoiColorClass } from '../utils/formatters';
-import { STAR_COST_VND, getCorrectRarityChances } from '../utils/constants';
+import { formatCurrency, formatTimeAgo, getRoiColorClass } from '../utils/formatters';
+import { getCorrectRarityChances } from '../utils/constants';
 
-export default function Sidebar({ lastUpdated, includeFee, setIncludeFee, collection, priceCache }) {
+
+export default function Sidebar({ 
+  lastUpdated, 
+  includeFee, 
+  setIncludeFee, 
+  activeCurrency, 
+  setActiveCurrency, 
+  collection, 
+  priceCache 
+}) {
+
   const navigate = useNavigate();
 
   const roiData = collection && priceCache ? priceCache.getCollectionROI(collection, includeFee) : null;
@@ -47,7 +57,8 @@ export default function Sidebar({ lastUpdated, includeFee, setIncludeFee, collec
             )}
             <h3>{collection.name}</h3>
             <p className="collection-meta">
-              {formatVND(collection.costStars * STAR_COST_VND)}<br/>
+              {formatCurrency(collection.costStars * priceCache.starCost, activeCurrency)}<br/>
+
               {collection.costStars} Stars
             </p>
 
@@ -97,7 +108,7 @@ export default function Sidebar({ lastUpdated, includeFee, setIncludeFee, collec
                       {rarity.name}
                     </span>
                     <span className="rarity-bar-value">
-                      {tierAvg ? `${formatVND(tierAvg)}` : '—'} every {displayOdds}
+                      {tierAvg ? `${formatCurrency(tierAvg, activeCurrency)}` : '—'} every {displayOdds}
                     </span>
                     <div
                       className="rarity-bar-line"
@@ -149,7 +160,17 @@ export default function Sidebar({ lastUpdated, includeFee, setIncludeFee, collec
 
       <div className="sidebar-footer">
         <p>Pricing Source: <strong>Steam</strong></p>
-        <p>Currency: <strong>VND</strong></p>
+        <div className="currency-selector">
+          <button 
+            className={activeCurrency === 'VND' ? 'active' : ''} 
+            onClick={() => setActiveCurrency('VND')}
+          >VND</button>
+          <button 
+            className={activeCurrency === 'USD' ? 'active' : ''} 
+            onClick={() => setActiveCurrency('USD')}
+          >USD</button>
+        </div>
+
         <p className={`cloud-status cloud-${priceCache.cloudStatus}`}>
           {cloudStatusIcon()} {cloudStatusText()}
         </p>

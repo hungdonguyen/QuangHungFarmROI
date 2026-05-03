@@ -1,7 +1,9 @@
 // === Constants & Configuration ===
 
-/** Cost of one armory star in VND */
+/** Cost of one armory star */
 export const STAR_COST_VND = 10507;
+export const STAR_COST_USD = 0.40;
+
 
 /** Steam Market fee percentage */
 export const STEAM_FEE_PERCENT = 15;

@@ -22,17 +22,30 @@ const UPDATED_KEY = 'csroi_lastUpdated';
  *   1. Save to localStorage (instant)
  *   2. Queue cloud sync (batched, non-blocking)
  */
-export function usePriceCache() {
-  const [skinPrices, setSkinPrices] = useState(() => {
-    try {
-      const stored = localStorage.getItem(CACHE_KEY);
-      return stored ? JSON.parse(stored) : {};
-    } catch { return {}; }
-  });
+export function usePriceCache(currencyCode = 15) {
+  const [skinPrices, setSkinPrices] = useState({});
+  const [lastUpdated, setLastUpdated] = useState(null);
+  
+  const cacheKey = `${CACHE_KEY}_${currencyCode}`;
+  const updatedKey = `${UPDATED_KEY}_${currencyCode}`;
+  const currencyType = currencyCode === 1 ? 'USD' : 'VND';
+  const starCost = currencyCode === 1 ? STAR_COST_USD : STAR_COST_VND;
 
-  const [lastUpdated, setLastUpdated] = useState(
-    () => localStorage.getItem(UPDATED_KEY) || null
-  );
+  // Load from local on mount or currency change
+  useEffect(() => {
+    try {
+      const stored = localStorage.getItem(cacheKey);
+      if (stored) setSkinPrices(JSON.parse(stored));
+      else setSkinPrices({});
+      
+      const storedUpdate = localStorage.getItem(updatedKey);
+      setLastUpdated(storedUpdate || null);
+    } catch { 
+      setSkinPrices({}); 
+      setLastUpdated(null);
+    }
+  }, [cacheKey, updatedKey]);
+
 
   const [cloudStatus, setCloudStatus] = useState(
     isSupabaseConfigured() ? 'idle' : 'disabled'
@@ -44,10 +57,12 @@ export function usePriceCache() {
 
   // Persist to localStorage whenever prices change
   useEffect(() => {
+    if (Object.keys(skinPrices).length === 0) return;
     try {
-      localStorage.setItem(CACHE_KEY, JSON.stringify(skinPrices));
-    } catch { /* quota exceeded, ignore */ }
-  }, [skinPrices]);
+      localStorage.setItem(cacheKey, JSON.stringify(skinPrices));
+    } catch { /* quota exceeded */ }
+  }, [skinPrices, cacheKey]);
+
 
   // Load from Supabase on startup
   useEffect(() => {
@@ -56,7 +71,8 @@ export function usePriceCache() {
     async function loadFromCloud() {
       setCloudStatus('loading');
       try {
-        const cloudData = await loadAllPricesFromCloud();
+        const cloudData = await loadAllPricesFromCloud(currencyCode);
+
         if (cloudData && Object.keys(cloudData).length > 0) {
           // Merge cloud data into local cache (cloud wins for any key)
           setSkinPrices(prev => {
@@ -85,21 +101,24 @@ export function usePriceCache() {
     }
 
     loadFromCloud();
-  }, []);
+  }, [userId, currencyCode]);
+
 
   // Flush sync queue to Supabase (batched every 3 seconds)
   const flushSyncQueue = useCallback(() => {
     if (syncQueueRef.current.length === 0) return;
     const entries = [...syncQueueRef.current];
     syncQueueRef.current = [];
-    batchSyncToCloud(entries).catch(() => {});
-  }, []);
+    batchSyncToCloud(entries, currencyCode).catch(() => {});
+  }, [currencyCode]);
+
 
   const markUpdated = useCallback(() => {
     const now = Date.now().toString();
-    localStorage.setItem(UPDATED_KEY, now);
+    localStorage.setItem(updatedKey, now);
     setLastUpdated(now);
-  }, []);
+  }, [updatedKey]);
+
 
   const updatePrice = useCallback((key, wear, priceData) => {
     setSkinPrices(prev => ({
@@ -220,9 +239,10 @@ export function usePriceCache() {
 
     if (!hasAnyPrice) return null;
 
-    const cost = collection.costStars * STAR_COST_VND;
+    const cost = collection.costStars * starCost;
     const netAvgUnbox = includeFee ? avgUnboxValue / 1.15 : avgUnboxValue;
     const starROI = (netAvgUnbox / cost) * 100;
+
 
     // Profit % = probability of profitable unbox
     let profitProbability = 0;
@@ -275,8 +295,10 @@ export function usePriceCache() {
 
   const clearCache = useCallback(() => {
     setSkinPrices({});
-    localStorage.removeItem(CACHE_KEY);
-  }, []);
+    localStorage.removeItem(cacheKey);
+    localStorage.removeItem(updatedKey);
+  }, [cacheKey, updatedKey]);
+
 
   return {
     skinPrices,
@@ -291,5 +313,8 @@ export function usePriceCache() {
     markUpdated,
     cloudStatus,
     forceCloudSync,
+    currencyType,
+    starCost,
   };
+
 }

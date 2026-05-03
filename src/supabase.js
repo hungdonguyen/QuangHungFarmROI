@@ -54,14 +54,17 @@ function getClient() {
  * Load ALL prices from Supabase.
  * Returns an object: { "marketHashName": { "wear": { price, volume, success } } }
  */
-export async function loadAllPricesFromCloud() {
+export async function loadAllPricesFromCloud(currency = 15) {
+
   const client = getClient();
   if (!client) return null;
 
   try {
     const { data, error } = await client
       .from('skin_prices')
-      .select('market_hash_name, wear, price, volume, updated_at');
+      .select('market_hash_name, wear, price, volume, updated_at')
+      .eq('currency', currency);
+
 
     if (error) {
       console.error('[Supabase] Load error:', error.message);
@@ -93,22 +96,26 @@ export async function loadAllPricesFromCloud() {
  * Sync a single price entry to Supabase (upsert).
  * The latest write wins (based on updated_at).
  */
-export async function syncPriceToCloud(marketHashName, wear, price, volume) {
+export async function syncPriceToCloud(marketHashName, wear, price, volume, currency = 15) {
+
   const client = getClient();
   if (!client) return;
 
   try {
-    await client
+    const { error } = await client
       .from('skin_prices')
-      .upsert({
-        market_hash_name: marketHashName,
-        wear,
-        price,
-        volume: volume || 0,
-        updated_at: new Date().toISOString(),
-      }, {
-        onConflict: 'market_hash_name,wear',
-      });
+      .upsert({ 
+        market_hash_name: marketHashName, 
+        wear, 
+        price, 
+        volume,
+        currency,
+        updated_at: new Date().toISOString() 
+      }, { onConflict: 'market_hash_name,wear,currency' });
+
+    if (error) {
+      console.error('[Supabase] Sync error:', error.message);
+    }
   } catch (e) {
     // Silent fail — cloud sync is best-effort
     console.warn('[Supabase] Sync failed for', marketHashName, wear, e);
@@ -119,23 +126,23 @@ export async function syncPriceToCloud(marketHashName, wear, price, volume) {
  * Batch sync multiple prices to Supabase.
  * More efficient than individual upserts.
  */
-export async function batchSyncToCloud(entries) {
+export async function batchSyncToCloud(entries, currency = 15) {
   const client = getClient();
-  if (!client || entries.length === 0) return;
+  if (!client || !entries.length) return;
+
+  const rows = entries.map(e => ({
+    market_hash_name: e.marketHashName,
+    wear: e.wear,
+    price: e.price,
+    volume: e.volume || 0,
+    currency,
+    updated_at: new Date().toISOString()
+  }));
 
   try {
-    // Supabase upsert supports batch
-    const rows = entries.map(e => ({
-      market_hash_name: e.marketHashName,
-      wear: e.wear,
-      price: e.price,
-      volume: e.volume || 0,
-      updated_at: new Date().toISOString(),
-    }));
-
     const { error } = await client
       .from('skin_prices')
-      .upsert(rows, { onConflict: 'market_hash_name,wear' });
+      .upsert(rows, { onConflict: 'market_hash_name,wear,currency' });
 
     if (error) {
       console.error('[Supabase] Batch sync error:', error.message);
