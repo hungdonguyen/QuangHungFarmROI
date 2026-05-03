@@ -121,7 +121,18 @@ export default function Sidebar({ lastUpdated, includeFee, setIncludeFee, collec
         </>
       ) : (
         <div className="sidebar-nav">
-          <Link to="/" className="active">Armory</Link>
+          <Link 
+            to="/" 
+            className={location.pathname === '/' && !location.search.includes('tab=calculator') ? 'active' : ''}
+          >
+            Armory
+          </Link>
+          <Link 
+            to="/?tab=calculator" 
+            className={location.search.includes('tab=calculator') ? 'active' : ''}
+          >
+            Calculator
+          </Link>
         </div>
       )}
 

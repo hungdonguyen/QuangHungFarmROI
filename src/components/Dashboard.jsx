@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useRef, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import { RefreshCw, Download, AlertTriangle } from 'lucide-react';
 import { armoryCollections } from '../data';
 import { formatVND, getRoiColorClass } from '../utils/formatters';
@@ -42,7 +42,24 @@ export default function Dashboard({ includeFee, priceCache }) {
   });
   const [cooldown, setCooldown] = useState(null);
   const [loadingCollId, setLoadingCollId] = useState(null);
-  const [activeTab, setActiveTab] = useState('RARITY VALUES');
+  
+  const [searchParams, setSearchParams] = useSearchParams();
+  const initialTab = searchParams.get('tab') === 'calculator' ? 'CALCULATOR' : 'RARITY VALUES';
+  const [activeTab, setActiveTab] = useState(initialTab);
+
+  // Sync tab state with URL when navigating back/forward
+  useEffect(() => {
+    const tabParam = searchParams.get('tab');
+    if (tabParam === 'calculator') setActiveTab('CALCULATOR');
+    else if (activeTab === 'CALCULATOR') setActiveTab('RARITY VALUES');
+  }, [searchParams]);
+
+  const handleTabChange = (tab) => {
+    setActiveTab(tab);
+    if (tab === 'CALCULATOR') setSearchParams({ tab: 'calculator' });
+    else setSearchParams({});
+  };
+
   const abortRef = useRef(false);
 
   const simulationsHook = useSimulations();
@@ -156,13 +173,26 @@ export default function Dashboard({ includeFee, priceCache }) {
       <div className="header">
         <div className="header-left">
           <div className="header-tabs">
-            <button className="tab active">
-              <span className="tab-check">✓</span>
+            <button 
+              className={`tab ${activeTab === 'RARITY VALUES' ? 'active' : ''}`}
+              onClick={() => handleTabChange('RARITY VALUES')}
+            >
+              <span className="tab-check">{activeTab === 'RARITY VALUES' ? '✓' : ''}</span>
               RARITY VALUES
             </button>
-            <button className="tab">
-              <span className="tab-check"></span>
+            <button 
+              className={`tab ${activeTab === 'ITEMS WITHIN' ? 'active' : ''}`}
+              onClick={() => handleTabChange('ITEMS WITHIN')}
+            >
+              <span className="tab-check">{activeTab === 'ITEMS WITHIN' ? '✓' : ''}</span>
               ITEMS WITHIN
+            </button>
+            <button 
+              className={`tab ${activeTab === 'CALCULATOR' ? 'active' : ''}`}
+              onClick={() => handleTabChange('CALCULATOR')}
+            >
+              <span className="tab-check">{activeTab === 'CALCULATOR' ? '✓' : ''}</span>
+              CALCULATOR
             </button>
           </div>
         </div>
@@ -286,7 +316,7 @@ export default function Dashboard({ includeFee, priceCache }) {
                   onClick={(e) => {
                     e.preventDefault();
                     e.stopPropagation();
-                    handleLoad('missing', coll);
+                    handleLoad('reload', coll);
                   }}
                   disabled={loadState.active}
                   title={`Reload ${coll.name}`}
