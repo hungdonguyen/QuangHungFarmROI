@@ -59,12 +59,12 @@ export async function loadAllPricesFromCloud(currency = 15) {
   const client = getClient();
   if (!client) return null;
 
+  const tableName = currency === 1 ? 'skin_prices_usd' : 'skin_prices_vnd';
+
   try {
     const { data, error } = await client
-      .from('skin_prices')
-      .select('market_hash_name, wear, price, volume, updated_at')
-      .eq('currency', currency);
-
+      .from(tableName)
+      .select('market_hash_name, wear, price, volume, updated_at');
 
     if (error) {
       console.error('[Supabase] Load error:', error.message);
@@ -101,17 +101,18 @@ export async function syncPriceToCloud(marketHashName, wear, price, volume, curr
   const client = getClient();
   if (!client) return;
 
+  const tableName = currency === 1 ? 'skin_prices_usd' : 'skin_prices_vnd';
+
   try {
     const { error } = await client
-      .from('skin_prices')
+      .from(tableName)
       .upsert({ 
         market_hash_name: marketHashName, 
         wear, 
         price, 
         volume,
-        currency,
         updated_at: new Date().toISOString() 
-      }, { onConflict: 'market_hash_name,wear,currency' });
+      }, { onConflict: 'market_hash_name,wear' });
 
     if (error) {
       console.error('[Supabase] Sync error:', error.message);
@@ -130,19 +131,20 @@ export async function batchSyncToCloud(entries, currency = 15) {
   const client = getClient();
   if (!client || !entries.length) return;
 
+  const tableName = currency === 1 ? 'skin_prices_usd' : 'skin_prices_vnd';
+
   const rows = entries.map(e => ({
     market_hash_name: e.marketHashName,
     wear: e.wear,
     price: e.price,
     volume: e.volume || 0,
-    currency,
     updated_at: new Date().toISOString()
   }));
 
   try {
     const { error } = await client
-      .from('skin_prices')
-      .upsert(rows, { onConflict: 'market_hash_name,wear,currency' });
+      .from(tableName)
+      .upsert(rows, { onConflict: 'market_hash_name,wear' });
 
     if (error) {
       console.error('[Supabase] Batch sync error:', error.message);
@@ -157,13 +159,15 @@ export async function batchSyncToCloud(entries, currency = 15) {
 /**
  * Get the last update timestamp from Supabase.
  */
-export async function getCloudLastUpdated() {
+export async function getCloudLastUpdated(currency = 15) {
   const client = getClient();
   if (!client) return null;
 
+  const tableName = currency === 1 ? 'skin_prices_usd' : 'skin_prices_vnd';
+
   try {
     const { data, error } = await client
-      .from('skin_prices')
+      .from(tableName)
       .select('updated_at')
       .order('updated_at', { ascending: false })
       .limit(1);
