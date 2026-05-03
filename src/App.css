@@ -1047,41 +1047,80 @@
   justify-content: space-between;
   align-items: center;
   background: var(--bg-card);
-  padding: 16px;
-  border-radius: 8px;
+  padding: 8px 12px;
+  border-radius: 12px;
   border: 1px solid var(--border-color);
 }
 
-.calc-sim-selector {
+.calc-sim-tabs {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 8px;
+  flex-wrap: wrap;
 }
 
-.calc-sim-selector select {
-  background: #1a2236;
-  color: white;
-  border: 1px solid var(--border-color);
-  padding: 8px 12px;
-  border-radius: 6px;
-  font-size: 14px;
+.sim-tab {
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--text-muted);
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 13px;
   font-weight: 600;
-  outline: none;
+  cursor: pointer;
+  transition: all 0.2s;
 }
 
-.calc-name-edit {
+.sim-tab:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+}
+
+.sim-tab.active {
+  background: #38bdf8;
+  color: #0a0e1a;
+  border-color: #38bdf8;
+}
+
+.add-sim-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px dashed var(--border-color);
+  color: white;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.add-sim-btn:hover {
+  background: rgba(56, 189, 248, 0.1);
+  border-color: #38bdf8;
+  color: #38bdf8;
+}
+
+.calc-sim-actions {
   display: flex;
   align-items: center;
   gap: 8px;
 }
 
+.calc-name-edit {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
 .calc-name-edit input {
-  background: #1a2236;
+  background: #0f1423;
+  border: 1px solid #38bdf8;
   color: white;
-  border: 1px solid var(--border-color);
   padding: 6px 12px;
-  border-radius: 4px;
-  font-size: 14px;
+  border-radius: 6px;
+  font-size: 13px;
   width: 150px;
 }
 

@@ -214,16 +214,23 @@ export default function CalculatorView({
   return (
     <div className="calculator-view">
       <div className="calc-toolbar">
-        <div className="calc-sim-selector">
-          <select 
-            value={activeSimulation.id} 
-            onChange={(e) => setActiveSimulationId(e.target.value)}
-          >
-            {simulations.map(sim => (
-              <option key={sim.id} value={sim.id}>{sim.name}</option>
-            ))}
-          </select>
+        <div className="calc-sim-tabs">
+          {simulations.map(sim => (
+            <button 
+              key={sim.id} 
+              className={`sim-tab ${activeSimulation.id === sim.id ? 'active' : ''}`}
+              onClick={() => setActiveSimulationId(sim.id)}
+            >
+              {sim.name}
+            </button>
+          ))}
           
+          <button onClick={() => createSimulation(`Simulation ${simulations.length + 1}`)} className="add-sim-btn">
+            <Plus size={16} />
+          </button>
+        </div>
+        
+        <div className="calc-sim-actions">
           {isEditingName ? (
             <div className="calc-name-edit">
               <input 
@@ -237,7 +244,7 @@ export default function CalculatorView({
               <button onClick={() => setIsEditingName(false)} className="icon-btn red"><X size={14}/></button>
             </div>
           ) : (
-            <div className="calc-actions">
+            <>
               <button onClick={startEditName} className="icon-btn" title="Rename"><Edit2 size={14}/></button>
               <button 
                 onClick={() => deleteSimulation(activeSimulation.id)} 
@@ -247,13 +254,9 @@ export default function CalculatorView({
               >
                 <Trash2 size={14}/>
               </button>
-            </div>
+            </>
           )}
         </div>
-        
-        <button onClick={() => createSimulation(`Simulation ${simulations.length + 1}`)} className="btn-primary">
-          <Plus size={14} /> New Sim
-        </button>
       </div>
 
       <div className="calc-add-form">
