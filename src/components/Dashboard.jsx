@@ -8,6 +8,7 @@ import { DASHBOARD_ORDER } from '../utils/constants';
 import { fetchItemPrice, onQueueStatus } from '../api';
 import { syncPriceToCloud } from '../supabase';
 import { useSimulations } from '../hooks/useSimulations';
+import { useLoader } from '../contexts/LoaderContext';
 
 import CalculatorView from './CalculatorView';
 
@@ -31,19 +32,7 @@ function collectAllSkinWears(collections) {
 }
 
 export default function Dashboard({ includeFee, priceCache, activeCurrency }) {
-  const [loadState, setLoadState] = useState({
-    active: false,
-    mode: null,
-    current: 0,
-    total: 0,
-    skipped: 0,
-    currentSkin: '',
-    currentWear: '',
-    currentCollection: '',
-    startTime: null,
-    etaSeconds: null,
-  });
-  const [cooldown, setCooldown] = useState(null);
+  const { loadState, setLoadState, cooldown } = useLoader();
   const [loadingCollId, setLoadingCollId] = useState(null);
   
   const [searchParams, setSearchParams] = useSearchParams();
@@ -71,16 +60,7 @@ export default function Dashboard({ includeFee, priceCache, activeCurrency }) {
     .map(slug => armoryCollections.find(c => c.id === slug))
     .filter(Boolean);
 
-  useEffect(() => {
-    const unsub = onQueueStatus((status) => {
-      if (status.type === 'cooldown') {
-        setCooldown(status);
-      } else if (status.type === 'resumed') {
-        setCooldown(null);
-      }
-    });
-    return unsub;
-  }, []);
+
 
   /**
    * Load prices for a specific collection or all collections.
@@ -254,51 +234,7 @@ export default function Dashboard({ includeFee, priceCache, activeCurrency }) {
         </div>
       </div>
 
-      {/* Loading progress bar */}
-      {loadState.active && (
-        <div className="load-progress-bar">
-          <div className="load-progress-info">
-            <div className="load-progress-main">
-              <span className="load-progress-count">
-                {loadState.current}/{loadState.total}
-                {loadState.skipped > 0 && (
-                  <span className="load-progress-skipped"> ({loadState.skipped} cached)</span>
-                )}
-              </span>
-              <span className="load-progress-eta">{formatEta(loadState.etaSeconds)}</span>
-            </div>
-            <div className="load-progress-detail">
-              <span className="load-progress-collection">{loadState.currentCollection}</span>
-              {loadState.currentSkin && (
-                <>
-                  <span className="load-progress-separator">›</span>
-                  <span className="load-progress-skin">{loadState.currentSkin}</span>
-                </>
-              )}
-              {loadState.currentWear && (
-                <span className="load-progress-wear">({loadState.currentWear})</span>
-              )}
-            </div>
-          </div>
 
-          {cooldown && cooldown.seconds > 0 && (
-            <div className="load-cooldown-warning">
-              <AlertTriangle size={14} />
-              <span>
-                Rate limited (429) — cooling down {cooldown.seconds}s
-                {cooldown.retry && ` (retry ${cooldown.retry}/${cooldown.maxRetries})`}
-              </span>
-            </div>
-          )}
-
-          <div className="load-progress-track">
-            <div
-              className="load-progress-fill"
-              style={{ width: `${(loadState.current / loadState.total) * 100}%` }}
-            />
-          </div>
-        </div>
-      )}
 
       {activeTab === 'CALCULATOR' ? (
         <CalculatorView 

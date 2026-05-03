@@ -5,7 +5,8 @@ import { armoryCollections } from '../data';
 import { formatCurrency } from '../utils/formatters';
 import { getCorrectRarityChances } from '../utils/constants';
 
-import { fetchItemPrice, onQueueStatus } from '../api';
+import { fetchItemPrice } from '../api';
+import { useLoader } from '../contexts/LoaderContext';
 
 function collectSkinWears(collection) {
   const items = [];
@@ -27,28 +28,10 @@ export default function CollectionDetail({ onSelectSkin, priceCache, includeFee,
   const [activeTab, setActiveTab] = useState('rarity');
   const [sortBy, setSortBy] = useState('price');
   const [activeRarities, setActiveRarities] = useState(new Set());
-  const [cooldown, setCooldown] = useState(null);
+  const { loadState, setLoadState, cooldown } = useLoader();
 
   const currencyCode = activeCurrency === 'USD' ? 1 : 15;
-
-  const [loadState, setLoadState] = useState({
-    active: false, mode: null, current: 0, total: 0, skipped: 0,
-    currentSkin: '', currentWear: '', currentRarity: '',
-    startTime: null, etaSeconds: null,
-  });
   const abortRef = useRef(false);
-
-  // Subscribe to queue status (429 cooldowns)
-  useEffect(() => {
-    const unsub = onQueueStatus((status) => {
-      if (status.type === 'cooldown') {
-        setCooldown(status);
-      } else if (status.type === 'resumed') {
-        setCooldown(null);
-      }
-    });
-    return unsub;
-  }, []);
 
   const handleLoad = useCallback(async (mode) => {
     if (loadState.active || !collection) return;
@@ -207,52 +190,7 @@ export default function CollectionDetail({ onSelectSkin, priceCache, includeFee,
         </div>
       </div>
 
-      {/* Loading progress bar */}
-      {loadState.active && (
-        <div className="load-progress-bar">
-          <div className="load-progress-info">
-            <div className="load-progress-main">
-              <span className="load-progress-count">
-                {loadState.current}/{loadState.total}
-                {loadState.skipped > 0 && (
-                  <span className="load-progress-skipped"> ({loadState.skipped} cached)</span>
-                )}
-              </span>
-              <span className="load-progress-eta">{formatEta(loadState.etaSeconds)}</span>
-            </div>
-            <div className="load-progress-detail">
-              <span className="load-progress-rarity">{loadState.currentRarity}</span>
-              {loadState.currentSkin && (
-                <>
-                  <span className="load-progress-separator">›</span>
-                  <span className="load-progress-skin">{loadState.currentSkin}</span>
-                </>
-              )}
-              {loadState.currentWear && (
-                <span className="load-progress-wear">({loadState.currentWear})</span>
-              )}
-            </div>
-          </div>
 
-          {/* 429 Cooldown warning */}
-          {cooldown && cooldown.seconds > 0 && (
-            <div className="load-cooldown-warning">
-              <AlertTriangle size={14} />
-              <span>
-                Rate limited (429) — cooling down {cooldown.seconds}s
-                {cooldown.retry && ` (retry ${cooldown.retry}/${cooldown.maxRetries})`}
-              </span>
-            </div>
-          )}
-
-          <div className="load-progress-track">
-            <div
-              className="load-progress-fill"
-              style={{ width: `${(loadState.current / loadState.total) * 100}%` }}
-            />
-          </div>
-        </div>
-      )}
 
       {activeTab === 'rarity' ? (
         <div className="rarity-grid">

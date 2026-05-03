@@ -3,6 +3,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { usePriceCache } from './hooks/useLocalStorage';
 import HomePage from './pages/HomePage';
 import CollectionPage from './pages/CollectionPage';
+import { LoaderProvider } from './contexts/LoaderContext';
+import GlobalProgressBar from './components/GlobalProgressBar';
 import './App.css';
 
 function App() {
@@ -29,38 +31,41 @@ function App() {
 
 
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <HomePage
-              includeFee={includeFee}
-              setIncludeFee={toggleFee}
-              activeCurrency={activeCurrency}
-              setActiveCurrency={toggleCurrency}
-              lastUpdated={priceCache.lastUpdated}
-              priceCache={priceCache}
-            />
+    <LoaderProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <HomePage
+                includeFee={includeFee}
+                setIncludeFee={toggleFee}
+                activeCurrency={activeCurrency}
+                setActiveCurrency={toggleCurrency}
+                lastUpdated={priceCache.lastUpdated}
+                priceCache={priceCache}
+              />
 
-          }
-        />
-        <Route
-          path="/:id"
-          element={
-            <CollectionPage
-              includeFee={includeFee}
-              setIncludeFee={toggleFee}
-              activeCurrency={activeCurrency}
-              setActiveCurrency={toggleCurrency}
-              lastUpdated={priceCache.lastUpdated}
-              priceCache={priceCache}
-            />
+            }
+          />
+          <Route
+            path="/:id"
+            element={
+              <CollectionPage
+                includeFee={includeFee}
+                setIncludeFee={toggleFee}
+                activeCurrency={activeCurrency}
+                setActiveCurrency={toggleCurrency}
+                lastUpdated={priceCache.lastUpdated}
+                priceCache={priceCache}
+              />
 
-          }
-        />
-      </Routes>
-    </BrowserRouter>
+            }
+          />
+        </Routes>
+        <GlobalProgressBar />
+      </BrowserRouter>
+    </LoaderProvider>
   );
 }
 
