@@ -318,16 +318,19 @@ export default function CalculatorView({
               <th>Wear</th>
               <th>Qty</th>
               <th>Cost (★)</th>
+              <th>Cost ({activeCurrency})</th>
               <th>Value</th>
               <th>Profit</th>
               <th>Actions</th>
+
             </tr>
           </thead>
           <tbody>
-            {stats.parsedItems.length === 0 ? (
-              <tr>
-                <td colSpan="7" className="empty-state">No items added to this simulation yet.</td>
-              </tr>
+              {stats.parsedItems.length === 0 ? (
+                <tr>
+                  <td colSpan="8" className="empty-state">No items added to this simulation yet.</td>
+                </tr>
+
             ) : (
               stats.parsedItems.map(item => {
                 const profit = item.returnValue - item.cost;
@@ -351,11 +354,13 @@ export default function CalculatorView({
                       </div>
                     </td>
                     <td>{item.qty * item.col.costStars} ★</td>
+                    <td>{formatCurrency(item.cost, activeCurrency)}</td>
                     <td>{formatCurrency(item.returnValue, activeCurrency)}</td>
 
                     <td className={profit > 0 ? 'roi-green' : profit < 0 ? 'roi-red' : ''}>
                       {profit > 0 ? '+' : ''}{formatCurrency(profit, activeCurrency)}
                     </td>
+
                     <td>
                       <button className="icon-btn red" onClick={() => removeItem(item.key)}>
                         <Trash2 size={16} />
