@@ -172,6 +172,16 @@ export default function Sidebar({
           >USD</button>
         </div>
 
+        <button className="clear-cache-btn" onClick={() => {
+          if (confirm('Xóa dữ liệu giá đã lưu để tải lại từ đầu?')) {
+            priceCache.clearCache();
+            window.location.reload();
+          }
+        }}>
+          Xóa Cache
+        </button>
+
+
         <p className={`cloud-status cloud-${priceCache.cloudStatus}`}>
           {cloudStatusIcon()} {cloudStatusText()}
         </p>
