@@ -84,32 +84,11 @@ export function useSimulations() {
     await deleteSimulation(id);
   };
 
-  const setItemQuantity = (collectionId, qty) => {
+  const setSimulationItems = (newItems) => {
     if (!activeSimulationId) return;
 
     setSimulations(prev => prev.map(sim => {
       if (sim.id !== activeSimulationId) return sim;
-      
-      const newItems = { ...sim.items };
-      
-      // Enforce 200 items max logic here
-      let currentTotal = 0;
-      Object.entries(newItems).forEach(([cId, q]) => {
-        if (cId !== collectionId) currentTotal += q;
-      });
-
-      // Calculate allowed quantity to not exceed 200
-      let safeQty = qty;
-      if (currentTotal + safeQty > 200) {
-        safeQty = 200 - currentTotal;
-      }
-      if (safeQty < 0) safeQty = 0;
-
-      if (safeQty <= 0) {
-        delete newItems[collectionId];
-      } else {
-        newItems[collectionId] = safeQty;
-      }
 
       // Debounce the save to Supabase
       if (syncTimeoutRef.current[sim.id]) {
@@ -132,6 +111,6 @@ export function useSimulations() {
     createSimulation: handleCreateSimulation,
     renameSimulation: handleRenameSimulation,
     deleteSimulation: handleDeleteSimulation,
-    setItemQuantity
+    setSimulationItems
   };
 }

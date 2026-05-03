@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { Trash2, Plus, Edit2, Check, X } from 'lucide-react';
 import { formatVND, getRoiColorClass } from '../utils/formatters';
 import { STAR_COST_VND, DASHBOARD_ORDER } from '../utils/constants';
@@ -16,28 +16,121 @@ export default function CalculatorView({
     createSimulation,
     renameSimulation,
     deleteSimulation,
-    setItemQuantity
+    setSimulationItems
   } = simulationsHook;
 
   const [isEditingName, setIsEditingName] = useState(false);
   const [editName, setEditName] = useState('');
+
+  // Add Form State
+  const sortedCollections = useMemo(() => {
+    return [...armoryCollections].sort((a, b) => 
+      (DASHBOARD_ORDER[a.id] ?? 99) - (DASHBOARD_ORDER[b.id] ?? 99)
+    );
+  }, [armoryCollections]);
+
+  const [selectedColId, setSelectedColId] = useState('');
+  const [selectedProduct, setSelectedProduct] = useState('random');
+  const [addQty, setAddQty] = useState(1);
+
+  useEffect(() => {
+    if (!selectedColId && sortedCollections.length > 0) {
+      setSelectedColId(sortedCollections[0].id);
+    }
+  }, [sortedCollections, selectedColId]);
+
+  const activeCol = useMemo(() => 
+    armoryCollections.find(c => c.id === selectedColId), 
+  [armoryCollections, selectedColId]);
+
+  const productsOptions = useMemo(() => {
+    if (!activeCol) return [];
+    const list = [{ value: 'random', label: 'Random Unbox (Average Return)' }];
+    
+    activeCol.rarities.forEach(r => {
+      r.skins.forEach(skin => {
+        const isNormalOnly = skin.wears.includes('Normal') && skin.wears.length === 1;
+        const wears = isNormalOnly ? ['Normal'] : skin.wears;
+        wears.forEach(wear => {
+          const marketHashName = skin.marketHashNameBase + (wear === 'Normal' ? '' : ` (${wear})`);
+          const rawPrice = priceCache.getPrice(marketHashName);
+          const feeMultiplier = includeFee ? 0.85 : 1;
+          const price = rawPrice ? rawPrice * feeMultiplier : 0;
+          
+          list.push({
+            value: `${skin.id}|${wear}`,
+            label: `${skin.name} (${wear}) - ${formatVND(price)}`,
+          });
+        });
+      });
+    });
+    return list;
+  }, [activeCol, priceCache, includeFee]);
 
   // Derived stats
   const stats = useMemo(() => {
     let totalItems = 0;
     let totalStars = 0;
     let expectedReturn = 0;
+    const parsedItems = [];
 
     if (activeSimulation && activeSimulation.items) {
-      Object.entries(activeSimulation.items).forEach(([colId, qty]) => {
+      Object.entries(activeSimulation.items).forEach(([key, qty]) => {
+        if (qty <= 0) return;
+        const parts = key.split('|');
+        const colId = parts[0];
         const col = armoryCollections.find(c => c.id === colId);
-        if (col && qty > 0) {
-          totalItems += qty;
-          totalStars += (col.costStars * qty);
-          
+        if (!col) return;
+
+        totalItems += qty;
+        totalStars += (col.costStars * qty);
+        
+        if (parts.length === 1) {
           const roiData = priceCache.getCollectionROI(col, includeFee);
-          if (roiData && roiData.avgValue) {
-            expectedReturn += (roiData.avgValue * qty);
+          const avgValue = roiData ? roiData.avgValue : 0;
+          expectedReturn += (avgValue * qty);
+          parsedItems.push({
+            key, col, qty, 
+            name: `Random ${col.name}`,
+            wear: 'Average',
+            rarityColor: '#fff',
+            image: col.image,
+            unitCost: col.costStars * STAR_COST_VND,
+            unitReturn: avgValue,
+            cost: col.costStars * qty * STAR_COST_VND,
+            returnValue: avgValue * qty,
+            isRandom: true
+          });
+        } else {
+          const skinId = parts[1];
+          const wear = parts[2];
+          
+          let skinObj = null;
+          let rarityColor = '#fff';
+          col.rarities.forEach(r => {
+            const s = r.skins.find(x => x.id === skinId);
+            if (s) { skinObj = s; rarityColor = r.color; }
+          });
+          
+          if (skinObj) {
+            const marketHashName = skinObj.marketHashNameBase + (wear === 'Normal' ? '' : ` (${wear})`);
+            const price = priceCache.getPrice(marketHashName);
+            const feeMultiplier = includeFee ? 0.85 : 1;
+            const itemValue = price ? price * feeMultiplier : 0;
+            expectedReturn += (itemValue * qty);
+            
+            parsedItems.push({
+              key, col, qty,
+              name: skinObj.name,
+              wear: wear === 'Normal' ? 'Default' : wear,
+              rarityColor,
+              image: skinObj.image,
+              unitCost: col.costStars * STAR_COST_VND,
+              unitReturn: itemValue,
+              cost: col.costStars * qty * STAR_COST_VND,
+              returnValue: itemValue * qty,
+              isRandom: false
+            });
           }
         }
       });
@@ -47,7 +140,7 @@ export default function CalculatorView({
     const profit = expectedReturn - totalCost;
     const roi = totalCost > 0 ? (expectedReturn / totalCost) * 100 : 0;
 
-    return { totalItems, totalStars, totalCost, expectedReturn, profit, roi };
+    return { totalItems, totalStars, totalCost, expectedReturn, profit, roi, parsedItems };
   }, [activeSimulation, armoryCollections, priceCache, includeFee]);
 
   if (simulationsHook.loading) return <div className="calc-loading">Loading simulations...</div>;
@@ -56,6 +149,51 @@ export default function CalculatorView({
       Lỗi kết nối Database! Vui lòng tạo bảng `simulations` trên Supabase bằng SQL.
     </div>
   );
+
+  const handleAdd = () => {
+    if (!activeCol || addQty <= 0) return;
+    const key = selectedProduct === 'random' 
+      ? activeCol.id 
+      : `${activeCol.id}|${selectedProduct}`;
+    
+    const currentItems = { ...activeSimulation.items };
+    
+    const newStars = activeCol.costStars * addQty;
+    let safeQty = addQty;
+    if (stats.totalStars + newStars > 200) {
+      safeQty = Math.floor((200 - stats.totalStars) / activeCol.costStars);
+    }
+    
+    if (safeQty > 0) {
+      currentItems[key] = (currentItems[key] || 0) + safeQty;
+      setSimulationItems(currentItems);
+    }
+    setAddQty(1);
+    setSelectedProduct('random');
+  };
+
+  const updateItemQty = (key, delta, colCostStars) => {
+    const currentItems = { ...activeSimulation.items };
+    const currentQty = currentItems[key] || 0;
+    let newQty = currentQty + delta;
+    
+    if (delta > 0) {
+      if (stats.totalStars + colCostStars > 200) return;
+    }
+
+    if (newQty <= 0) {
+      delete currentItems[key];
+    } else {
+      currentItems[key] = newQty;
+    }
+    setSimulationItems(currentItems);
+  };
+
+  const removeItem = (key) => {
+    const currentItems = { ...activeSimulation.items };
+    delete currentItems[key];
+    setSimulationItems(currentItems);
+  };
 
   const startEditName = () => {
     setEditName(activeSimulation.name);
@@ -68,17 +206,6 @@ export default function CalculatorView({
     }
     setIsEditingName(false);
   };
-
-  const handleCreateNew = () => {
-    const nextNum = simulations.length + 1;
-    createSimulation(`Simulation ${nextNum}`);
-  };
-
-  const sortedCollections = [...armoryCollections].sort((a, b) => 
-    (DASHBOARD_ORDER[a.id] ?? 99) - (DASHBOARD_ORDER[b.id] ?? 99)
-  );
-
-  const canAddMore = stats.totalItems < 200;
 
   return (
     <div className="calculator-view">
@@ -120,58 +247,119 @@ export default function CalculatorView({
           )}
         </div>
         
-        <button onClick={handleCreateNew} className="btn-primary">
+        <button onClick={() => createSimulation(`Simulation ${simulations.length + 1}`)} className="btn-primary">
           <Plus size={14} /> New Sim
         </button>
       </div>
 
-      <div className="calc-grid">
-        {sortedCollections.map(coll => {
-          const qty = activeSimulation.items?.[coll.id] || 0;
-          return (
-            <div key={coll.id} className={`calc-item-card ${qty > 0 ? 'active' : ''}`}>
-              <div className="calc-item-info">
-                {coll.image && <img src={coll.image} alt={coll.name} />}
-                <div className="calc-item-text">
-                  <span className="name">{coll.name}</span>
-                  <span className="cost">{coll.costStars} Stars</span>
-                </div>
-              </div>
-              
-              <div className="calc-qty-control">
-                <button 
-                  onClick={() => setItemQuantity(coll.id, qty - 1)}
-                  disabled={qty <= 0}
-                  className="qty-btn"
-                >-</button>
-                <input 
-                  type="number" 
-                  min="0" 
-                  max="200"
-                  value={qty === 0 ? '' : qty}
-                  placeholder="0"
-                  onChange={(e) => {
-                    const val = parseInt(e.target.value) || 0;
-                    setItemQuantity(coll.id, val);
-                  }}
-                />
-                <button 
-                  onClick={() => setItemQuantity(coll.id, qty + 1)}
-                  disabled={!canAddMore}
-                  className="qty-btn"
-                >+</button>
-              </div>
-            </div>
-          );
-        })}
+      <div className="calc-add-form">
+        <select 
+          value={selectedColId} 
+          onChange={(e) => {
+            setSelectedColId(e.target.value);
+            setSelectedProduct('random');
+          }}
+          className="col-select"
+        >
+          {sortedCollections.map(c => (
+            <option key={c.id} value={c.id}>{c.name} ({c.costStars} ★)</option>
+          ))}
+        </select>
+
+        <select 
+          value={selectedProduct} 
+          onChange={(e) => setSelectedProduct(e.target.value)}
+          className="product-select"
+        >
+          {productsOptions.map(opt => (
+            <option key={opt.value} value={opt.value}>{opt.label}</option>
+          ))}
+        </select>
+
+        <div className="qty-input-group">
+          <input 
+            type="number" 
+            min="1" 
+            max="100" 
+            value={addQty} 
+            onChange={(e) => setAddQty(parseInt(e.target.value) || 1)}
+            title="Quantity"
+          />
+        </div>
+
+        <button 
+          onClick={handleAdd} 
+          className="btn-primary add-btn"
+          disabled={!activeCol || (stats.totalStars + (activeCol?.costStars * addQty)) > 200}
+        >
+          Add Item
+        </button>
+      </div>
+
+      <div className="calc-table-container">
+        <table className="calc-table">
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>Wear</th>
+              <th>Qty</th>
+              <th>Cost (★)</th>
+              <th>Value</th>
+              <th>Profit</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {stats.parsedItems.length === 0 ? (
+              <tr>
+                <td colSpan="7" className="empty-state">No items added to this simulation yet.</td>
+              </tr>
+            ) : (
+              stats.parsedItems.map(item => {
+                const profit = item.returnValue - item.cost;
+                return (
+                  <tr key={item.key}>
+                    <td>
+                      <div className="table-item-cell">
+                        <img src={item.image} alt={item.name} />
+                        <span style={{ color: item.rarityColor, fontWeight: 500 }}>{item.name}</span>
+                      </div>
+                    </td>
+                    <td className="wear-cell">{item.wear}</td>
+                    <td>
+                      <div className="table-qty">
+                        <button onClick={() => updateItemQty(item.key, -1, item.col.costStars)}>-</button>
+                        <span>{item.qty}</span>
+                        <button 
+                          onClick={() => updateItemQty(item.key, 1, item.col.costStars)}
+                          disabled={stats.totalStars + item.col.costStars > 200}
+                        >+</button>
+                      </div>
+                    </td>
+                    <td>{item.qty * item.col.costStars} ★</td>
+                    <td>{formatVND(item.returnValue)}</td>
+                    <td className={profit > 0 ? 'roi-green' : profit < 0 ? 'roi-red' : ''}>
+                      {profit > 0 ? '+' : ''}{formatVND(profit)}
+                    </td>
+                    <td>
+                      <button className="icon-btn red" onClick={() => removeItem(item.key)}>
+                        <Trash2 size={16} />
+                      </button>
+                    </td>
+                  </tr>
+                );
+              })
+            )}
+          </tbody>
+        </table>
       </div>
 
       <div className="calc-summary-panel">
         <div className="summary-row">
           <div className="summary-stat">
-            <span className="label">Items</span>
-            <span className={`value ${stats.totalItems >= 200 ? 'roi-orange' : ''}`}>
-              {stats.totalItems} / 200
+            <span className="label">Total Stars</span>
+            <span className={`value ${stats.totalStars >= 200 ? 'roi-orange' : ''}`}>
+              {stats.totalStars} / 200 ★
             </span>
           </div>
           <div className="summary-stat">

@@ -1119,91 +1119,107 @@
 }
 .btn-primary:hover { opacity: 0.9; }
 
-.calc-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 16px;
-}
-
-.calc-item-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
-  padding: 16px;
+.calc-add-form {
   display: flex;
-  justify-content: space-between;
+  gap: 12px;
+  background: var(--bg-card);
+  padding: 16px;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
   align-items: center;
-  transition: border-color 0.2s;
+  flex-wrap: wrap;
 }
-.calc-item-card.active {
+.calc-add-form select, .calc-add-form input {
+  background: #0f1423;
+  border: 1px solid var(--border-color);
+  color: white;
+  padding: 10px 14px;
+  border-radius: 6px;
+  font-size: 14px;
+}
+.calc-add-form select:focus, .calc-add-form input:focus {
+  outline: none;
   border-color: #38bdf8;
-  background: linear-gradient(to right, #111827, rgba(56, 189, 248, 0.05));
 }
+.calc-add-form .col-select { flex: 1; min-width: 200px; }
+.calc-add-form .product-select { flex: 2; min-width: 250px; }
+.calc-add-form .qty-input-group input { width: 70px; text-align: center; }
+.calc-add-form .add-btn { height: 42px; padding: 0 20px; white-space: nowrap; }
 
-.calc-item-info {
+.calc-table-container {
+  background: var(--bg-card);
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  overflow-x: auto;
+}
+.calc-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+.calc-table th {
+  padding: 12px 16px;
+  font-size: 11px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border-color);
+  background: rgba(0,0,0,0.2);
+}
+.calc-table td {
+  padding: 16px;
+  font-size: 14px;
+  border-bottom: 1px solid var(--border-color);
+  vertical-align: middle;
+}
+.calc-table tr:last-child td { border-bottom: none; }
+.calc-table tbody tr:hover { background: rgba(255,255,255,0.02); }
+
+.table-item-cell {
   display: flex;
   align-items: center;
   gap: 12px;
 }
-.calc-item-info img {
-  width: 60px;
-  height: 45px;
+.table-item-cell img {
+  width: 50px;
+  height: 38px;
   object-fit: contain;
 }
-.calc-item-text {
-  display: flex;
-  flex-direction: column;
-}
-.calc-item-text .name {
-  font-size: 14px;
-  font-weight: 700;
-  color: white;
-}
-.calc-item-text .cost {
-  font-size: 12px;
-  color: var(--accent-yellow);
-  font-weight: 600;
-}
+.wear-cell { font-size: 13px; color: var(--text-muted); }
 
-.calc-qty-control {
+.table-qty {
   display: flex;
   align-items: center;
-  background: #1a2236;
-  border-radius: 6px;
+  gap: 12px;
+  background: #0f1423;
+  border-radius: 4px;
+  padding: 4px;
+  width: max-content;
   border: 1px solid var(--border-color);
-  overflow: hidden;
 }
-.calc-qty-control button {
+.table-qty button {
   background: transparent;
   border: none;
   color: white;
-  width: 32px;
-  height: 32px;
-  font-size: 16px;
+  width: 24px;
+  height: 24px;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.2s;
+  border-radius: 4px;
 }
-.calc-qty-control button:hover:not(:disabled) { background: rgba(255,255,255,0.1); }
-.calc-qty-control button:disabled { opacity: 0.3; cursor: not-allowed; }
-.calc-qty-control input {
-  width: 40px;
-  text-align: center;
-  background: transparent;
-  border: none;
-  border-left: 1px solid var(--border-color);
-  border-right: 1px solid var(--border-color);
-  color: white;
-  font-size: 14px;
+.table-qty button:hover:not(:disabled) { background: rgba(255,255,255,0.1); }
+.table-qty button:disabled { opacity: 0.3; cursor: not-allowed; }
+.table-qty span {
   font-weight: 700;
-  padding: 0;
-  height: 32px;
+  width: 24px;
+  text-align: center;
 }
-.calc-qty-control input::-webkit-outer-spin-button,
-.calc-qty-control input::-webkit-inner-spin-button {
-  -webkit-appearance: none; margin: 0;
+.empty-state {
+  text-align: center;
+  color: var(--text-muted);
+  padding: 40px !important;
+  font-style: italic;
 }
 
 .calc-summary-panel {
