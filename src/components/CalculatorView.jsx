@@ -52,8 +52,10 @@ export default function CalculatorView({
         const isNormalOnly = skin.wears.includes('Normal') && skin.wears.length === 1;
         const wears = isNormalOnly ? ['Normal'] : skin.wears;
         wears.forEach(wear => {
-          const marketHashName = skin.marketHashNameBase + (wear === 'Normal' ? '' : ` (${wear})`);
-          const rawPrice = priceCache.getPrice(marketHashName);
+          const skinData = priceCache.getPrice(skin.marketHashNameBase);
+          const wearData = skinData ? skinData[wear] : null;
+          const rawPrice = wearData && wearData.success ? wearData.price : 0;
+          
           const feeMultiplier = includeFee ? 0.85 : 1;
           const price = rawPrice ? rawPrice * feeMultiplier : 0;
           
@@ -113,10 +115,12 @@ export default function CalculatorView({
           });
           
           if (skinObj) {
-            const marketHashName = skinObj.marketHashNameBase + (wear === 'Normal' ? '' : ` (${wear})`);
-            const price = priceCache.getPrice(marketHashName);
+            const skinData = priceCache.getPrice(skinObj.marketHashNameBase);
+            const wearData = skinData ? skinData[wear] : null;
+            const rawPrice = wearData && wearData.success ? wearData.price : 0;
+            
             const feeMultiplier = includeFee ? 0.85 : 1;
-            const itemValue = price ? price * feeMultiplier : 0;
+            const itemValue = rawPrice ? rawPrice * feeMultiplier : 0;
             expectedReturn += (itemValue * qty);
             
             parsedItems.push({
