@@ -1591,3 +1591,32 @@
   font-family: monospace;
   user-select: text;
 }
+
+.snapshot-history-btn {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  border-radius: 6px;
+  padding: 8px 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.snapshot-history-btn:hover {
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+}
+.snapshot-save-btn {
+  background: rgba(99, 102, 241, 0.15);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  color: #818cf8;
+  border-radius: 6px;
+  padding: 8px 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.snapshot-save-btn:hover {
+  background: rgba(99, 102, 241, 0.25);
+  color: #a78bfa;
+}

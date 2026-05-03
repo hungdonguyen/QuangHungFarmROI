@@ -48,7 +48,7 @@ export default function Sidebar({
       {collection ? (
         <>
           <button className="back-btn" onClick={() => navigate('/')}>
-            <ChevronLeft size={14} /> Về Dashboard
+            <ChevronLeft size={14} /> Back to Dashboard
           </button>
           <div className="collection-info">
             <span className="armory-badge">ARMORY</span>
@@ -173,12 +173,12 @@ export default function Sidebar({
         </div>
 
         <button className="clear-cache-btn" onClick={() => {
-          if (confirm('Xóa dữ liệu giá đã lưu để tải lại từ đầu?')) {
+          if (confirm('Clear cached price data and force reload from API?')) {
             priceCache.clearCache();
             window.location.reload();
           }
         }}>
-          Xóa Cache
+          Clear Cache
         </button>
 
 

@@ -162,19 +162,19 @@ export default function CalculatorView({
   if (simulationsHook.loading) return <div className="calc-loading">Loading simulations...</div>;
   if (!activeSimulation) return (
     <div className="calc-loading" style={{ color: 'var(--accent-red)' }}>
-      Lỗi kết nối Database! Vui lòng tạo bảng `simulations` trên Supabase bằng SQL.
+      Database connection error! Please setup the `simulations` table in Supabase via SQL.
     </div>
   );
 
   const handleAddClick = async () => {
-    const input = window.prompt("Nhập ID bảng để kết nối, hoặc để trống / Cancel để tạo mới:");
+    const input = window.prompt("Enter Simulation ID to join, or leave empty/Cancel to create new:");
     if (input === null) return; 
     if (input.trim() === '') {
       await createSimulation(`Simulation ${simulations.length + 1}`);
     } else {
       const success = await joinSimulation(input.trim());
       if (!success) {
-        alert("Không tìm thấy bảng với ID này!");
+        alert("Simulation with this ID not found!");
       }
     }
   };
@@ -190,9 +190,9 @@ export default function CalculatorView({
     };
     const success = await saveSnapshot(activeSimulation.id, snapshotData);
     if (success) {
-      alert("Đã lưu snapshot thành công!");
+      alert("Snapshot saved successfully!");
     } else {
-      alert("Lỗi khi lưu snapshot!");
+      alert("Error saving snapshot!");
     }
   };
 
@@ -315,7 +315,7 @@ export default function CalculatorView({
                   className="icon-btn" 
                   onClick={() => {
                     navigator.clipboard.writeText(activeSimulation.id);
-                    alert("Đã copy ID!");
+                    alert("ID copied to clipboard!");
                   }} 
                   title="Copy ID"
                 >
@@ -473,11 +473,11 @@ export default function CalculatorView({
         </div>
         <div className="summary-row main-result" style={{ marginTop: 12, borderTop: '1px solid rgba(255,255,255,0.05)', paddingTop: 12 }}>
           <div className="summary-stat" style={{ flexDirection: 'row', gap: 12 }}>
-            <button className="btn-secondary" onClick={openSnapshots} style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 13 }}>
-              <History size={16} /> Lịch sử Snapshots
+            <button className="snapshot-history-btn" onClick={openSnapshots} style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+              <History size={16} /> Snapshot History
             </button>
-            <button className="btn-primary" onClick={handleSaveSnapshot} style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 13, background: 'var(--accent-green)' }}>
-              <Camera size={16} /> Lưu Snapshot
+            <button className="snapshot-save-btn" onClick={handleSaveSnapshot} style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+              <Camera size={16} /> Save Snapshot
             </button>
           </div>
         </div>
@@ -486,14 +486,14 @@ export default function CalculatorView({
         <div className="modal-overlay" onClick={() => setShowSnapshots(false)}>
           <div className="modal-content" onClick={e => e.stopPropagation()} style={{ maxWidth: 600 }}>
             <div className="modal-header">
-              <h3>Lịch sử Snapshots</h3>
+              <h3>Snapshot History</h3>
               <button className="icon-btn" onClick={() => setShowSnapshots(false)}><X size={20}/></button>
             </div>
             <div className="modal-body" style={{ maxHeight: '60vh', overflowY: 'auto' }}>
               {loadingSnapshots ? (
-                <div style={{ textAlign: 'center', padding: 20 }}>Đang tải...</div>
+                <div style={{ textAlign: 'center', padding: 20 }}>Loading...</div>
               ) : snapshotHistory.length === 0 ? (
-                <div style={{ textAlign: 'center', padding: 20, color: 'var(--text-muted)' }}>Chưa có snapshot nào được lưu.</div>
+                <div style={{ textAlign: 'center', padding: 20, color: 'var(--text-muted)' }}>No snapshots saved yet.</div>
               ) : (
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
                   {snapshotHistory.map((snap, idx) => (
