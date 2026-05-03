@@ -138,23 +138,36 @@ export default function Dashboard({ includeFee, priceCache, activeCurrency }) {
       }));
 
       const wearParam = wear === 'Normal' ? '' : wear;
-      const currencyCode = activeCurrency === 'USD' ? 1 : 15;
-      const result = await fetchItemPrice(skin.marketHashNameBase, wearParam, currencyCode);
-      priceCache.updatePrice(skin.marketHashNameBase, wear, result);
+      
+      // Determine which currencies to fetch
+      const codes = mode === 'all_currencies' ? [1, 15] : [activeCurrency === 'USD' ? 1 : 15];
+      
+      for (const code of codes) {
+        if (abortRef.current) break;
+        
+        const result = await fetchItemPrice(skin.marketHashNameBase, wearParam, code);
+        
+        // Update local cache only if it's the active currency
+        const isActiveCode = (activeCurrency === 'USD' && code === 1) || (activeCurrency === 'VND' && code === 15);
+        if (isActiveCode) {
+          priceCache.updatePrice(skin.marketHashNameBase, wear, result);
+        } else if (result.success) {
+          // For non-active currency, we still want to sync to cloud if successful
+          // We can't easily update the other local cache, but cloud sync is enough
+          // since it will be loaded when the user switches.
+          // Note: fetchItemPrice already logs, but we rely on the next switch to load it.
+        }
 
+        fetched++;
+        const elapsed = (Date.now() - startTime) / 1000;
+        const avgPerItem = elapsed / fetched;
+        const remaining = (itemsToLoad.length * codes.length) - fetched;
+        const eta = Math.round(avgPerItem * remaining);
 
-      fetched++;
-
-      const elapsed = (Date.now() - startTime) / 1000;
-      const avgPerItem = elapsed / fetched;
-      const remaining = itemsToLoad.length - i - 1;
-      const remainingToFetch = mode === 'missing'
-        ? remaining
-        : Math.max(0, remaining - Math.round(skippedCount * (remaining / (i + 1))));
-      const eta = Math.round(avgPerItem * remainingToFetch);
-
-      setLoadState(prev => ({ ...prev, etaSeconds: eta > 0 ? eta : null }));
+        setLoadState(prev => ({ ...prev, current: fetched, etaSeconds: eta > 0 ? eta : null }));
+      }
     }
+
 
     setLoadState({
       active: false, mode: null, current: 0, total: 0, skipped: 0,
@@ -201,6 +214,24 @@ export default function Dashboard({ includeFee, priceCache, activeCurrency }) {
           </div>
         </div>
         <div className="header-actions">
+          <button 
+            className={`reload-btn ${loadState.active && loadState.mode === 'all' ? 'loading' : ''}`}
+            onClick={() => handleLoad('all')}
+            disabled={loadState.active}
+          >
+            <RefreshCw size={14} className={loadState.active && loadState.mode === 'all' ? 'spinning' : ''} />
+            Reload Prices
+          </button>
+
+          <button 
+            className={`reload-btn ${loadState.active && loadState.mode === 'all_currencies' ? 'loading' : ''}`}
+            onClick={() => handleLoad('all_currencies')}
+            disabled={loadState.active}
+            style={{ borderColor: 'var(--accent-yellow)', color: 'var(--accent-yellow)' }}
+          >
+            <RefreshCw size={14} className={loadState.active && loadState.mode === 'all_currencies' ? 'spinning' : ''} />
+            Reload All (VND/USD)
+          </button>
           <button
             className={`reload-btn ${loadState.active && loadState.mode === 'missing' ? 'loading' : ''}`}
             onClick={() => handleLoad('missing')}

@@ -1,4 +1,4 @@
-/* ===== csroi.com/armory Theme ===== */
+﻿/* ===== csroi.com/armory Theme ===== */
 :root {
   --bg-main: #0a0e1a;
   --bg-sidebar: #0d1020;
@@ -1328,6 +1328,24 @@
   .logo-img { max-width: 140px; }
 
   .sidebar-nav {
+ 
+.clear-cache-btn {
+  width: 100%;
+  margin-top: 10px;
+  padding: 8px;
+  background-color: rgba(235, 75, 75, 0.1);
+  border: 1px solid rgba(235, 75, 75, 0.2);
+  color: #eb4b4b;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
     flex-direction: row;
     justify-content: center;
     gap: 8px;
@@ -1486,28 +1504,25 @@
   color: #0a0e1a;
 }
 
+.clear-cache-btn {
+  width: 100%;
+  margin-top: 10px;
+  padding: 8px;
+  background-color: rgba(235, 75, 75, 0.1);
+  border: 1px solid rgba(235, 75, 75, 0.2);
+  color: #eb4b4b;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
 
- . c l e a r - c a c h e - b t n   { 
-     w i d t h :   1 0 0 % ; 
-     m a r g i n - t o p :   1 0 p x ; 
-     p a d d i n g :   8 p x ; 
-     b a c k g r o u n d - c o l o r :   r g b a ( 2 3 5 ,   7 5 ,   7 5 ,   0 . 1 ) ; 
-     b o r d e r :   1 p x   s o l i d   r g b a ( 2 3 5 ,   7 5 ,   7 5 ,   0 . 2 ) ; 
-     c o l o r :   # e b 4 b 4 b ; 
-     b o r d e r - r a d i u s :   6 p x ; 
-     f o n t - s i z e :   1 1 p x ; 
-     f o n t - w e i g h t :   6 0 0 ; 
-     c u r s o r :   p o i n t e r ; 
-     t r a n s i t i o n :   a l l   0 . 2 s ; 
-     d i s p l a y :   f l e x ; 
-     a l i g n - i t e m s :   c e n t e r ; 
-     j u s t i f y - c o n t e n t :   c e n t e r ; 
-     g a p :   6 p x ; 
- } 
- 
- . c l e a r - c a c h e - b t n : h o v e r   { 
-     b a c k g r o u n d - c o l o r :   r g b a ( 2 3 5 ,   7 5 ,   7 5 ,   0 . 2 ) ; 
-     b o r d e r - c o l o r :   r g b a ( 2 3 5 ,   7 5 ,   7 5 ,   0 . 4 ) ; 
- } 
-  
- 
+.clear-cache-btn:hover {
+  background-color: rgba(235, 75, 75, 0.2);
+  border-color: rgba(235, 75, 75, 0.4);
+}
