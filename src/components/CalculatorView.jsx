@@ -186,7 +186,8 @@ export default function CalculatorView({
       totalCost: stats.totalCost,
       expectedReturn: stats.expectedReturn,
       profit: stats.profit,
-      items: stats.parsedItems
+      items: stats.parsedItems,
+      currency: activeCurrency
     };
     const success = await saveSnapshot(activeSimulation.id, snapshotData);
     if (success) {
@@ -501,13 +502,13 @@ export default function CalculatorView({
                       <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 8, borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: 8 }}>
                         <strong style={{ color: '#818cf8' }}>{new Date(snap.timestamp).toLocaleString()}</strong>
                         <span className={snap.profit > 0 ? 'roi-green' : 'roi-red'} style={{ fontWeight: 'bold' }}>
-                          Profit: {formatCurrency(snap.profit, activeCurrency)}
+                          Profit: {formatCurrency(snap.profit, snap.currency || activeCurrency)}
                         </span>
                       </div>
                       <div style={{ display: 'flex', gap: 16, fontSize: 12, color: 'var(--text-secondary)', marginBottom: 8 }}>
                         <span>Stars: {snap.totalStars}/200</span>
-                        <span>Cost: {formatCurrency(snap.totalCost, activeCurrency)}</span>
-                        <span>Return: {formatCurrency(snap.expectedReturn, activeCurrency)}</span>
+                        <span>Cost: {formatCurrency(snap.totalCost, snap.currency || activeCurrency)}</span>
+                        <span>Return: {formatCurrency(snap.expectedReturn, snap.currency || activeCurrency)}</span>
                       </div>
                       <div style={{ display: 'flex', gap: 4, flexWrap: 'wrap' }}>
                         {snap.items && snap.items.map((item, i) => (
