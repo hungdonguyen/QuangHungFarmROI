@@ -159,13 +159,6 @@ export default function CalculatorView({
     return { totalItems, totalStars, totalCost, expectedReturn, profit, roi, parsedItems };
   }, [activeSimulation, armoryCollections, priceCache, includeFee]);
 
-  if (simulationsHook.loading) return <div className="calc-loading">Loading simulations...</div>;
-  if (!activeSimulation) return (
-    <div className="calc-loading" style={{ color: 'var(--accent-red)' }}>
-      Database connection error! Please setup the `simulations` table in Supabase via SQL.
-    </div>
-  );
-
   const handleAddClick = async () => {
     const input = window.prompt("Enter Simulation ID to join, or leave empty/Cancel to create new:");
     if (input === null) return; 
@@ -178,6 +171,30 @@ export default function CalculatorView({
       }
     }
   };
+
+  if (simulationsHook.loading) return <div className="calc-loading">Loading simulations...</div>;
+  if (!activeSimulation) {
+    if (simulations.length === 0) {
+      return (
+        <div className="calculator-view">
+          <div className="calc-toolbar" style={{ justifyContent: 'center', padding: '40px', background: 'var(--bg-card)', margin: '20px', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.05)' }}>
+            <div style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+              <h3 style={{ marginBottom: 16, fontSize: '1.2rem' }}>No Simulations Found</h3>
+              <p style={{ color: 'var(--text-muted)', marginBottom: 24 }}>Create a new simulation or join an existing one to get started.</p>
+              <button onClick={handleAddClick} className="btn-primary add-btn" style={{ padding: '10px 20px', fontSize: '16px' }}>
+                <Plus size={18} style={{ marginRight: 8 }} /> Create or Join Simulation
+              </button>
+            </div>
+          </div>
+        </div>
+      );
+    }
+    return (
+      <div className="calc-loading" style={{ color: 'var(--accent-red)' }}>
+        Database connection error! Please setup the `simulations` table in Supabase via SQL.
+      </div>
+    );
+  }
 
   const handleSaveSnapshot = async () => {
     const snapshotData = {

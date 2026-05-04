@@ -90,12 +90,15 @@ export default function Dashboard({ includeFee, priceCache, activeCurrency }) {
 
     if (targetCollection) setLoadingCollId(targetCollection.id);
 
+    const codes = mode === 'all_currencies' ? [1, 15] : [activeCurrency === 'USD' ? 1 : 15];
+    const totalOperations = itemsToLoad.length * codes.length;
+
     const startTime = Date.now();
     setLoadState({
       active: true,
       mode,
       current: 0,
-      total: itemsToLoad.length,
+      total: totalOperations,
       skipped: 0,
       currentSkin: '',
       currentWear: '',
@@ -113,16 +116,13 @@ export default function Dashboard({ includeFee, priceCache, activeCurrency }) {
       const { skin, wear, collectionName } = itemsToLoad[i];
 
       setLoadState(prev => ({
-        ...prev, current: i + 1,
+        ...prev, 
         currentSkin: skin.name,
         currentWear: wear === 'Normal' ? '' : wear,
         currentCollection: collectionName,
       }));
 
       const wearParam = wear === 'Normal' ? '' : wear;
-      
-      // Determine which currencies to fetch
-      const codes = mode === 'all_currencies' ? [1, 15] : [activeCurrency === 'USD' ? 1 : 15];
       
       for (const code of codes) {
         if (abortRef.current) break;
@@ -142,7 +142,7 @@ export default function Dashboard({ includeFee, priceCache, activeCurrency }) {
         fetched++;
         const elapsed = (Date.now() - startTime) / 1000;
         const avgPerItem = elapsed / fetched;
-        const remaining = (itemsToLoad.length * codes.length) - fetched;
+        const remaining = totalOperations - fetched;
         const eta = Math.round(avgPerItem * remaining);
 
         setLoadState(prev => ({ ...prev, current: fetched, etaSeconds: eta > 0 ? eta : null }));

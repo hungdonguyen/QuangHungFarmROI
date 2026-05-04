@@ -33,7 +33,34 @@ export function useSimulations() {
     
     async function init() {
       setLoading(true);
-      const data = await loadSimulations(userId);
+      
+      let data = await loadSimulations(userId);
+      
+      // Load joined simulations from localStorage
+      let joinedIds = [];
+      try {
+        const stored = localStorage.getItem('csroi_joined_sims');
+        if (stored) joinedIds = JSON.parse(stored);
+      } catch (e) {
+        // ignore
+      }
+
+      if (joinedIds.length > 0) {
+        const joinedSims = await Promise.all(
+          joinedIds.map(id => getSimulationById(id))
+        );
+        const validJoined = joinedSims.filter(sim => sim !== null);
+        
+        // Merge without duplicates
+        const ownedIds = new Set(data.map(s => s.id));
+        const newSims = [...data];
+        validJoined.forEach(sim => {
+          if (!ownedIds.has(sim.id)) {
+            newSims.push(sim);
+          }
+        });
+        data = newSims;
+      }
       
       if (!isMounted) return;
 
@@ -41,12 +68,9 @@ export function useSimulations() {
         setSimulations(data);
         setActiveSimulationId(data[0].id);
       } else {
-        // Create default simulation if none exist
-        const defaultSim = await createSimulation(userId, 'Simulation 1');
-        if (defaultSim && isMounted) {
-          setSimulations([defaultSim]);
-          setActiveSimulationId(defaultSim.id);
-        }
+        // Do not auto-create simulation, just set empty
+        setSimulations([]);
+        setActiveSimulationId(null);
       }
       setLoading(false);
     }
@@ -82,6 +106,17 @@ export function useSimulations() {
     if (sim) {
       setSimulations(prev => [...prev, sim]);
       setActiveSimulationId(sim.id);
+      
+      // Save to localStorage
+      try {
+        const stored = localStorage.getItem('csroi_joined_sims');
+        const joinedIds = stored ? JSON.parse(stored) : [];
+        const newJoined = [...new Set([...joinedIds, sim.id])];
+        localStorage.setItem('csroi_joined_sims', JSON.stringify(newJoined));
+      } catch (e) {
+        // ignore
+      }
+      
       return true;
     }
     return false;
@@ -94,13 +129,38 @@ export function useSimulations() {
   };
 
   const handleDeleteSimulation = async (id) => {
-    // If it's the last one, don't delete (or create a new one instead)
-    if (simulations.length <= 1) return;
+    const simToDelete = simulations.find(s => s.id === id);
+    if (!simToDelete) return;
 
+    if (simToDelete.user_id !== userId) {
+      // It's a joined simulation, just remove from local state and localStorage
+      setSimulations(prev => {
+        const updated = prev.filter(s => s.id !== id);
+        if (activeSimulationId === id && updated.length > 0) {
+          setActiveSimulationId(updated[0].id);
+        } else if (updated.length === 0) {
+          setActiveSimulationId(null);
+        }
+        return updated;
+      });
+      try {
+        const stored = localStorage.getItem('csroi_joined_sims');
+        const joinedIds = stored ? JSON.parse(stored) : [];
+        const newJoined = joinedIds.filter(jId => jId !== id);
+        localStorage.setItem('csroi_joined_sims', JSON.stringify(newJoined));
+      } catch (e) {
+        // ignore
+      }
+      return;
+    }
+
+    // Owned simulation
     setSimulations(prev => {
       const updated = prev.filter(s => s.id !== id);
       if (activeSimulationId === id && updated.length > 0) {
         setActiveSimulationId(updated[0].id);
+      } else if (updated.length === 0) {
+        setActiveSimulationId(null);
       }
       return updated;
     });
