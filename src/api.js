@@ -26,8 +26,9 @@ class RequestQueue {
     }
 
     async add(url, currency = 15) {
-        if (this.cache.has(url)) {
-            return this.cache.get(url);
+        const cacheKey = `${url}_${currency}`;
+        if (this.cache.has(cacheKey)) {
+            return this.cache.get(cacheKey);
         }
 
         return new Promise((resolve, reject) => {
@@ -63,7 +64,8 @@ class RequestQueue {
             let data = response.data;
 
             if (data && data.success) {
-                this.cache.set(url, data);
+                const cacheKey = `${url}_${currency}`;
+                this.cache.set(cacheKey, data);
                 this.consecutive429s = 0;
                 this.currentDelayMs = this.baseDelayMs;
                 resolve(data);
