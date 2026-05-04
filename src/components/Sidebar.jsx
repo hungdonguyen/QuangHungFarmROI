@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { ChevronLeft, Cloud, CloudOff, Loader2 } from 'lucide-react';
+import { ChevronLeft, Cloud, CloudOff, Loader2, Trash2 } from 'lucide-react';
 import { formatCurrency, formatTimeAgo, getRoiColorClass } from '../utils/formatters';
 import { getCorrectRarityChances } from '../utils/constants';
 
@@ -178,7 +178,7 @@ export default function Sidebar({
             window.location.reload();
           }
         }}>
-          Clear Cache
+          <Trash2 size={14} /> Clear Cache
         </button>
 
 

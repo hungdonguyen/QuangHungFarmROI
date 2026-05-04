@@ -3,7 +3,7 @@ import { WEAR_NAMES } from '../data';
 import { fetchItemPrice } from '../api';
 import { formatCurrency, getSteamMarketUrl } from '../utils/formatters';
 import { WEAR_CHANCES } from '../utils/constants';
-import { RefreshCw, ExternalLink } from 'lucide-react';
+import { RefreshCw, ExternalLink, X } from 'lucide-react';
 
 export default function SkinModal({ data, onClose, priceCache, includeFee, activeCurrency }) {
   const { skin, color, collection } = data;
@@ -101,7 +101,7 @@ export default function SkinModal({ data, onClose, priceCache, includeFee, activ
   return (
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal-content" style={{ borderTopColor: color }} onClick={e => e.stopPropagation()}>
-        <button className="close-btn" onClick={onClose}>✕</button>
+        <button className="close-btn" onClick={onClose}><X size={20} /></button>
         
         <div className="modal-header">
           <div className="modal-odds">1 in ?</div>

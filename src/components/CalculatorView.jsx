@@ -1,5 +1,5 @@
 import React, { useState, useMemo, useEffect } from 'react';
-import { Trash2, Plus, Edit2, Check, X, Copy, Camera, History } from 'lucide-react';
+import { Trash2, Plus, Edit2, Check, X, Copy, Camera, History, Minus } from 'lucide-react';
 import { formatCurrency, getRoiColorClass } from '../utils/formatters';
 import { saveSnapshot, getSimulationById } from '../supabase';
 
@@ -368,7 +368,7 @@ export default function CalculatorView({
           className="btn-primary add-btn"
           disabled={!activeCol || (stats.totalStars + (activeCol?.costStars * addQty)) > 200}
         >
-          Add Item
+          <Plus size={16} /> Add Item
         </button>
       </div>
 
@@ -408,12 +408,12 @@ export default function CalculatorView({
                     <td className="wear-cell">{item.wear}</td>
                     <td>
                       <div className="table-qty">
-                        <button onClick={() => updateItemQty(item.key, -1, item.col.costStars)}>-</button>
+                        <button onClick={() => updateItemQty(item.key, -1, item.col.costStars)}><Minus size={14} /></button>
                         <span>{item.qty}</span>
                         <button 
                           onClick={() => updateItemQty(item.key, 1, item.col.costStars)}
                           disabled={stats.totalStars + item.col.costStars > 200}
-                        >+</button>
+                        ><Plus size={14} /></button>
                       </div>
                     </td>
                     <td>{item.qty * item.col.costStars} ★</td>

@@ -195,24 +195,6 @@ export default function Dashboard({ includeFee, priceCache, activeCurrency }) {
           </div>
         </div>
         <div className="header-actions">
-          <button 
-            className={`reload-btn ${loadState.active && loadState.mode === 'all' ? 'loading' : ''}`}
-            onClick={() => handleLoad('all')}
-            disabled={loadState.active}
-          >
-            <RefreshCw size={14} className={loadState.active && loadState.mode === 'all' ? 'spinning' : ''} />
-            Reload Prices
-          </button>
-
-          <button 
-            className={`reload-btn ${loadState.active && loadState.mode === 'all_currencies' ? 'loading' : ''}`}
-            onClick={() => handleLoad('all_currencies')}
-            disabled={loadState.active}
-            style={{ borderColor: 'var(--accent-yellow)', color: 'var(--accent-yellow)' }}
-          >
-            <RefreshCw size={14} className={loadState.active && loadState.mode === 'all_currencies' ? 'spinning' : ''} />
-            Reload All (VND/USD)
-          </button>
           <button
             className={`reload-btn ${loadState.active && loadState.mode === 'missing' ? 'loading' : ''}`}
             onClick={() => handleLoad('missing')}
@@ -222,14 +204,26 @@ export default function Dashboard({ includeFee, priceCache, activeCurrency }) {
             <Download size={14} />
             {loadState.active && loadState.mode === 'missing' && !loadingCollId ? 'Loading...' : 'Load Missing'}
           </button>
-          <button
-            className={`reload-btn ${loadState.active && loadState.mode === 'reload' && !loadingCollId ? 'loading' : ''}`}
-            onClick={() => handleLoad('reload')}
+
+          <button 
+            className={`reload-btn ${loadState.active && loadState.mode === 'all' ? 'loading' : ''}`}
+            onClick={() => handleLoad('all')}
             disabled={loadState.active}
-            title="Reload all prices (skips already cached)"
+            title="Reload all prices for current currency"
           >
-            <RefreshCw size={14} />
-            {loadState.active && loadState.mode === 'reload' && !loadingCollId ? 'Reloading...' : 'Reload Prices'}
+            <RefreshCw size={14} className={loadState.active && loadState.mode === 'all' ? 'spinning' : ''} />
+            {loadState.active && loadState.mode === 'all' && !loadingCollId ? 'Reloading...' : 'Reload Prices'}
+          </button>
+
+          <button 
+            className={`reload-btn ${loadState.active && loadState.mode === 'all_currencies' ? 'loading' : ''}`}
+            onClick={() => handleLoad('all_currencies')}
+            disabled={loadState.active}
+            style={{ borderColor: 'var(--accent-yellow)', color: 'var(--accent-yellow)' }}
+            title="Force reload all prices for both VND and USD"
+          >
+            <RefreshCw size={14} className={loadState.active && loadState.mode === 'all_currencies' ? 'spinning' : ''} />
+            Reload All (VND/USD)
           </button>
         </div>
       </div>
