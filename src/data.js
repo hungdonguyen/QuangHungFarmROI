@@ -24,9 +24,7 @@ export const armoryCollections = [
               "Field-Tested",
               "Well-Worn",
               "Battle-Scarred"
-            ],
-            "min_float": 0,
-            "max_float": 1
+            ]
           }
         ],
         "chance": 0.64,
@@ -48,9 +46,7 @@ export const armoryCollections = [
               "Field-Tested",
               "Well-Worn",
               "Battle-Scarred"
-            ],
-            "min_float": 0,
-            "max_float": 1
+            ]
           },
           {
             "id": "skin-9836cfa060f6",
@@ -87,9 +83,7 @@ export const armoryCollections = [
               "Field-Tested",
               "Well-Worn",
               "Battle-Scarred"
-            ],
-            "min_float": 0,
-            "max_float": 0.7
+            ]
           },
           {
             "id": "skin-9446ef74272b",
@@ -141,9 +135,7 @@ export const armoryCollections = [
               "Field-Tested",
               "Well-Worn",
               "Battle-Scarred"
-            ],
-            "min_float": 0,
-            "max_float": 1
+            ]
           },
           {
             "id": "skin-994bf96d44d4",
@@ -234,9 +226,7 @@ export const armoryCollections = [
               "Field-Tested",
               "Well-Worn",
               "Battle-Scarred"
-            ],
-            "min_float": 0,
-            "max_float": 0.86
+            ]
           },
           {
             "id": "skin-7976ca00d006",
@@ -313,9 +303,7 @@ export const armoryCollections = [
               "Field-Tested",
               "Well-Worn",
               "Battle-Scarred"
-            ],
-            "min_float": 0,
-            "max_float": 0.8
+            ]
           }
         ],
         "chance": 0.64,
@@ -337,9 +325,7 @@ export const armoryCollections = [
               "Field-Tested",
               "Well-Worn",
               "Battle-Scarred"
-            ],
-            "min_float": 0,
-            "max_float": 1
+            ]
           },
           {
             "id": "skin-91147006443a",
@@ -376,9 +362,7 @@ export const armoryCollections = [
               "Field-Tested",
               "Well-Worn",
               "Battle-Scarred"
-            ],
-            "min_float": 0,
-            "max_float": 0.85
+            ]
           },
           {
             "id": "skin-6e1eac6f1a57",
@@ -430,9 +414,7 @@ export const armoryCollections = [
               "Field-Tested",
               "Well-Worn",
               "Battle-Scarred"
-            ],
-            "min_float": 0,
-            "max_float": 0.75
+            ]
           },
           {
             "id": "skin-aec4b9b50be0",
@@ -527,9 +509,7 @@ export const armoryCollections = [
               "Field-Tested",
               "Well-Worn",
               "Battle-Scarred"
-            ],
-            "min_float": 0,
-            "max_float": 0.6
+            ]
           },
           {
             "id": "skin-45d74b83b2a0",
@@ -563,8 +543,8 @@ export const armoryCollections = [
           },
           {
             "id": "skin-791e6727b6a9",
-            "name": "Nova | Wurst Hölle",
-            "marketHashNameBase": "Nova | Wurst Hölle",
+            "name": "Nova | Wurst HĂ¶lle",
+            "marketHashNameBase": "Nova | Wurst HĂ¶lle",
             "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL_kYDhwiFO0P24bbZ9IeOAMXCF0_1ij-9mWSiMmRQguynLytutd33BbgV1DpdwEOYC5hSwwNPjYr_ksVHdjotGxH742yNL5yk6sfFCD_SvUSZNdg",
             "wears": [
               "Factory New",
@@ -603,9 +583,7 @@ export const armoryCollections = [
             "wears": [
               "Factory New",
               "Minimal Wear"
-            ],
-            "min_float": 0,
-            "max_float": 0.08
+            ]
           }
         ],
         "chance": 0.64,
@@ -627,9 +605,7 @@ export const armoryCollections = [
               "Field-Tested",
               "Well-Worn",
               "Battle-Scarred"
-            ],
-            "min_float": 0,
-            "max_float": 0.554422
+            ]
           },
           {
             "id": "skin-6e6550613810",
@@ -666,9 +642,7 @@ export const armoryCollections = [
               "Field-Tested",
               "Well-Worn",
               "Battle-Scarred"
-            ],
-            "min_float": 0,
-            "max_float": 1
+            ]
           },
           {
             "id": "skin-209298d0eb05",
@@ -720,9 +694,7 @@ export const armoryCollections = [
               "Field-Tested",
               "Well-Worn",
               "Battle-Scarred"
-            ],
-            "min_float": 0,
-            "max_float": 0.5
+            ]
           },
           {
             "id": "skin-578fd8494dd0",
@@ -816,9 +788,7 @@ export const armoryCollections = [
               "Field-Tested",
               "Well-Worn",
               "Battle-Scarred"
-            ],
-            "min_float": 0,
-            "max_float": 1
+            ]
           },
           {
             "id": "skin-c97106696572",
@@ -891,9 +861,7 @@ export const armoryCollections = [
             "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGI6zwki4Uf_a0IWlJ3mY6ls6_4TL7lvYRQ_4jpDh-ScVuKL_OfA6IqjCVmLBw-106LhtF3iwlxl25jjRnoz8J3yQaFUiW8YjQvlK7EdUhqzlag",
             "wears": [
               "Normal"
-            ],
-            "min_float": null,
-            "max_float": null
+            ]
           },
           {
             "id": "keychain-78",
@@ -902,9 +870,7 @@ export const armoryCollections = [
             "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGI6zwki4Uf_a0IWlJ3mY6ls6_4TL7lvYGR_wkpqurXsIvqL9bP06IqORCjfBxL105rVoH3GxwU9y5GvTnt_9d3iTbQIjWYwwG7C_lOK34g",
             "wears": [
               "Normal"
-            ],
-            "min_float": null,
-            "max_float": null
+            ]
           },
           {
             "id": "keychain-80",
@@ -913,9 +879,7 @@ export const armoryCollections = [
             "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGI6zwki4Uf_a0IWlJ3mY6ls6_4TL7lvYSBPym5jk9CNJ9rz2PfI4efGVX2GSwusgsudoHX3nxUUm62rSzt2hdi_EOAcoCJQhFLZZrFDmxdLG36W1",
             "wears": [
               "Normal"
-            ],
-            "min_float": null,
-            "max_float": null
+            ]
           },
           {
             "id": "keychain-81",
@@ -924,9 +888,7 @@ export const armoryCollections = [
             "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGI6zwki4Uf_a0IWlJ3mY6ls6_4TL7lvYTRT2loLl72xZvvH2PfFuJKLLVj_Ax7d06bg4THi1wElz52iDmN6qJHmRaFVyAsBzW6dU5Yl-Omi4",
             "wears": [
               "Normal"
-            ],
-            "min_float": null,
-            "max_float": null
+            ]
           }
         ],
         "chance": 0.64,
@@ -944,9 +906,7 @@ export const armoryCollections = [
             "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGI6zwki4Uf_a0IWlJ3mY6ls6_4TL7lvYRB7-0MayrHQDt_asOKVuI6DKC2HHlO0us7E7HC-ylx9wt2WAn96hcC3BP1c-SswnTJI0rrM",
             "wears": [
               "Normal"
-            ],
-            "min_float": null,
-            "max_float": null
+            ]
           },
           {
             "id": "keychain-75",
@@ -955,9 +915,7 @@ export const armoryCollections = [
             "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGI6zwki4Uf_a0IWlJ3mY6ls6_4TL7lvYRAT0nYTp6TZe_bz6MPQ1cajHWDOSkr0l57M_Fy3qlEgk5GjTyNb9JCrEb1ByWZB5E7EKrFDmxdkwt6BH",
             "wears": [
               "Normal"
-            ],
-            "min_float": null,
-            "max_float": null
+            ]
           },
           {
             "id": "keychain-76",
@@ -966,9 +924,7 @@ export const armoryCollections = [
             "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGI6zwki4Uf_a0IWlJ3mY6ls6_4TL7lvYTh7yi5r0sycI7av2MPFvdKTAXTeUkb4n5eQ7GHqxw0l2627Xy9_8dXufb1R0DZpuBbldqSZztl4",
             "wears": [
               "Normal"
-            ],
-            "min_float": null,
-            "max_float": null
+            ]
           },
           {
             "id": "keychain-77",
@@ -977,9 +933,7 @@ export const armoryCollections = [
             "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGI6zwki4Uf_a0IWlJ3mY6ls6_4TL7lvYWBjll9jkriRZ6_T9bqU-cPWWCjSWlbdw4ec_HSzmlBhy62-DzN2rcnKXa1MkFNIuEhFsBJD7",
             "wears": [
               "Normal"
-            ],
-            "min_float": null,
-            "max_float": null
+            ]
           },
           {
             "id": "keychain-79",
@@ -988,9 +942,7 @@ export const armoryCollections = [
             "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGI6zwki4Uf_a0IWlJ3mY6ls6_4TL7lvYRxHwjZ6urntYuvP4PPBpefHLW2WSwOwi4OU9HX3jlhlw4GvVzI6hcnPEaQIgX4wwG7A37UcOsA",
             "wears": [
               "Normal"
-            ],
-            "min_float": null,
-            "max_float": null
+            ]
           }
         ],
         "chance": 3.2,
@@ -1008,9 +960,7 @@ export const armoryCollections = [
             "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGI6zwki4Uf_a0IWlJ3mY6ls6_4TL7lvYE02hl4eu-HsM7aGvOvU_JKaWVmHExexz4LFsG36yxksj5j7VnIn8cHmVbFcpXIwwG7Cs8sAzYA",
             "wears": [
               "Normal"
-            ],
-            "min_float": null,
-            "max_float": null
+            ]
           },
           {
             "id": "keychain-68",
@@ -1019,9 +969,7 @@ export const armoryCollections = [
             "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGI6zwki4Uf_a0IWlJ3mY6ls6_4TL7lvYQAflm5Wuq3NeuaurMaZvJfWQXz6Tle90s-RoTXm2zRx-52rRm4mrdHPBPFcgCYwwG7DquA5lNA",
             "wears": [
               "Normal"
-            ],
-            "min_float": null,
-            "max_float": null
+            ]
           },
           {
             "id": "keychain-69",
@@ -1030,9 +978,7 @@ export const armoryCollections = [
             "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGI6zwki4Uf_a0IWlJ3mY6ls6_4TL7lvYQxL8nJfj_DYVuKr_OvA_JqTBVmGVwr516bdoSyuykBwh5WnWm46vdHOUawZ2C8NxTPlK7EfUlR4T0g",
             "wears": [
               "Normal"
-            ],
-            "min_float": null,
-            "max_float": null
+            ]
           },
           {
             "id": "keychain-70",
@@ -1041,9 +987,7 @@ export const armoryCollections = [
             "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGI6zwki4Uf_a0IWlJ3mY6ls6_4TL7lvYQhH-iZiurSRf6_CoO_JveaaWWGKWkrwn5bQ_HH7hxBlx5jnUzY6heHnCOFUkCowwG7B4Rw9v_g",
             "wears": [
               "Normal"
-            ],
-            "min_float": null,
-            "max_float": null
+            ]
           },
           {
             "id": "keychain-71",
@@ -1052,9 +996,7 @@ export const armoryCollections = [
             "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGI6zwki4Uf_a0IWlJ3mY6ls6_4TL7lvYRRT8jYPts3AMv6Soa_U1daGRCzTDx-0g57QxFi_glEsktTzTzdeteHKSaldxA5ZuBbldJRClM_o",
             "wears": [
               "Normal"
-            ],
-            "min_float": null,
-            "max_float": null
+            ]
           },
           {
             "id": "keychain-72",
@@ -1063,9 +1005,7 @@ export const armoryCollections = [
             "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGI6zwki4Uf_a0IWlJ3mY6ls6_4TL7lvYRAv4jZXl7yNP6rysP6FudaCVDzDGl-h36LA-F37glkkmtWzVyNb6eSjGagF0WZRwRLMOrFDmxQ9RjmHC",
             "wears": [
               "Normal"
-            ],
-            "min_float": null,
-            "max_float": null
+            ]
           },
           {
             "id": "keychain-82",
@@ -1074,9 +1014,7 @@ export const armoryCollections = [
             "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGI6zwki4Uf_a0IWlJ3mY6ls6_4TL7lvYRQ_zjJ_h82xf7qX2a_NpdPHGX2HIxbcgsrNqSXGxwE5yt2SGnI2qdi6SagAlX5AjW6dU5e3pHsJ2",
             "wears": [
               "Normal"
-            ],
-            "min_float": null,
-            "max_float": null
+            ]
           }
         ],
         "chance": 15.98,
@@ -1094,9 +1032,7 @@ export const armoryCollections = [
             "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGI6zwki4Uf_a0IWlJ3mY6ls6_4TL7lvYQxT-k5Pj9WxauvSrbPE-JanDV2TIkO1y6bBoGiu1kEojtjvVzdz_ci2fbQEhCsZ2W6dU5Z-pmlUG",
             "wears": [
               "Normal"
-            ],
-            "min_float": null,
-            "max_float": null
+            ]
           },
           {
             "id": "keychain-63",
@@ -1105,9 +1041,7 @@ export const armoryCollections = [
             "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGI6zwki4Uf_a0IWlJ3mY6ls6_4TL7lvYSRj9kpXh6Wxd7fT2PfI6caLKCzPGlupw57M-Si3ll0915G_cnNf8IHOQaQ9xDcciW6dU5VLj8T4g",
             "wears": [
               "Normal"
-            ],
-            "min_float": null,
-            "max_float": null
+            ]
           },
           {
             "id": "keychain-64",
@@ -1116,9 +1050,7 @@ export const armoryCollections = [
             "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGI6zwki4Uf_a0IWlJ3mY6ls6_4TL7lvYVRjjjJnys3UCu6v9bKFsJqPGWmaTlL9w4LQwGXnjlBgl4D_Tn4z4eHPEZlQmCsZuBbld0IAavwI",
             "wears": [
               "Normal"
-            ],
-            "min_float": null,
-            "max_float": null
+            ]
           },
           {
             "id": "keychain-65",
@@ -1127,9 +1059,7 @@ export const armoryCollections = [
             "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGI6zwki4Uf_a0IWlJ3mY6ls6_4TL7lvYVBr9h9i4pSNZt6utafQ1c_HHXDDCkb0ksedoHXHmwU915WvcyYqod3rGPVAgFNIuEgyLFPIo",
             "wears": [
               "Normal"
-            ],
-            "min_float": null,
-            "max_float": null
+            ]
           },
           {
             "id": "keychain-66",
@@ -1138,9 +1068,7 @@ export const armoryCollections = [
             "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGI6zwki4Uf_a0IWlJ3mY6ls6_4TL7lvYVhL-mtjhrXRau6T-MaU_IaDAXGTHx-sl5bg_G3DmwEoj42yDz4urdHzCZw52FNIuEguR3uat",
             "wears": [
               "Normal"
-            ],
-            "min_float": null,
-            "max_float": null
+            ]
           },
           {
             "id": "keychain-67",
@@ -1149,9 +1077,7 @@ export const armoryCollections = [
             "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGI6zwki4Uf_a0IWlJ3mY6ls6_4TL7lvYWBT_h5fu-mwNuPGvMfZvJqTHVzKWk7l0suNoTnC1xEt24mWHn4mpIiiTbVMnDZcjW6dU5dt_V7mT",
             "wears": [
               "Normal"
-            ],
-            "min_float": null,
-            "max_float": null
+            ]
           }
         ],
         "chance": 79.92,
@@ -1179,9 +1105,7 @@ export const armoryCollections = [
             "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGI6zwki4Uf_a0IWsPGiE7Fhy-I764WbkThD8i5jp6Ttkv6PhY6dSLfmAHW6exuJ_vupWTSixjA4ioS2AlJu3dHqUOAdyApFwQ-EP4xSww9C2N-ng7wKN2IgRzyT6jXkY7HtvsLwAAr1lpPOCysF-Wg",
             "wears": [
               "Normal"
-            ],
-            "min_float": null,
-            "max_float": null
+            ]
           },
           {
             "id": "keychain-45",
@@ -1190,9 +1114,7 @@ export const armoryCollections = [
             "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGI6zwki4Uf_a0IWsPGiE7Fhy-I764WbkThD8i5jp6Ttkv6PhY6dSLfmAHW6exuJ_vupWTD27gBEvpnPRydz4dX6fbAQjDMAlRLNZ4RS4ktazY7jq5lHbj9hGxH78i3xK5is4_a9cBvLjG2Ew",
             "wears": [
               "Normal"
-            ],
-            "min_float": null,
-            "max_float": null
+            ]
           },
           {
             "id": "keychain-49",
@@ -1201,9 +1123,7 @@ export const armoryCollections = [
             "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGI6zwki4Uf_a0IWsPGiE7Fhy-I764WbkThD8i5jp6Ttkv6PhY6dSLfmAHW6exuJ_vupWQiy_gRgj_TyGm9yrIH2Xag4jCsAmR7QIuxK6wdW1Me3isQTeg95BySWqiSoc6ip1o7FVnjjo-Cs",
             "wears": [
               "Normal"
-            ],
-            "min_float": null,
-            "max_float": null
+            ]
           },
           {
             "id": "keychain-59",
@@ -1212,9 +1132,7 @@ export const armoryCollections = [
             "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGI6zwki4Uf_a0IWsPGiE7Fhy-I764WbkThD8i5jp6Ttkv6PhY6dSLfmAHW6exuJ_vupWQjynkBovvC6R1NatdHuTPQAiCJF1Re8KsBOwlda0M7vm7gOMj4kUnC__jysf5ytv4OccEf1yvJT6JNo",
             "wears": [
               "Normal"
-            ],
-            "min_float": null,
-            "max_float": null
+            ]
           }
         ],
         "chance": 0.64,
@@ -1232,9 +1150,7 @@ export const armoryCollections = [
             "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGI6zwki4Uf_a0IWsPGiE7Fhy-I764WbkThD8i5jp6Ttkv6PhY6dSLfmAHW6exuJ_vupWTCiwgQg0_W3Sw96sdi-eaQQpWZd0TLMLsUS9x4HmNriz5VTe2INGyC-s33kd63t1o7FVmySIAJw",
             "wears": [
               "Normal"
-            ],
-            "min_float": null,
-            "max_float": null
+            ]
           },
           {
             "id": "keychain-46",
@@ -1243,20 +1159,16 @@ export const armoryCollections = [
             "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGI6zwki4Uf_a0IWsPGiE7Fhy-I764WbkThD8i5jp6Ttkv6PhY6dSLfmAHW6exuJ_vupWRyijhQRptz-Hm9avI3PEbQElC5Z1E-ENt0a_w4C0ZLu3swPd2YsRnyj9j3lJ6TErvbiJfX6BLQ",
             "wears": [
               "Normal"
-            ],
-            "min_float": null,
-            "max_float": null
+            ]
           },
           {
             "id": "keychain-51",
-            "name": "Charm | Piñatita",
-            "marketHashNameBase": "Charm | Piñatita",
+            "name": "Charm | Pi\u00f1atita",
+            "marketHashNameBase": "Charm | Pi\u00f1atita",
             "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGI6zwki4Uf_a0IWsPGiE7Fhy-I764WbkThD8i5jp6Ttkv6PhY6dSLfmAHW6exuJ_vupWXyC9lAkm_TvSnImreCrBbgclApcmELVf4xaxkt3kYu7i4gHajIITmy3-jSxN7np1o7FVfeaxZHk",
             "wears": [
               "Normal"
-            ],
-            "min_float": null,
-            "max_float": null
+            ]
           },
           {
             "id": "keychain-53",
@@ -1265,9 +1177,7 @@ export const armoryCollections = [
             "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGI6zwki4Uf_a0IWsPGiE7Fhy-I764WbkThD8i5jp6Ttkv6PhY6dSLfmAHW6exuJ_vupWXCy9gRwu_WTRmN2gInOVaw5zW5IiELZfsxS-xtTlNOiz5FbZ2I9Eni6oiCgYu3x1o7FViJKqI0o",
             "wears": [
               "Normal"
-            ],
-            "min_float": null,
-            "max_float": null
+            ]
           },
           {
             "id": "keychain-60",
@@ -1276,9 +1186,7 @@ export const armoryCollections = [
             "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGI6zwki4Uf_a0IWsPGiE7Fhy-I764WbkThD8i5jp6Ttkv6PhY6dSLfmAHW6exuJ_vupWQyC_nRwzsDWJk4H-b3qSZg8hCMFzRLUD50W-moXmYenn4Q3bgtlNyi_5jXhLuihq6-dXUaY7uvqAOIvZC3w",
             "wears": [
               "Normal"
-            ],
-            "min_float": null,
-            "max_float": null
+            ]
           }
         ],
         "chance": 3.2,
@@ -1296,9 +1204,7 @@ export const armoryCollections = [
             "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGI6zwki4Uf_a0IWsPGiE7Fhy-I764WbkThD8i5jp6Ttkv6PhY6dSLfmAHW6exuJ_vupWTCGyhxAlpi-Cn523cCiROFVyXJd4RecM5EO8wdPjMu6z5FCPjY9AySv32HlB7i9s6r5RVL1lpPPNR0m2-A",
             "wears": [
               "Normal"
-            ],
-            "min_float": null,
-            "max_float": null
+            ]
           },
           {
             "id": "keychain-47",
@@ -1307,9 +1213,7 @@ export const armoryCollections = [
             "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGI6zwki4Uf_a0IWsPGiE7Fhy-I764WbkThD8i5jp6Ttkv6PhY6dSLfmAHW6exuJ_vupWQyC_nRIzuziEnsGgJymSZwd0CZpyQu5buxO9wNbmPrzm5wCLg95Fmyz_3y1Nuydq4OZXT-N7raqdv_up",
             "wears": [
               "Normal"
-            ],
-            "min_float": null,
-            "max_float": null
+            ]
           },
           {
             "id": "keychain-52",
@@ -1318,9 +1222,7 @@ export const armoryCollections = [
             "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGI6zwki4Uf_a0IWsPGiE7Fhy-I764WbkThD8i5jp6Ttkv6PhY6dSLfmAHW6exuJ_vupWXyajhhQkvzjLn9yvcCqTawQmCcNzQeMO5ES7w9fkMOi071PX3owTxHiq3SoY6HtjsPFCD_QPDFMsOw",
             "wears": [
               "Normal"
-            ],
-            "min_float": null,
-            "max_float": null
+            ]
           },
           {
             "id": "keychain-55",
@@ -1329,9 +1231,7 @@ export const armoryCollections = [
             "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGI6zwki4Uf_a0IWsPGiE7Fhy-I764WbkThD8i5jp6Ttkv6PhY6dSLfmAHW6exuJ_vupWXCW6mBhp4GvRm9uod3LFbQ4hCMR5ROdctUTrmoayYrjr4lHejd8Xzn393CJNvzErvbjzLkd00g",
             "wears": [
               "Normal"
-            ],
-            "min_float": null,
-            "max_float": null
+            ]
           },
           {
             "id": "keychain-56",
@@ -1340,9 +1240,7 @@ export const armoryCollections = [
             "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGI6zwki4Uf_a0IWsPGiE7Fhy-I764WbkThD8i5jp6Ttkv6PhY6dSLfmAHW6exuJ_vupWXDyhkw4yo3ODnIr6dn_CPFMnW5V0ROZc4BfqxIbiNuzq5wDbjN4TnH_9ii9O7So6_a9cBvkNWLss",
             "wears": [
               "Normal"
-            ],
-            "min_float": null,
-            "max_float": null
+            ]
           },
           {
             "id": "keychain-58",
@@ -1351,9 +1249,7 @@ export const armoryCollections = [
             "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGI6zwki4Uf_a0IWsPGiE7Fhy-I764WbkThD8i5jp6Ttkv6PhY6dSLfmAHW6exuJ_vupWXSynhxIxui6MlYG3cCiTbAZyC5V4QuQOsxOwkoDuM-Pj41Pf2YNFy32oiixJ6yg5sr0FAr1lpPOteIXY7Q",
             "wears": [
               "Normal"
-            ],
-            "min_float": null,
-            "max_float": null
+            ]
           }
         ],
         "chance": 15.98,
@@ -1371,9 +1267,7 @@ export const armoryCollections = [
             "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGI6zwki4Uf_a0IWsPGiE7Fhy-I764WbkThD8i5jp6Ttkv6PhY6dSLfmAHW6exuJ_vupWTiewnBgppz6QiJz8b3LBZldyWZpxTeAJukXpkoDnYezisw3Y2ohNyCr83S1P6H0_4OxRUKE7uvqARoy1QzA",
             "wears": [
               "Normal"
-            ],
-            "min_float": null,
-            "max_float": null
+            ]
           },
           {
             "id": "keychain-40",
@@ -1382,9 +1276,7 @@ export const armoryCollections = [
             "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGI6zwki4Uf_a0IWsPGiE7Fhy-I764WbkThD8i5jp6Ttkv6PhY6dSLfmAHW6exuJ_vupWTSignhgzsTyJlsH8eX6QOFcoWJRzTe8NshTpwIXkMeyztQ3eit1GzCWsj39Junw95btXT-N7rTQtXshi",
             "wears": [
               "Normal"
-            ],
-            "min_float": null,
-            "max_float": null
+            ]
           },
           {
             "id": "keychain-41",
@@ -1393,9 +1285,7 @@ export const armoryCollections = [
             "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGI6zwki4Uf_a0IWsPGiE7Fhy-I764WbkThD8i5jp6Ttkv6PhY6dSLfmAHW6exuJ_vupWTSa3jB8mtHPWyN_7J3-Rb1AkD5UjQOMNsxewl9fgY7_g5wDWjYlNnC72hyNK6Sxp_a9cBlxC0gfT",
             "wears": [
               "Normal"
-            ],
-            "min_float": null,
-            "max_float": null
+            ]
           },
           {
             "id": "keychain-44",
@@ -1404,9 +1294,7 @@ export const armoryCollections = [
             "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGI6zwki4Uf_a0IWsPGiE7Fhy-I764WbkThD8i5jp6Ttkv6PhY6dSLfmAHW6exuJ_vupWTCC0lA9p4T-Gwov_JC6eOlV1CsMiF-YOu0TrxtzvNrnrsVDd34lAz3mth34c6TErvbidFtVFLA",
             "wears": [
               "Normal"
-            ],
-            "min_float": null,
-            "max_float": null
+            ]
           },
           {
             "id": "keychain-48",
@@ -1415,9 +1303,7 @@ export const armoryCollections = [
             "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGI6zwki4Uf_a0IWsPGiE7Fhy-I764WbkThD8i5jp6Ttkv6PhY6dSLfmAHW6exuJ_vupWQyC_mRIr_WTQnImtIn2WaAUgC5RxFuUL4BK4ktbmP-i07waKiYNNnyuqinhIvCx1o7FVIQay8B4",
             "wears": [
               "Normal"
-            ],
-            "min_float": null,
-            "max_float": null
+            ]
           },
           {
             "id": "keychain-50",
@@ -1426,9 +1312,7 @@ export const armoryCollections = [
             "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGI6zwki4Uf_a0IWsPGiE7Fhy-I764WbkThD8i5jp6Ttkv6PhY6dSLfmAHW6exuJ_vupWXyy9lhQr_W3UydqudnKeaQ90C8dzEbMCtBTrx4fuYe_q4AKPi95DnCuriy9L6id1o7FVafR7t3g",
             "wears": [
               "Normal"
-            ],
-            "min_float": null,
-            "max_float": null
+            ]
           },
           {
             "id": "keychain-54",
@@ -1437,9 +1321,7 @@ export const armoryCollections = [
             "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGI6zwki4Uf_a0IWsPGiE7Fhy-I764WbkThD8i5jp6Ttkv6PhY6dSLfmAHW6exuJ_vupWXCC_mQQivziVko73NWWWPQZ1XJYjQ7ICshS5wYbvNbzm5Q3Z2d9FnC_9jihJ53pvtuZTAPIs5OSJ2HrqJ1iJ",
             "wears": [
               "Normal"
-            ],
-            "min_float": null,
-            "max_float": null
+            ]
           },
           {
             "id": "keychain-57",
@@ -1448,9 +1330,7 @@ export const armoryCollections = [
             "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGI6zwki4Uf_a0IWsPGiE7Fhy-I764WbkThD8i5jp6Ttkv6PhY6dSLfmAHW6exuJ_vupWWCC9kBAmuDiX1IyseS6VPVUpD8d3TeIOs0HuwdXuNem2slfc2IJGzin7iClK6y9osO4cEf1yjt0gqQU",
             "wears": [
               "Normal"
-            ],
-            "min_float": null,
-            "max_float": null
+            ]
           }
         ],
         "chance": 79.92,
@@ -1478,9 +1358,7 @@ export const armoryCollections = [
             "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGI6zwki4Uf_a0IWsPGiE7Fhy-I764RbsQiL8l4Xz9Cxc4_ugY5tlL-efQGKTmbxztbJoFnvjkBtw4zjcw9v8ICiTOwcpDpZyF-FYsBO9k4W2Nbn8p1uJTS_m1eQ",
             "wears": [
               "Normal"
-            ],
-            "min_float": null,
-            "max_float": null
+            ]
           },
           {
             "id": "keychain-16",
@@ -1489,9 +1367,7 @@ export const armoryCollections = [
             "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGI6zwki4Uf_a0IWsPGiE7Fhy-I764RbsQiL8l4Xz9Cxc4_ugY5t6NeKAGimTkL0jtbJtTn7hxR524W2An9yhJC-XbQV1CMQlF-5fu0HtkoexYb6z-UWA3FJ1-Je9",
             "wears": [
               "Normal"
-            ],
-            "min_float": null,
-            "max_float": null
+            ]
           }
         ],
         "chance": 0.64,
@@ -1509,9 +1385,7 @@ export const armoryCollections = [
             "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGI6zwki4Uf_a0IWsPGiE7Fhy-I764RbsQiL8l4Xz9Cxc4_ugY5tgL_6AGmKCj79wtOVrTijixU0m5m3UntioI3PEZldzCpd1FOJfsxXtmtCxNezk5gTAy9USJfGXAGI",
             "wears": [
               "Normal"
-            ],
-            "min_float": null,
-            "max_float": null
+            ]
           },
           {
             "id": "keychain-11",
@@ -1520,9 +1394,7 @@ export const armoryCollections = [
             "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGI6zwki4Uf_a0IWsPGiE7Fhy-I764RbsQiL8l4Xz9Cxc4_ugY5t-If2sCm6RzOF4tK9sFyi3wUki4TvSnNytdC7FPQBzApIkQuRfukTql93vMung4FTXjIlC02yg2RVCPh13",
             "wears": [
               "Normal"
-            ],
-            "min_float": null,
-            "max_float": null
+            ]
           },
           {
             "id": "keychain-13",
@@ -1531,9 +1403,7 @@ export const armoryCollections = [
             "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGI6zwki4Uf_a0IWsPGiE7Fhy-I764RbsQiL8l4Xz9Cxc4_ugY5t-If2sHW-R0es44ec6GCziw0om4W7TzNuqcX2UZg9xA5RzF-QDsRa9ktXvYevg7wPe2JUFk3ucEH-vmw",
             "wears": [
               "Normal"
-            ],
-            "min_float": null,
-            "max_float": null
+            ]
           }
         ],
         "chance": 3.2,
@@ -1551,9 +1421,7 @@ export const armoryCollections = [
             "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGI6zwki4Uf_a0IWsPGiE7Fhy-I764RbsQiL8l4Xz9Cxc4_ugY5tvIf6SAGbelbkg5eM6SyywlEVx42mBztj9c36RPAV0XJQkE7ECtEW6loXhP-q07hue1dzjgFlFEA",
             "wears": [
               "Normal"
-            ],
-            "min_float": null,
-            "max_float": null
+            ]
           },
           {
             "id": "keychain-3",
@@ -1562,9 +1430,7 @@ export const armoryCollections = [
             "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGI6zwki4Uf_a0IWsPGiE7Fhy-I764RbsQiL8l4Xz9Cxc4_ugY5tuIeTdDzSWx7l35uNqGHHlwx9z6zzVnI2pJ3yfa1N2ApB4EOQKt0bsxtG0ZPSiuVIfhAHkFQ",
             "wears": [
               "Normal"
-            ],
-            "min_float": null,
-            "max_float": null
+            ]
           },
           {
             "id": "keychain-4",
@@ -1573,9 +1439,7 @@ export const armoryCollections = [
             "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGI6zwki4Uf_a0IWsPGiE7Fhy-I764RbsQiL8l4Xz9Cxc4_ugY5tuIeSRC2aTyaB05rMwTX2xwBsjtmzVzd2sJy6WPw5xCZBzF-BbtUG9ldLjMr604QGIlcsbmu0WJNUt",
             "wears": [
               "Normal"
-            ],
-            "min_float": null,
-            "max_float": null
+            ]
           },
           {
             "id": "keychain-5",
@@ -1584,9 +1448,7 @@ export const armoryCollections = [
             "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGI6zwki4Uf_a0IWsPGiE7Fhy-I764RbsQiL8l4Xz9Cxc4_ugY5tuKPmQBWKej7p1suBqSi_iwU9wt2vcnN34JX6XOgdzX5N1QbQCsxm5wNHnZr-35FbAy9USbxYiw0U",
             "wears": [
               "Normal"
-            ],
-            "min_float": null,
-            "max_float": null
+            ]
           },
           {
             "id": "keychain-14",
@@ -1595,9 +1457,7 @@ export const armoryCollections = [
             "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGI6zwki4Uf_a0IWsPGiE7Fhy-I764RbsQiL8l4Xz9Cxc4_ugY5t-If2sGmiZzes46OBoTnnlxB5_6m7Vn437cXqQbFQlXsBwQbRcshPrwYXiY-ixsgCIg5UFk3uYpcc7wQ",
             "wears": [
               "Normal"
-            ],
-            "min_float": null,
-            "max_float": null
+            ]
           },
           {
             "id": "keychain-33",
@@ -1606,9 +1466,7 @@ export const armoryCollections = [
             "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGI6zwki4Uf_a0IWsPGiE7Fhy-I764RbsQiL8l4Xz9Cxc4_ugY5tvKfeVAWiEj-10suQ6Fy2ylkolsj6BmNuvInzDZgciApAlF-JYuxK9xN2yNL-24gHAy9USv4cN0g0",
             "wears": [
               "Normal"
-            ],
-            "min_float": null,
-            "max_float": null
+            ]
           }
         ],
         "chance": 15.98,
@@ -1626,9 +1484,7 @@ export const armoryCollections = [
             "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGI6zwki4Uf_a0IWsPGiE7Fhy-I764RbsQiL8l4Xz9Cxc4_ugY5tsNvHdCDWVkOsu5uQ4FnC1lkx-sWSHm92ucHrBPVMjWJN5QuQKsxO_xIWyM_SiuVKGOzqoDg",
             "wears": [
               "Normal"
-            ],
-            "min_float": null,
-            "max_float": null
+            ]
           },
           {
             "id": "keychain-6",
@@ -1637,9 +1493,7 @@ export const armoryCollections = [
             "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGI6zwki4Uf_a0IWsPGiE7Fhy-I764RbsQiL8l4Xz9Cxc4_ugY5tqNfWBB2ucwKAus-dqTX_kx01xsG_XzYmpeH2WPA8lX8YhTeZesEa8m4GxZOLl7leLlcsbmiGjx1Ce",
             "wears": [
               "Normal"
-            ],
-            "min_float": null,
-            "max_float": null
+            ]
           },
           {
             "id": "keychain-8",
@@ -1648,9 +1502,7 @@ export const armoryCollections = [
             "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGI6zwki4Uf_a0IWsPGiE7Fhy-I764RbsQiL8l4Xz9Cxc4_ugY5tmJebdDDHExLxy5uUwHXGwkE11tWSByo37IH-UaQUoX5ZxR-Re4UK5xtezNvSiuVIxxa4IjQ",
             "wears": [
               "Normal"
-            ],
-            "min_float": null,
-            "max_float": null
+            ]
           },
           {
             "id": "keychain-10",
@@ -1659,9 +1511,7 @@ export const armoryCollections = [
             "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGI6zwki4Uf_a0IWsPGiE7Fhy-I764RbsQiL8l4Xz9Cxc4_ugY5t-If2sDWaEwuZjoK87SnHqwU4j5mzTzdmrc36SalchD5F1TOQD4RTtkobmMuzh5wzY3YpE02yg2QU8_kjN",
             "wears": [
               "Normal"
-            ],
-            "min_float": null,
-            "max_float": null
+            ]
           },
           {
             "id": "keychain-12",
@@ -1670,9 +1520,7 @@ export const armoryCollections = [
             "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGI6zwki4Uf_a0IWsPGiE7Fhy-I764RbsQiL8l4Xz9Cxc4_ugY5t-If2sHWac1fc44LRqTnywxR4k5mTVzYn6cy7GOlAlA8NzRLILskW9wIbuP7ni5Qze2ZUFk3v2JiibwQ",
             "wears": [
               "Normal"
-            ],
-            "min_float": null,
-            "max_float": null
+            ]
           },
           {
             "id": "keychain-15",
@@ -1681,9 +1529,7 @@ export const armoryCollections = [
             "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGI6zwki4Uf_a0IWsPGiE7Fhy-I764RbsQiL8l4Xz9Cxc4_ugY5t-IePdV2bJl-8h5rhtHS_ilEVwt23VmNmsc3LFPFcgC8F4EeFZ4Bmxxt2xZvSiuVIxEk8sOA",
             "wears": [
               "Normal"
-            ],
-            "min_float": null,
-            "max_float": null
+            ]
           }
         ],
         "chance": 79.92,
@@ -1711,9 +1557,7 @@ export const armoryCollections = [
             "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGI6zwki4Uf_a0IW2MHqH6lhKpcj_6WbwURPOnYLr8ytd6s2pZ6hpbqGVXWOWwLoktLFtHnDmwU4l4jnUwt6pInqSO1AiWJp1QuVeu0S4kt35d7S1otZRy58",
             "wears": [
               "Normal"
-            ],
-            "min_float": null,
-            "max_float": null
+            ]
           },
           {
             "id": "keychain-30",
@@ -1722,9 +1566,7 @@ export const armoryCollections = [
             "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGI6zwki4Uf_a0IW2MHqH6lhKpcj_6WbwURPOip3u9CRe0PWhZKAjJPOXWDGWlOgm47QxTH7jwExy5zmAw977cinCbgcgCJNzFLID50bsw8qnab1NtMpc9Q",
             "wears": [
               "Normal"
-            ],
-            "min_float": null,
-            "max_float": null
+            ]
           }
         ],
         "chance": 0.64,
@@ -1742,9 +1584,7 @@ export const armoryCollections = [
             "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGI6zwki4Uf_a0IW2MHqH6lhKpcj_6WbwURPOn4HwwjFL4P2gJvJocPPEXD7IlLsn4bRrG3nkzUsh5z_Tnt_4dnKVOgd2CsAlEeEJ5xSm0oqwhs-lt_s",
             "wears": [
               "Normal"
-            ],
-            "min_float": null,
-            "max_float": null
+            ]
           },
           {
             "id": "keychain-24",
@@ -1753,9 +1593,7 @@ export const armoryCollections = [
             "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGI6zwki4Uf_a0IW2MHqH6lhKpcj_6WbwURPOk8LhrDFk_OHgO_FrcaOWXz7ClL505rI7F3_jx0kh42uEyomrICqSagcmDsd0EOZZsQ74zINE7a8Rng",
             "wears": [
               "Normal"
-            ],
-            "min_float": null,
-            "max_float": null
+            ]
           },
           {
             "id": "keychain-29",
@@ -1764,9 +1602,7 @@ export const armoryCollections = [
             "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGI6zwki4Uf_a0IW2MHqH6lhKpcj_6WbwURPOip3u9CRe0PG8cbd5IfzdXT_Bwr4u4rU9GSrrx09042TUm4z7eXOVbFcgC5J4Q7QL4BW_x4CzMPSiuVKoeSA8mg",
             "wears": [
               "Normal"
-            ],
-            "min_float": null,
-            "max_float": null
+            ]
           }
         ],
         "chance": 3.2,
@@ -1784,9 +1620,7 @@ export const armoryCollections = [
             "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGI6zwki4Uf_a0IW2MHqH6lhKpcj_6WbwURPOn53f9ydX4-vgPvw_efKXXzWWkL0ksrQwGCjmlBl24DjUyNipcS-WOFQoDsd2Te9Zsg74zIPxCozwxw",
             "wears": [
               "Normal"
-            ],
-            "min_float": null,
-            "max_float": null
+            ]
           },
           {
             "id": "keychain-23",
@@ -1795,9 +1629,7 @@ export const armoryCollections = [
             "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGI6zwki4Uf_a0IW2MHqH6lhKpcj_6WbwURPOk8LhrDFk7P2jYacjcaCXC2HHlO8n57c4Tn22l0QksjiHnN_4dC7GaAclDMF0EbID4BmxwMqnab2cc2w76Q",
             "wears": [
               "Normal"
-            ],
-            "min_float": null,
-            "max_float": null
+            ]
           },
           {
             "id": "keychain-25",
@@ -1806,9 +1638,7 @@ export const armoryCollections = [
             "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGI6zwki4Uf_a0IW2MHqH6lhKpcj_6WbwURPOk5fjrHJk6P6nfLBoMr7CXmLDwOhy5LZoTCywxxklt2WEz96gIiiQPwJyCJYhEORYuhW9ldDkKaq8sNVLzyxd",
             "wears": [
               "Normal"
-            ],
-            "min_float": null,
-            "max_float": null
+            ]
           },
           {
             "id": "keychain-28",
@@ -1817,9 +1647,7 @@ export const armoryCollections = [
             "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGI6zwki4Uf_a0IW2MHqH6lhKpcj_6WbwURPOipPjpB1W7vWjaeo_c_PLDzWRl-on6bc4GyznzBsh4zjTyY2geSnCPAAoDZJ2E-IItULpjJS5YK7VXWL0",
             "wears": [
               "Normal"
-            ],
-            "min_float": null,
-            "max_float": null
+            ]
           },
           {
             "id": "keychain-31",
@@ -1828,9 +1656,7 @@ export const armoryCollections = [
             "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGI6zwki4Uf_a0IW2MHqH6lhKpcj_6WbwURPOi4Xwwihe-PeiJqA6dvPDD2XAmL4i47ZtHyuxxU5_tWTcyYqvcymVawEnWZNxEeAMtEWm0oqw8L2NeF4",
             "wears": [
               "Normal"
-            ],
-            "min_float": null,
-            "max_float": null
+            ]
           }
         ],
         "chance": 15.98,
@@ -1848,9 +1674,7 @@ export const armoryCollections = [
             "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGI6zwki4Uf_a0IW2MHqH6lhKpcj_6WbwURPOn53f_yNI6rz9OfdrJPbHXjDIwL4ntOVoH3jqkRl3sm_RztmqeC6fa1IgCJAiQ7IOrFDmxYcaCqwO",
             "wears": [
               "Normal"
-            ],
-            "min_float": null,
-            "max_float": null
+            ]
           },
           {
             "id": "keychain-19",
@@ -1859,9 +1683,7 @@ export const armoryCollections = [
             "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGI6zwki4Uf_a0IW2MHqH6lhKpcj_6WbwURPOn4HwwjJX7uG6YacjJqWXDGLHlu1z4ec-TnHjwh5162WDno39eH2UPQUpW8BzQ-IOsBDsmsqnab2P0Alt-Q",
             "wears": [
               "Normal"
-            ],
-            "min_float": null,
-            "max_float": null
+            ]
           },
           {
             "id": "keychain-22",
@@ -1870,9 +1692,7 @@ export const armoryCollections = [
             "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGI6zwki4Uf_a0IW2MHqH6lhKpcj_6WbwURPOnYLr8ytd6s25Z6tpbqeWCj7Hlr8n5OQ9TX62xUVx4DnUzI76eCmXaQEnXMN2FrEDuhDsm9L5d7S1yNWnbys",
             "wears": [
               "Normal"
-            ],
-            "min_float": null,
-            "max_float": null
+            ]
           },
           {
             "id": "keychain-26",
@@ -1881,9 +1701,7 @@ export const armoryCollections = [
             "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGI6zwki4Uf_a0IW2MHqH6lhKpcj_6WbwURPOk5fjrHJk-_uibeo0JvOWDGTCl7ly6OM6TX22wBlx5GWGydf_dn6eOlByDptzF7Rbthe9jJS5YC-ZfoqM",
             "wears": [
               "Normal"
-            ],
-            "min_float": null,
-            "max_float": null
+            ]
           },
           {
             "id": "keychain-27",
@@ -1892,9 +1710,7 @@ export const armoryCollections = [
             "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGI6zwki4Uf_a0IW2MHqH6lhKpcj_6WbwURPOipPjpB1Y7uLgOfY1cKOVX2HIl70msuQ_Gn3lwURw5GXUyNetIi_EawIhWZcjTOcOtA74zINbStzEKA",
             "wears": [
               "Normal"
-            ],
-            "min_float": null,
-            "max_float": null
+            ]
           },
           {
             "id": "keychain-32",
@@ -1903,9 +1719,7 @@ export const armoryCollections = [
             "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGI6zwki4Uf_a0IW2MHqH6lhKpcj_6WbwURPOi4Xwwjta_fzgPvNoJfPLDDDHwLcjtrdsGS3lwxwl52qGm9b_eHiVO1IgCMR4QO5Yuw74zIPBDwTYVQ",
             "wears": [
               "Normal"
-            ],
-            "min_float": null,
-            "max_float": null
+            ]
           }
         ],
         "chance": 79.92,
@@ -1914,9 +1728,9 @@ export const armoryCollections = [
     ]
   },
   {
-    "id": "gallery-case",
-    "name": "GALLERY CASE",
-    "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJKz2lu_XsnXwtmkJjSU91dh8bj35VTqVBP4io_frnYVuPD5baE6IfTFCmSRme0j5eU5SXrjkRwmt2rWnoqhdnjEPQQiDpRxTflK7EePRV2-Kg",
+    "id": "fever-case",
+    "name": "FEVER CASE",
+    "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJKz2lu_XsnXwtmkJjSU91dh8bj35VTqVBP4io_frncVtqv7MPE8JaHHCj_Dl-wk4-NtFirikURy4jiGwo2udHqVaAEjDZp3EflK7EeSMnMs4w",
     "costStars": 2,
     "colSpan": 3,
     "row": 3,
@@ -1927,34 +1741,30 @@ export const armoryCollections = [
         "color": "#eb4b4b",
         "skins": [
           {
-            "id": "skin-5bd16f2599cf",
-            "name": "Glock-18 | Gold Toof",
-            "marketHashNameBase": "Glock-18 | Gold Toof",
-            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL2kpnj9h1c4_2tY5tuKP-eHmKC_uJ_t-l9ASvik00m5TmEzd-geSiQPARxX5IiTLIMtBW4l9zmNuPr4VbbjItHxC_gznQeqLQCTjk",
+            "id": "fever-covert-1",
+            "name": "AWP | Printstream",
+            "marketHashNameBase": "AWP | Printstream",
+            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLwiYbf_DVL0OK8Yap5M-SBC2ad_uJ_t-l9AX_qlk4k5GyAzo6ocC-QZgZxX8AjEbZY5xnrxtPjM7vnsgGIj9oTmXngznQeg3pfcPs",
             "wears": [
               "Factory New",
               "Minimal Wear",
               "Field-Tested",
               "Well-Worn",
               "Battle-Scarred"
-            ],
-            "min_float": null,
-            "max_float": null
+            ]
           },
           {
-            "id": "skin-aa9558c8a01f",
-            "name": "M4A1-S | Vaporwave",
-            "marketHashNameBase": "M4A1-S | Vaporwave",
-            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL8ypexwjFS4_ega6F_H_3HDzaD_vh3oO57WCilkCIrujqNjsH_In7DZgYnWcAiR-MJshO6koDlN7vhsQyLi41HySX6iXlAvCZrsb0HT-N7rW-9qIHE",
+            "id": "fever-covert-2",
+            "name": "FAMAS | Bad Trip",
+            "marketHashNameBase": "FAMAS | Bad Trip",
+            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL3n5vh7h1d7v-ve5tvIfSHHG6A_uJ_t-l9AX6xzExytWndzdj6eCrGb1MkWZB2TOBc4xK8mtHkZezrsQOPjoITyi_gznQezHhrR0c",
             "wears": [
               "Factory New",
               "Minimal Wear",
               "Field-Tested",
               "Well-Worn",
               "Battle-Scarred"
-            ],
-            "min_float": null,
-            "max_float": null
+            ]
           }
         ],
         "chance": 0.64,
@@ -1966,49 +1776,43 @@ export const armoryCollections = [
         "color": "#d32ce6",
         "skins": [
           {
-            "id": "skin-ad56dc47a4c4",
-            "name": "AK-47 | The Outsiders",
-            "marketHashNameBase": "AK-47 | The Outsiders",
-            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLwlcK3wiNQu6WRfJtvNeOsAm6Xyfo4tbg7G3-wxxwl5mzRyYqodSrBagMjCZJxELMPthi8lNLgYuzltgHc3ZUFk3sO-7HKrg",
+            "id": "fever-classified-1",
+            "name": "Glock-18 | Shinobu",
+            "marketHashNameBase": "Glock-18 | Shinobu",
+            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL2kpnj9h1c4_2tY5t-KPmdAWWF_uJ_t-l9AX6ylh5w4mTcwtahdS2VOgRzWJsjEOQL5EWxwNblZeK2tVPXitlDmyvgznQeC7fvQL8",
             "wears": [
               "Factory New",
               "Minimal Wear",
               "Field-Tested",
               "Well-Worn",
               "Battle-Scarred"
-            ],
-            "min_float": null,
-            "max_float": null
+            ]
           },
           {
-            "id": "skin-71be2ee4feeb",
-            "name": "P250 | Epicenter",
-            "marketHashNameBase": "P250 | Epicenter",
-            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLhzMOwwjIJuqKRYal9IfOHMWuZxuZi_rg5TnvmzB916m_dm92pdH6eOwJ2DpVyQ7JftUXtwIK2MLiz7wTXjYtbjXKpkd0OdLY",
+            "id": "fever-classified-2",
+            "name": "AK-47 | Searing Rage",
+            "marketHashNameBase": "AK-47 | Searing Rage",
+            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLwlcK3wiNQu6WRbbx9LP-AB3GV_uJ_t-l9AXu2lk1xsD-EnI3_JHmeaAV1CZB1RbEJtxfuxNHuMuq251PY3o4UxXjgznQeg4Qz-rg",
             "wears": [
               "Factory New",
               "Minimal Wear",
               "Field-Tested",
               "Well-Worn",
               "Battle-Scarred"
-            ],
-            "min_float": null,
-            "max_float": null
+            ]
           },
           {
-            "id": "skin-52c02605493f",
-            "name": "UMP-45 | Neo-Noir",
-            "marketHashNameBase": "UMP-45 | Neo-Noir",
-            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLkk4a0qB1O4uL6PZtjJf-sAGiZ09F6ueZhW2flw0R0sGrcy4z9cn6XagVxCpR4F7Rb5BPplIbjY7vj4AOLjt0TzSj9kGoXuYU0ZhpI",
+            "id": "fever-classified-3",
+            "name": "UMP-45 | K.O. Factory",
+            "marketHashNameBase": "UMP-45 | K.O. Factory",
+            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLkk4a0qB1O4uL6PZtiLPSsDWaC1eF5vt5lRi67gVN2tWXTzI6tc3rGPQ4kWJUiQrJf4RPskIW2ZO3r4VaKi9hFyX-qhy0a8G81tA_18T9p",
             "wears": [
               "Factory New",
               "Minimal Wear",
               "Field-Tested",
               "Well-Worn",
               "Battle-Scarred"
-            ],
-            "min_float": null,
-            "max_float": null
+            ]
           }
         ],
         "chance": 3.2,
@@ -2020,79 +1824,69 @@ export const armoryCollections = [
         "color": "#8847ff",
         "skins": [
           {
-            "id": "skin-6bdcfb1366c6",
-            "name": "M4A4 | Turbine",
-            "marketHashNameBase": "M4A4 | Turbine",
-            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL8ypexwi8P7qaRbrF-Kf-dMWuZxuZi_rRtGiriwUgh5m6Bn9z4IHLEOA4gDpZxQOULsUW9k4eyMOLitQzd3opbjXKpOa4i6Kc",
+            "id": "fever-restricted-1",
+            "name": "Desert Eagle | Serpent Strike",
+            "marketHashNameBase": "Desert Eagle | Serpent Strike",
+            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL1m5fn8Sdk6_evb6hoH-OdD2yV_v53pPVsXSeMmRQguynLzdmsIHOVPVciXMN3QuVeuxexmtHuP77m7gDd34kRxXj_3ChKvS9p5fFCD_SJMmxOXA",
             "wears": [
               "Factory New",
               "Minimal Wear",
               "Field-Tested",
               "Well-Worn",
               "Battle-Scarred"
-            ],
-            "min_float": null,
-            "max_float": null
+            ]
           },
           {
-            "id": "skin-8300a7de7ac6",
-            "name": "Dual Berettas | Hydro Strike",
-            "marketHashNameBase": "Dual Berettas | Hydro Strike",
-            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL0kp_0-B1f-vOiV6FhKeSWMW-Jxfx5j_J9XSC4kCIrujqNjsGgeHrGa1B2W5t1Q7NetkOwk4C2Ybzq4FDWjI0TzS6viilLv3tp6rwLT-N7rWtjCU_P",
+            "id": "fever-restricted-2",
+            "name": "Galil AR | Control",
+            "marketHashNameBase": "Galil AR | Control",
+            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL2n5rp8SNJ0PWvZK1hH_OcAHOCzuJJo_V7RiK2qhEutDWR1Nmvcn6RPFVxW5txTbRZuxDuxNKzZu2x7wCMiNpExCSshyof7Xlt5-scEf1y6paUA5M",
             "wears": [
               "Factory New",
               "Minimal Wear",
               "Field-Tested",
               "Well-Worn",
               "Battle-Scarred"
-            ],
-            "min_float": null,
-            "max_float": null
+            ]
           },
           {
-            "id": "skin-1328a63c72b5",
-            "name": "MAC-10 | Saibā Oni",
-            "marketHashNameBase": "MAC-10 | Saibā Oni",
-            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL8n5WxrR1W7vH_OJtiOvGYB1icyOl-pK89HXuxkRt2627Syt2udn6TZlJyW5R0QuMKsRm6lNflNO3g7lfbi49H02yg2Yk7YeQ4",
+            "id": "fever-restricted-3",
+            "name": "Zeus x27 | Tosai",
+            "marketHashNameBase": "Zeus x27 | Tosai",
+            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLln4Xl7x1B6ue9V7BiM_GaMWuZxuZi_uM6GXC3xUh05D7WmY36IHuUZ1AjXpVwR-FZu0OxltHlN-_gsQ3Z34NbjXKpEIQyv90",
             "wears": [
               "Factory New",
               "Minimal Wear",
               "Field-Tested",
               "Well-Worn",
               "Battle-Scarred"
-            ],
-            "min_float": null,
-            "max_float": null
+            ]
           },
           {
-            "id": "skin-39f40ce9d13d",
-            "name": "P90 | Randy Rush",
-            "marketHashNameBase": "P90 | Randy Rush",
-            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLhx8bf7XsL0OCvZqB0H-KGHW-vzedxuPUnGCy3lhsj6zmAyYn6eXyQbwMhApAmFu8C5xTpktHjMejl71aPjtkQnjK-0H3AcMEIag",
+            "id": "fever-restricted-4",
+            "name": "Nova | Rising Sun",
+            "marketHashNameBase": "Nova | Rising Sun",
+            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL_kYDhwixU-fOReq1-Kf6UMXSFz9F6ueZhW2eyzB9z4WjTzt77JXKVaQcnC5sjTLEMthDpwdzkMr_lsVbW34lGmyj5kGoXuV-iSbwM",
             "wears": [
               "Factory New",
               "Minimal Wear",
               "Field-Tested",
               "Well-Worn",
               "Battle-Scarred"
-            ],
-            "min_float": null,
-            "max_float": null
+            ]
           },
           {
-            "id": "skin-05b22d280618",
-            "name": "SSG 08 | Rapid Transit",
-            "marketHashNameBase": "SSG 08 | Rapid Transit",
-            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLijZGwpR1I_PX-MJt5MvGdHW6E_vl-ufVscCW6khUz_WTSw479d3vDalIkCJNzFuIN4RHqw9K2P7nktQHf340Wyn-vh3wY7Sd1o7FV_lj0Yvg",
+            "id": "fever-restricted-5",
+            "name": "P90 | Wave Breaker",
+            "marketHashNameBase": "P90 | Wave Breaker",
+            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLhx8bf7XsL0PChZ7d5H_KfG2KvzedxuPUnTHrlzU9xt2qHzd-rJ3yQb1cmXJNzF-Vc5BS6wdLjMe60tAyP3dhNzTK-0H3NvEQllg",
             "wears": [
               "Factory New",
               "Minimal Wear",
               "Field-Tested",
               "Well-Worn",
               "Battle-Scarred"
-            ],
-            "min_float": null,
-            "max_float": null
+            ]
           }
         ],
         "chance": 15.98,
@@ -2104,109 +1898,95 @@ export const armoryCollections = [
         "color": "#4b69ff",
         "skins": [
           {
-            "id": "skin-5b2502fc6ca2",
-            "name": "USP-S | 27",
-            "marketHashNameBase": "USP-S | 27",
-            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLkjYbf7itX6vytbbZSNeODMWGZxOJyj_JnTiK2qhEutDWR1Nf8dSieZlciX5skF-INsRe_l9HuMurn5QDZ2tgTnyT82ysduHo_tekcEf1yefDz68I",
+            "id": "fever-milspec-1",
+            "name": "USP-S | PC-GRN",
+            "marketHashNameBase": "USP-S | PC-GRN",
+            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLkjYbf7itX6vytbbZSNeODHViS0_titedmXSq2qho1tjiLpYPwJiPTcFcoCpV2F-Nc4xXpwNPhZeLg5AffiIxNynj2jylP53xp6ugHU6Ig__XJz1aWMWkGKhU",
             "wears": [
               "Factory New",
               "Minimal Wear",
               "Field-Tested",
               "Well-Worn",
               "Battle-Scarred"
-            ],
-            "min_float": null,
-            "max_float": null
+            ]
           },
           {
-            "id": "skin-48039a85c871",
-            "name": "Desert Eagle | Calligraffiti",
-            "marketHashNameBase": "Desert Eagle | Calligraffiti",
-            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL1m5fn8Sdk6_evb6hoH_OSAmuZxvx3tudWQyC0nQlp52rQmNv_IC7DaFR0ApB4QbMKs0W8k9zuPr6xtAGMjoITmymohyMa6jErvbhrxmEjWA",
+            "id": "fever-milspec-2",
+            "name": "M4A4 | Choppa",
+            "marketHashNameBase": "M4A4 | Choppa",
+            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL8ypexwi8P7qaRb7ZoJf6sDWadztF6ueZhW2fjl05-6mzVmdmgcHOTZgIhXpJ1RO5c4Bjql9DjMunhsgOL34gUnnr-kGoXuTonsfJ3",
             "wears": [
               "Factory New",
               "Minimal Wear",
               "Field-Tested",
               "Well-Worn",
               "Battle-Scarred"
-            ],
-            "min_float": null,
-            "max_float": null
+            ]
           },
           {
-            "id": "skin-63ed7bb762a0",
-            "name": "MP5-SD | Statics",
-            "marketHashNameBase": "MP5-SD | Statics",
-            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL8jsPz-R1W_6eRe7BsNPmQHViSzftzj-1gSCGn20l252_Tz478Jy3EbAYnX8FzFuAI5kO5wNK1P-uz4lSP2doRyS_6iipXrnE8LnlBQOA",
+            "id": "fever-milspec-3",
+            "name": "SSG 08 | Memorial",
+            "marketHashNameBase": "SSG 08 | Memorial",
+            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLijZGwpR1I_PX-MJtvMuWHD2uZ0vpJvOhuRz39x0UlsWmEnt37IHyfaFAkWZR5RuALtRKxlYKxMLnn4leL3t5FmSv9ijQJsHj6GwByAQ",
             "wears": [
               "Factory New",
               "Minimal Wear",
               "Field-Tested",
               "Well-Worn",
               "Battle-Scarred"
-            ],
-            "min_float": null,
-            "max_float": null
+            ]
           },
           {
-            "id": "skin-f0c2d895b50d",
-            "name": "AUG | Luxe Trim",
-            "marketHashNameBase": "AUG | Luxe Trim",
-            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLwi5Hf_Ddc0OK7bqJoMs-fB2CY1aAntOUwSivrwksmtTyBnI2udijFZ1cmDZt0QeUCsRG7xoWzNu3r5gPelcsbmlZvKhNj",
+            "id": "fever-milspec-4",
+            "name": "MP9 | Nexus",
+            "marketHashNameBase": "MP9 | Nexus",
+            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL8js_f8DIC0PyrcLF-H_yaCW-Ej7ohs7Q5FnDqx0t152XdzI36cCnDaAZyDJNzRuVYsBa4kYHgZbyx4ALAy9USEWUfUe0",
             "wears": [
               "Factory New",
               "Minimal Wear",
               "Field-Tested",
               "Well-Worn",
               "Battle-Scarred"
-            ],
-            "min_float": null,
-            "max_float": null
+            ]
           },
           {
-            "id": "skin-c7c133807ad6",
-            "name": "M249 | Hypnosis",
-            "marketHashNameBase": "M249 | Hypnosis",
-            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL8zMK5wi8Ju6uRYL19Lv-AB3SvzedxuPUnTny1wkgm5znWyon4dC2TPFRxX8AmROcLthW8kdTgMrm051fcjIsQzTK-0H3IfNSRpg",
+            "id": "fever-milspec-5",
+            "name": "P2000 | Sure Grip",
+            "marketHashNameBase": "P2000 | Sure Grip",
+            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL5lYayrXIL0OL8Y5trMvGQGmac_uJ_t-l9AS2wwxx06mTUw9b7JH2RZlQoDZYkRLQD5hW4lNPiYePktgzWj45CmSzgznQeV1pFuQ0",
             "wears": [
               "Factory New",
               "Minimal Wear",
               "Field-Tested",
               "Well-Worn",
               "Battle-Scarred"
-            ],
-            "min_float": null,
-            "max_float": null
+            ]
           },
           {
-            "id": "skin-3604c7754aa6",
-            "name": "R8 Revolver | Tango",
-            "marketHashNameBase": "R8 Revolver | Tango",
-            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLjm4Dv8TRe_c28MJt_L-OWHViRz-pJt_RnXBa_nBovp3PSm4urdy7Da1UjWJolF-RbshfqldXuMuqxsgGKi45HmXj4iS5IuCxi_a9cBo6oJFLo",
+            "id": "fever-milspec-6",
+            "name": "MAG-7 | Resupply",
+            "marketHashNameBase": "MAG-7 | Resupply",
+            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL8n5G3wi9a6KWRaalgL8-RAX-vzedxuPUnTHjgkxwj52SHyImqcX2fO1AhDMNxEe4I4RWwkIXgMO60sQPeiYgQmTK-0H2GsAjMqQ",
             "wears": [
               "Factory New",
               "Minimal Wear",
               "Field-Tested",
               "Well-Worn",
               "Battle-Scarred"
-            ],
-            "min_float": null,
-            "max_float": null
+            ]
           },
           {
-            "id": "skin-03f6e200c8b6",
-            "name": "SCAR-20 | Trail Blazer",
-            "marketHashNameBase": "SCAR-20 | Trail Blazer",
-            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLinZfyr3Jk_PGvevY9H_aGHH6v1eFmv95lRi67gVN_5D6Bzo38cXOVOA52DZolReBbt0K5k9DvM-Pr4VHXjI9Enn6sjHkb8G81tIsMy8R0",
+            "id": "fever-milspec-7",
+            "name": "XM1014 | Mockingbird",
+            "marketHashNameBase": "XM1014 | Mockingbird",
+            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLpk8ewrHZk9___OPU5H_2cDWyZz-l0ufNtcCW6khUz_T-AnNagJH3FbwQnCsEmTeEMs0aww9biMby3tleKjtkQmSX-2yMfv311o7FVNa3OfdQ",
             "wears": [
               "Factory New",
               "Minimal Wear",
               "Field-Tested",
               "Well-Worn",
               "Battle-Scarred"
-            ],
-            "min_float": null,
-            "max_float": null
+            ]
           }
         ],
         "chance": 79.92,
@@ -2223,175 +2003,111 @@ export const armoryCollections = [
     "row": 3,
     "rarities": [
       {
+        "id": "rarity_legendary",
+        "name": "Classified",
+        "color": "#d32ce6",
+        "skins": [
+          {
+            "id": "sf2-foil-1",
+            "name": "Sticker | Lorena (Foil)",
+            "marketHashNameBase": "Sticker | Lorena (Foil)",
+            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMmuOHaC619h7cjn_17mUxvwnZOysiRU5v6RZKt_Jf6SQDaUlLt0sbY7Sy_ilE505zjWn9qoInzCZ1UkCZV3TeINuxG8ltDkY7v8p1uJhKhHSlw",
+            "wears": [
+              "Normal"
+            ]
+          },
+          {
+            "id": "sf2-foil-2",
+            "name": "Sticker | Clavis (Foil)",
+            "marketHashNameBase": "Sticker | Clavis (Foil)",
+            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMmuOHaC619h7cjn_17mUxvwnZOysiRU5v6Ra6hsNvmAQDaTl-pw4bE_SXq2xkshsT-Am9qrcn_FbAApCcAmQrVftkK6lNOxNu38p1uJPVOo65s",
+            "wears": [
+              "Normal"
+            ]
+          },
+          {
+            "id": "sf2-foil-3",
+            "name": "Sticker | Lucas (Foil)",
+            "marketHashNameBase": "Sticker | Lucas (Foil)",
+            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMmuOHaC619h7cjn_17mUxvwnZOysiRU5v6RZLFuIePdWzLJke1w4rE9TS21wk0i4GvVyt6udXiXZwUiAsF0RO4M5xXtxtHiNPSiuVIApEH9cg",
+            "wears": [
+              "Normal"
+            ]
+          }
+        ],
+        "chance": 3.2,
+        "odds": 31.25
+      },
+      {
         "id": "rarity_mythical",
-        "name": "Remarkable",
+        "name": "Restricted",
         "color": "#8847ff",
         "skins": [
           {
-            "id": "sticker-1632",
-            "name": "Boris (Holo)",
-            "marketHashNameBase": "Sticker | Boris (Holo)",
-            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjNm0MnqF41d28bj360n0VBH00ZTv7ytI0PqhZKsjIqiWVjfJwOsgtrgxTX7jk0t05GyGytj_cXqTO1R1A8cjTbQDtka5lcqnab2hZmM8iA",
+            "id": "sf2-holo-1",
+            "name": "Sticker | Lorena (Holo)",
+            "marketHashNameBase": "Sticker | Lorena (Holo)",
+            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMmuOHaC619h7cjn_17mUxvwnZOysipU4_2RZKt_Jf6SQD_EwL8v6Oc6HSvnxxtx5G3dnNardnKTOlMjCMRwTbQLtRW8x9TgYun8p1uJzJlv4Fg",
             "wears": [
               "Normal"
-            ],
-            "min_float": null,
-            "max_float": null
+            ]
           },
           {
-            "id": "sticker-1633",
-            "name": "Max (Holo)",
-            "marketHashNameBase": "Sticker | Max (Holo)",
-            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjNm0MnqF41d28bj360n0VBH00Zvh5R1T4P6hJvQ9JqbFC2LBxL0n6LQwHi-1lkp_4T7Tyo7_I3yXPQMgWJRyE-cI50am0oqwzEDq_68",
+            "id": "sf2-holo-2",
+            "name": "Sticker | Clavis (Holo)",
+            "marketHashNameBase": "Sticker | Clavis (Holo)",
+            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMmuOHaC619h7cjn_17mUxvwnZOysipU4_2Ra6hsNvmAQDaRk-8g4rIxGHjkxk9wtmXQz477eHvBbA8pCMFyFORbtUS7w9XjPr_8p1uJzKcFYZk",
             "wears": [
               "Normal"
-            ],
-            "min_float": null,
-            "max_float": null
+            ]
           },
           {
-            "id": "sticker-1634",
-            "name": "Stan (Holo)",
-            "marketHashNameBase": "Sticker | Stan (Holo)",
-            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjNm0MnqF41d28bj360n0VBH00YX0_Cxk5_2iZ-poeKbGXGbDw7hy47EwHSi3lkol4WvTyt2qc3rCb1QjXJN4QOMCsRDpjJS5YNkFgXW3",
+            "id": "sf2-holo-3",
+            "name": "Sticker | Lucas (Holo)",
+            "marketHashNameBase": "Sticker | Lucas (Holo)",
+            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMmuOHaC619h7cjn_17mUxvwnZOysipU4_2RZLFuIePdD2XIx7ki5rYwSnrkxkoj5DvVzNquJ3KWZ1ImCMAlFLEPthexx9PuMPSiuVLHyZLTEQ",
             "wears": [
               "Normal"
-            ],
-            "min_float": null,
-            "max_float": null
-          },
-          {
-            "id": "sticker-1635",
-            "name": "Jack (Holo)",
-            "marketHashNameBase": "Sticker | Jack (Holo)",
-            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjNm0MnqF41d28bj360n0VBH00Zzh_ilk5_2iZ-o5caCWVmGRw7sjsrY5TnjkwE91sD_TntyrJSqVbgJxW8B3FrENukLrjJS5YCSdPUg1",
-            "wears": [
-              "Normal"
-            ],
-            "min_float": null,
-            "max_float": null
-          },
-          {
-            "id": "sticker-1636",
-            "name": "Perry (Holo)",
-            "marketHashNameBase": "Sticker | Perry (Holo)",
-            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjNm0MnqF41d28bj360n0VBH00Ybl7zBC0PqhZKsjIaaXWWHAk-8h47M6HHzjwEtx4TvUn9f9cXmUOAYnCcciF7Nctxfpl8qnab1Jem_qBg",
-            "wears": [
-              "Normal"
-            ],
-            "min_float": null,
-            "max_float": null
-          },
-          {
-            "id": "sticker-1637",
-            "name": "Viggo (Holo)",
-            "marketHashNameBase": "Sticker | Viggo (Holo)",
-            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjNm0MnqF41d28bj360n0VBH00YDp-iVU0PqhZKsjIvSVCzDJkbtztrkxHi3rlh52sj6Gno6vdS7GbQZ1CsMkRrIJuxbplsqnab0msEX3LA",
-            "wears": [
-              "Normal"
-            ],
-            "min_float": null,
-            "max_float": null
-          },
-          {
-            "id": "sticker-1638",
-            "name": "Joan (Holo)",
-            "marketHashNameBase": "Sticker | Joan (Holo)",
-            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjNm0MnqF41d28bj360n0VBH00Zzv_Cxk5_2iZ-o6daPECDDImb53tLc7HyzgxBh-4WTWm4qocCiRbQR2Wcd5F7EDsxe8jJS5YKo7A5ZE",
-            "wears": [
-              "Normal"
-            ],
-            "min_float": null,
-            "max_float": null
+            ]
           }
         ],
-        "chance": 15.98,
+        "chance": 16,
         "odds": 6.25
       },
       {
         "id": "rarity_rare",
-        "name": "High Grade",
+        "name": "Mil-Spec",
         "color": "#4b69ff",
         "skins": [
           {
-            "id": "sticker-1625",
-            "name": "Boris",
-            "marketHashNameBase": "Sticker | Boris",
-            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjNm0MnqF41d28bj360n0VBH00ZTv7ytIofeqbqI_JKbBVmTDmbgi6Lg9HH2xl0ol6j6HmdyvcXufZlUmDsR0Q7IU8k7v0Ml-x2I",
+            "id": "sf2-base-1",
+            "name": "Sticker | Lorena",
+            "marketHashNameBase": "Sticker | Lorena",
+            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMmuOHaC619h7cjn_17mUxvwnZOysjJa__e8V6hiMvWdDymWme8m5uJoSniwxx506mrRy92vIi-TP1N1XsNyEecOu0W6xIXmM-Pj-UWA3K-AhUyu",
             "wears": [
               "Normal"
-            ],
-            "min_float": null,
-            "max_float": null
+            ]
           },
           {
-            "id": "sticker-1626",
-            "name": "Max",
-            "marketHashNameBase": "Sticker | Max",
-            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjNm0MnqF41d28bj360n0VBH00Zvh5WxdtqL2bPA-dPSXCjXFxOp35uI6Syu1xE1x5TnWnov9cirEP1AnX5RwW6dU5UwjMk4Z",
+            "id": "sf2-base-2",
+            "name": "Sticker | Clavis",
+            "marketHashNameBase": "Sticker | Clavis",
+            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMmuOHaC619h7cjn_17mUxvwnZOysjJa__e8V6dhIeaaHSnImbclsrI5SyvmkR9w5zzTw939Ii6VaA5xA5B3QrMO4EW_k4DhY-7k-UWA3MmjaexR",
             "wears": [
               "Normal"
-            ],
-            "min_float": null,
-            "max_float": null
+            ]
           },
           {
-            "id": "sticker-1627",
-            "name": "Stan",
-            "marketHashNameBase": "Sticker | Stan",
-            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjNm0MnqF41d28bj360n0VBH00YX0_CwVt6f5Ov1rJPLCX2bHkb534bQ8SX3kxR53sGyEn4r4JS-VPFMoDpR2QPlK7Edcy5ZekQ",
+            "id": "sf2-base-3",
+            "name": "Sticker | Lucas",
+            "marketHashNameBase": "Sticker | Lucas",
+            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMmuOHaC619h7cjn_17mUxvwnZOysjJa__e8V6h4I_GAQDHBwrl1sbc4TS-wxEtxsDzQn9f_d3-XblUjC5p4F-cD5hHqx4WxN-n8p1uJ8L0ytb8",
             "wears": [
               "Normal"
-            ],
-            "min_float": null,
-            "max_float": null
-          },
-          {
-            "id": "sticker-1628",
-            "name": "Jack",
-            "marketHashNameBase": "Sticker | Jack",
-            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjNm0MnqF41d28bj360n0VBH00Zzh_ikV6fP6P6E4JqOSCDLBx7Yv6LE6GC-xkElz5mTXzt-gJX-TO1AgA8Z0QPlK7Ee7j9FI4g",
-            "wears": [
-              "Normal"
-            ],
-            "min_float": null,
-            "max_float": null
-          },
-          {
-            "id": "sticker-1629",
-            "name": "Perry",
-            "marketHashNameBase": "Sticker | Perry",
-            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjNm0MnqF41d28bj360n0VBH00Ybl7zBCoaasPP08cvPGW2WVkL1zs7FqTHixxUx2tmnUm4qudy7EOwAkDMZzROEU8k7vfZP8a8M",
-            "wears": [
-              "Normal"
-            ],
-            "min_float": null,
-            "max_float": null
-          },
-          {
-            "id": "sticker-1630",
-            "name": "Viggo",
-            "marketHashNameBase": "Sticker | Viggo",
-            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjNm0MnqF41d28bj360n0VBH00YDp-iVUoav3PPE0dKeVXTLCx-gg6LQ7HSrmwUUi5WjWnt39eXnEagAiXpNxF-8U8k7vUCrleEE",
-            "wears": [
-              "Normal"
-            ],
-            "min_float": null,
-            "max_float": null
-          },
-          {
-            "id": "sticker-1631",
-            "name": "Joan",
-            "marketHashNameBase": "Sticker | Joan",
-            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjNm0MnqF41d28bj360n0VBH00Zzv_CwV7KD6O6c6d6TLXD_AkLwn5ORvGnuyxkki5W6Ew9aqIi-VPwIoDJMiRPlK7EeUCg1WKQ",
-            "wears": [
-              "Normal"
-            ],
-            "min_float": null,
-            "max_float": null
+            ]
           }
         ],
-        "chance": 79.92,
+        "chance": 80,
         "odds": 1.25
       }
     ]
@@ -2431,83 +2147,587 @@ export const armoryCollections = [
   {
     "id": "elemental-craft-stickers",
     "name": "ELEMENTAL CRAFT STICKERS",
-    "image": "",
+    "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMmuOHaC619h7cjx5lzqRBPln5rf_jBa6ebhZKFjNPmQG2uR09F0vO5mSxanghJpsj_Tn9n9JS7GaQQnD5QjTbQJuxDswd3vNL_i7gzb3o8Rn3_33C4f6zErvbg5IwC97A",
     "costStars": 1,
     "colSpan": 3,
     "row": 3,
     "rarities": [
       {
-        "id": "high-grade",
-        "name": "High Grade",
-        "color": "#4b69ff",
-        "chance": 80,
-        "odds": 1.25,
+        "id": "extraordinary",
+        "name": "Extraordinary",
+        "color": "#eb4b4b",
         "skins": [
           {
-            "id": "st-elem-1",
-            "name": "Sticker | Fire Swirl",
-            "marketHashNameBase": "Sticker | Fire Swirl",
-            "image": "",
+            "id": "elem-ext-1",
+            "name": "Sticker | Ruby Wave (Lenticular)",
+            "marketHashNameBase": "Sticker | Ruby Wave (Lenticular)",
+            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMmuOHaC619h7cjx5lzqRBPln5rf_jBa6ebhZKFjNPmQG2uR09F0vO5mSxanghJpsj_Tn9n9JS7GaQQnD5QjTbQJuxDswd3vNL_i7gzb3o8Rn3_33C4f6zErvbg5IwC97A",
             "wears": [
               "Normal"
             ]
           },
           {
-            "id": "st-elem-2",
-            "name": "Sticker | Water Drop",
-            "marketHashNameBase": "Sticker | Water Drop",
-            "image": "",
-            "wears": [
-              "Normal"
-            ]
-          },
-          {
-            "id": "st-elem-3",
-            "name": "Sticker | Earth Root",
-            "marketHashNameBase": "Sticker | Earth Root",
-            "image": "",
+            "id": "elem-ext-2",
+            "name": "Sticker | Ruby Stream (Lenticular)",
+            "marketHashNameBase": "Sticker | Ruby Stream (Lenticular)",
+            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMmuOHaC619h7cjx5lzqRBPln5rf_jBa6ebhZKFjNPmQG2uR09F0vO5mSxa8mxhp5DvVy9f8di6TbgMkWJEhQ-UNsUa7w4CxM-LiswbbjYlNmSv-jC8auzErvbh9iAra4Q",
             "wears": [
               "Normal"
             ]
           }
-        ]
+        ],
+        "chance": 0.64,
+        "odds": 156.25
+      },
+      {
+        "id": "exotic",
+        "name": "Exotic",
+        "color": "#d32ce6",
+        "skins": [
+          {
+            "id": "elem-exo-1",
+            "name": "Sticker | Winding Scorch (Foil)",
+            "marketHashNameBase": "Sticker | Winding Scorch (Foil)",
+            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMmuOHaC619h7cjx5lzqRBPln5rf_jBa6ebhbqtkLM-VB3WV_vp-ouRsAXDhxBl_sG6Dwtz7dymXbFQlWJtyF-4J4RS_xoHiNO_k7wyMgooQnCvgznQe71wX39U",
+            "wears": [
+              "Normal"
+            ]
+          },
+          {
+            "id": "elem-exo-2",
+            "name": "Sticker | Bolt Charge (Foil)",
+            "marketHashNameBase": "Sticker | Bolt Charge (Foil)",
+            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMmuOHaC619h7cjx5lzqRBPln5rf_jBa6ebhbqtkLM-fB2CY1eB_vuZWWyGhkBhpsTzdwtusICmTaQVxA5ElRLQP5xG8koLgPr7m4FbZ2d9HzSSsin5B7TErvbjkBUWgqA",
+            "wears": [
+              "Normal"
+            ]
+          },
+          {
+            "id": "elem-exo-3",
+            "name": "Sticker | Bolt Strike (Foil)",
+            "marketHashNameBase": "Sticker | Bolt Strike (Foil)",
+            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMmuOHaC619h7cjx5lzqRBPln5rf_jBa6ebhbqtkLM-fB2CY1eB_vuZWWz68209_4WmDzYyqeC2ROFcjA5p3TLRetRmwl9XjPuiz41eKj49AzSr32CtXrnE8Wox2Gd0",
+            "wears": [
+              "Normal"
+            ]
+          },
+          {
+            "id": "elem-exo-4",
+            "name": "Sticker | Bolt Energy (Foil)",
+            "marketHashNameBase": "Sticker | Bolt Energy (Foil)",
+            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMmuOHaC619h7cjx5lzqRBPln5rf_jBa6ebhbqtkLM-fB2CY1eB_vuZWQCe22xh0tjnVyNr6dCnCbQciDJZ2Q-4Jsxi5lNTnNurq41bWjI8Wnnir3XtXrnE8197Wtac",
+            "wears": [
+              "Normal"
+            ]
+          }
+        ],
+        "chance": 3.2,
+        "odds": 31.25
+      },
+      {
+        "id": "remarkable",
+        "name": "Remarkable",
+        "color": "#8847ff",
+        "skins": [
+          {
+            "id": "elem-rem-1",
+            "name": "Sticker | Rainbow Route (Holo)",
+            "marketHashNameBase": "Sticker | Rainbow Route (Holo)",
+            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMmuOHaC619h7cjx5lzqRBPln5rf_jBa6ebhYKthL8-BD26ew-Fhj_V7TiC_2xkh5mqHytqgdS7Faw4iDMF1QeYJtxGxkNK2NrnrtQDaj98UnyX_j35XrnE8dkJAeg8",
+            "wears": [
+              "Normal"
+            ]
+          },
+          {
+            "id": "elem-rem-2",
+            "name": "Sticker | Boom Trail (Glitter)",
+            "marketHashNameBase": "Sticker | Boom Trail (Glitter)",
+            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMmuOHaC619h7cjx5lzqRBPln5rf_jBa6ebhb6hkNOSWHFiV2f56v_JgQCeMkxIyoXPSyt2pdirFaQQjXsF0R-4JukS5mtLuP7nh4FaN34NGmyyoiSwf63pu_a9cBlU2l3LX",
+            "wears": [
+              "Normal"
+            ]
+          },
+          {
+            "id": "elem-rem-3",
+            "name": "Sticker | Boom Detonation (Glitter)",
+            "marketHashNameBase": "Sticker | Boom Detonation (Glitter)",
+            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMmuOHaC619h7cjx5lzqRBPln5rf_jBa6ebhb6hkNOSWHFiV2f56v_JgQCeMgQoo_W7Smd_8eXOeaAFxXJcjFLIOtxewktHgZOq0tlbe2dgXzH2ojysY7St1o7FVuh8jYMo",
+            "wears": [
+              "Normal"
+            ]
+          },
+          {
+            "id": "elem-rem-4",
+            "name": "Sticker | Boom Blast (Glitter)",
+            "marketHashNameBase": "Sticker | Boom Blast (Glitter)",
+            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMmuOHaC619h7cjx5lzqRBPln5rf_jBa6ebhb6hkNOSWHFiV2f56v_JgQCeMmhMi_WSDn46hdnuVblVyD8B3Q7IJ5Ea5xIe1Nr7qtFGMjd9BzXmoiHhI7C51o7FVZHsK4gg",
+            "wears": [
+              "Normal"
+            ]
+          },
+          {
+            "id": "elem-rem-5",
+            "name": "Sticker | Boom Epicenter (Glitter)",
+            "marketHashNameBase": "Sticker | Boom Epicenter (Glitter)",
+            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMmuOHaC619h7cjx5lzqRBPln5rf_jBa6ebhb6hkNOSWHFiV2f56v_JgQCeMgRU1tjjLzdesJ3OXPw52X5Z3Q-4D5kS_ltO2Prji71OL3d0Wyir8h3kcuilu5fFCD_Sg6ts1Bw",
+            "wears": [
+              "Normal"
+            ]
+          }
+        ],
+        "chance": 16,
+        "odds": 6.25
+      },
+      {
+        "id": "high-grade",
+        "name": "High Grade",
+        "color": "#4b69ff",
+        "skins": [
+          {
+            "id": "elem-hg-1",
+            "name": "Sticker | High Heat",
+            "marketHashNameBase": "Sticker | High Heat",
+            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMmuOHaC619h7cjx5lzqRBPln5rf_jBa6ebheKV9JeKsCGuRzOtlj_V-QGfrkxhxsmnczNeocS_EawIiXpshRrZes0G7wNLhN7_lsVaIj4hHzy6tkGoXuV9He8lM",
+            "wears": [
+              "Normal"
+            ]
+          },
+          {
+            "id": "elem-hg-2",
+            "name": "Sticker | Bolt Charge",
+            "marketHashNameBase": "Sticker | Bolt Charge",
+            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMmuOHaC619h7cjx5lzqRBPln5rf_jBa6ebheKV9JeKsAm6Xyfp4ue9ucD27hxgi_W2BnIqsICmUOFApXJImTO5btUa5moLvP-vh5wSNgt1Ez3-vjH9Kunl1o7FVVcnTGwM",
+            "wears": [
+              "Normal"
+            ]
+          },
+          {
+            "id": "elem-hg-3",
+            "name": "Sticker | Hydro Wave",
+            "marketHashNameBase": "Sticker | Hydro Wave",
+            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMmuOHaC619h7cjx5lzqRBPln5rf_jBa6ebheKV9JeKsGWaExPxJv-9sASq1lkx-6m_dy9-teX_DZ1ApCcR1RuYJ5hW6wIa2Ye22tlOP2opGzSjgznQeErtUseQ",
+            "wears": [
+              "Normal"
+            ]
+          },
+          {
+            "id": "elem-hg-4",
+            "name": "Sticker | Winding Scorch",
+            "marketHashNameBase": "Sticker | Winding Scorch",
+            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMmuOHaC619h7cjx5lzqRBPln5rf_jBa6ebheKV9JeKsCG6CxNFiuPNsSmflwE4h42_Un9modS-ROAB2D8ckQLIJ5BLuwde1Mrvr4FeNidgTxSX3kGoXuS0kJqyW",
+            "wears": [
+              "Normal"
+            ]
+          },
+          {
+            "id": "elem-hg-5",
+            "name": "Sticker | Scorch Loop",
+            "marketHashNameBase": "Sticker | Scorch Loop",
+            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMmuOHaC619h7cjx5lzqRBPln5rf_jBa6ebheKV9JeKsCG6CxNF5vuQnFyvqxxx3t2zcmImsJH6fZwBzDZolEOMDs0HqltzlP7y35QCPjoMWzDK-0H1N3cK4Rg",
+            "wears": [
+              "Normal"
+            ]
+          },
+          {
+            "id": "elem-hg-6",
+            "name": "Sticker | Bolt Strike",
+            "marketHashNameBase": "Sticker | Bolt Strike",
+            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMmuOHaC619h7cjx5lzqRBPln5rf_jBa6ebheKV9JeKsAm6Xyfp4ue9ucD2kmlN24zyEy9n6cHqfb1ckD8R0QLNY5xbpl93gNu3q4lDZ2I1BzSyr2yMa8G81tJEPLXTp",
+            "wears": [
+              "Normal"
+            ]
+          },
+          {
+            "id": "elem-hg-7",
+            "name": "Sticker | Scorch Loop (Reverse)",
+            "marketHashNameBase": "Sticker | Scorch Loop (Reverse)",
+            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMmuOHaC619h7cjx5lzqRBPln5rf_jBa6ebheKV9JeKsCG6CxNFip-4nTnjjkE8l4TmEn9agJyifOgd2A5d4QuZbsRLpm9yzN-6z7weN2I5MzDK-0H3Qe5Mirg",
+            "wears": [
+              "Normal"
+            ]
+          },
+          {
+            "id": "elem-hg-8",
+            "name": "Sticker | Boom Trail",
+            "marketHashNameBase": "Sticker | Boom Trail",
+            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMmuOHaC619h7cjx5lzqRBPln5rf_jBa6ebheKV9JeKsC3-AzeFlue5ncC-8gA9p62nVytf7JX6Ta1QnX8MhQbMDthS8ktzlMOrjtlDd2tpFyHqtjX4a6DErvbjqMUT31w",
+            "wears": [
+              "Normal"
+            ]
+          },
+          {
+            "id": "elem-hg-9",
+            "name": "Sticker | Hydro Stream",
+            "marketHashNameBase": "Sticker | Hydro Stream",
+            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMmuOHaC619h7cjx5lzqRBPln5rf_jBa6ebheKV9JeKsGWaExPxJpOl7Siz9wEQi6m3RmdmvJXOTaA9xDMAiReFZ4xjuxtXnNOOw5wfb2ohMyiqqhjQJsHim8N8NHg",
+            "wears": [
+              "Normal"
+            ]
+          },
+          {
+            "id": "elem-hg-10",
+            "name": "Sticker | Hot Rod Heat",
+            "marketHashNameBase": "Sticker | Hot Rod Heat",
+            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMmuOHaC619h7cjx5lzqRBPln5rf_jBa6ebheKV9JeKsCGuRzOtl_rZvTnDlzUh1t2zTydmtc37EbQYhDccmQOYL4RHrm9bvMe-w4QSKitpbjXKpHDUZ40c",
+            "wears": [
+              "Normal"
+            ]
+          },
+          {
+            "id": "elem-hg-11",
+            "name": "Sticker | Hydro Geyser",
+            "marketHashNameBase": "Sticker | Hydro Geyser",
+            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMmuOHaC619h7cjx5lzqRBPln5rf_jBa6ebheKV9JeKsGWaExPxJpPZmASuxxR8k4zuGztqgdS6SOA8pW8Z4RbQPukG7ldXgMe3h7wbbjt5AyXrgznQemztwppk",
+            "wears": [
+              "Normal"
+            ]
+          },
+          {
+            "id": "elem-hg-12",
+            "name": "Sticker | Bolt Energy",
+            "marketHashNameBase": "Sticker | Bolt Energy",
+            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMmuOHaC619h7cjx5lzqRBPln5rf_jBa6ebheKV9JeKsAm6Xyfp4ue9ucCa9kFN36j6Hz9b6d3PEag4kCpIkEeUIu0S-moDvZeyw5lbe3t1CmX39jylO8G81tImGLAtH",
+            "wears": [
+              "Normal"
+            ]
+          },
+          {
+            "id": "elem-hg-13",
+            "name": "Sticker | Boom Blast",
+            "marketHashNameBase": "Sticker | Boom Blast",
+            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMmuOHaC619h7cjx5lzqRBPln5rf_jBa6ebheKV9JeKsC3-AzeFlue5ncCa9kFMk42uEnN-qeC-UblQkXpBzF-cItBTul9WxNOPr5QPe2YlFniWq3y1A8G81tLApRpMz",
+            "wears": [
+              "Normal"
+            ]
+          },
+          {
+            "id": "elem-hg-14",
+            "name": "Sticker | Boom Epicenter",
+            "marketHashNameBase": "Sticker | Boom Epicenter",
+            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMmuOHaC619h7cjx5lzqRBPln5rf_jBa6ebheKV9JeKsC3-AzeFlue5ncD27hxgi_W_Sy9aueSiXbANzWcF1FOUJsha4mtLhP7zm4FaIiY4UySv7jyhP7np1o7FVMVv7Ax4",
+            "wears": [
+              "Normal"
+            ]
+          },
+          {
+            "id": "elem-hg-15",
+            "name": "Sticker | Boom Detonation",
+            "marketHashNameBase": "Sticker | Boom Detonation",
+            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMmuOHaC619h7cjx5lzqRBPln5rf_jBa6ebheKV9JeKsC3-AzeFlue5ncD2kmlN-42mDzYmhI3iROFUgX5okQuICtBS8wdfvM-_jsQDW2t4RxXj63XsY8G81tPUSBUcH",
+            "wears": [
+              "Normal"
+            ]
+          }
+        ],
+        "chance": 80,
+        "odds": 1.25
       }
     ]
   },
   {
     "id": "2025-community-stickers",
     "name": "2025 COMMUNITY STICKERS",
-    "image": "",
+    "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMmuOHaC619h7cj35VTqVBP4io_fr3IJur2ibap5KfOGAmaC_uxjvO1hRj39lEom4D6Dwt2rInzGOg4pCJAkEOIDthGxwdKyYei05Afc3YlMmS_5iTQJsHjudYBtEg",
     "costStars": 1,
     "colSpan": 3,
     "row": 3,
     "rarities": [
       {
-        "id": "high-grade",
-        "name": "High Grade",
-        "color": "#4b69ff",
-        "chance": 80,
-        "odds": 1.25,
+        "id": "covert",
+        "name": "Covert",
+        "color": "#eb4b4b",
         "skins": [
           {
-            "id": "st-comm-1",
-            "name": "Sticker | Community 2025 A",
-            "marketHashNameBase": "Sticker | Community 2025 A",
-            "image": "",
+            "id": "comm-cov-1",
+            "name": "Sticker | BullHit (Lenticular)",
+            "marketHashNameBase": "Sticker | BullHit (Lenticular)",
+            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMmuOHaC619h7cj35VTqVBP4io_fr3IJur2ibap5KfOGAmaC_uxjvO1hRj39lEom4D6Dwt2rInzGOg4pCJAkEOIDthGxwdKyYei05Afc3YlMmS_5iTQJsHjudYBtEg",
             "wears": [
               "Normal"
             ]
           },
           {
-            "id": "st-comm-2",
-            "name": "Sticker | Community 2025 B",
-            "marketHashNameBase": "Sticker | Community 2025 B",
-            "image": "",
+            "id": "comm-cov-2",
+            "name": "Sticker | Digi-Strike (Lenticular)",
+            "marketHashNameBase": "Sticker | Digi-Strike (Lenticular)",
+            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMmuOHaC619h7cj35VTqVBP4io_fr3IJur2ibap5KfOGAmaC_up_t-h6Wzu6nhhpt2XQnI6scS_GOgMnWMRzQu5euxe_kdGyZOm041GIid4Wzi_93ykbujErvbgAPZ5j3w",
+            "wears": [
+              "Normal"
+            ]
+          },
+          {
+            "id": "comm-cov-3",
+            "name": "Sticker | Neon MVP (Lenticular)",
+            "marketHashNameBase": "Sticker | Neon MVP (Lenticular)",
+            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMmuOHaC619h7cj35VTqVBP4io_fr3IJur2ibap5KfOGAmaC_uBzv-9kWTn9wU1-tj_Xz9msJC2XPVN1DcQmTbIMshe9m9bkNO_j4lOPiY9DzCWoiDQJsHgefWkufw",
             "wears": [
               "Normal"
             ]
           }
-        ]
+        ],
+        "chance": 0.64,
+        "odds": 156.25
+      },
+      {
+        "id": "classified",
+        "name": "Classified",
+        "color": "#d32ce6",
+        "skins": [
+          {
+            "id": "comm-cls-1",
+            "name": "Sticker | Good As New (Foil)",
+            "marketHashNameBase": "Sticker | Good As New (Foil)",
+            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMmuOHaC619h7cj35VTqVBP4io_fr3IJur2oZ61hH_ecAWOvwP1JvuR-ASi3kBtysTjSzon6cy-fOgd0XpQkFOMJ5kO5kIGyPuqz7lSKgo0WxC3gznQedDmdXXc",
+            "wears": [
+              "Normal"
+            ]
+          },
+          {
+            "id": "comm-cls-2",
+            "name": "Sticker | Hands Off (Foil)",
+            "marketHashNameBase": "Sticker | Hands Off (Foil)",
+            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMmuOHaC619h7cj35VTqVBP4io_fr3IJur2oZ61hH_iSAGOD_uFwtq8-GHmyzU9wsj7Ry4yrcCqWOwEjDMAjR-5ZskO_kobmMOPm5QPW3YxH02yg2d4clF3t",
+            "wears": [
+              "Normal"
+            ]
+          },
+          {
+            "id": "comm-cls-3",
+            "name": "Sticker | Eyes In The Sky (Foil)",
+            "marketHashNameBase": "Sticker | Eyes In The Sky (Foil)",
+            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMmuOHaC619h7cj35VTqVBP4io_fr3IJur2oZ61hH_WKC3Sv0uVv_rgxTn3nxB5wt2vVyNquJXufPFQiDZZ5R7RY4UW_x4C2NOzksQSNjIJbjXKpBSN90iY",
+            "wears": [
+              "Normal"
+            ]
+          },
+          {
+            "id": "comm-cls-4",
+            "name": "Sticker | Queen Ava (Foil)",
+            "marketHashNameBase": "Sticker | Queen Ava (Foil)",
+            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMmuOHaC619h7cj35VTqVBP4io_fr3IJur2oZ61hH-GGC2Ke_u9gsa9qHX3lxkh_t2XQn9b_cC_GaFVyCpR5TONYukG9ldHvNOrq41CL2YhN02yg2TVVEwrE",
+            "wears": [
+              "Normal"
+            ]
+          },
+          {
+            "id": "comm-cls-5",
+            "name": "Sticker | King Crasswater (Foil)",
+            "marketHashNameBase": "Sticker | King Crasswater (Foil)",
+            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMmuOHaC619h7cj35VTqVBP4io_fr3IJur2oZ61hH_uaAGCvwvx3o_J-Tj22h1Ny5GqAw9_6IHuSOAEiX8FwEO4NtEW7x9bkNrzgtgLX344Wy3n3hy0a8G81tOzfSwMH",
+            "wears": [
+              "Normal"
+            ]
+          },
+          {
+            "id": "comm-cls-6",
+            "name": "Sticker | Ain't A Rental (Foil)",
+            "marketHashNameBase": "Sticker | Ain't A Rental (Foil)",
+            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMmuOHaC619h7cj35VTqVBP4io_fr3IJur2oZ61hH_GaAHOvwNFkte99TiX9wkxxsW-GmIz6ICiQbFUlDZMkQ7NbsxPpxt3kZe7mtVSK3YJFmHj53TQJsHg8-H4Eyw",
+            "wears": [
+              "Normal"
+            ]
+          }
+        ],
+        "chance": 3.2,
+        "odds": 31.25
+      },
+      {
+        "id": "restricted",
+        "name": "Restricted",
+        "color": "#8847ff",
+        "skins": [
+          {
+            "id": "comm-res-1",
+            "name": "Sticker | Chrome Dome (Holo)",
+            "marketHashNameBase": "Sticker | Chrome Dome (Holo)",
+            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMmuOHaC619h7cj35VTqVBP4io_fr3IJur2mZ6hiH_ObHGidxNFyv-xsAXq3lx9z5WmBmImrI3KTbgciDsQhFrNbt0O9w9HuNrzk5QLYjYJEm33gznQethE18Sk",
+            "wears": [
+              "Normal"
+            ]
+          },
+          {
+            "id": "comm-res-2",
+            "name": "Sticker | Froggles (Holo)",
+            "marketHashNameBase": "Sticker | Froggles (Holo)",
+            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMmuOHaC619h7cj35VTqVBP4io_fr3IJur2mZ6hiH_aBAWCXzetl_rk6THziwkRz4z_cn9_9cHnGPw8nWZV0R-UO5hLtkde1N7zm5VTZ2YNbjXKpTOOLFVY",
+            "wears": [
+              "Normal"
+            ]
+          },
+          {
+            "id": "comm-res-3",
+            "name": "Sticker | Cutie (Holo)",
+            "marketHashNameBase": "Sticker | Cutie (Holo)",
+            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMmuOHaC619h7cj35VTqVBP4io_fr3IJur2mZ6hiH_OGGm6Vj7oksbZvGHzmwx515W3Vw9__d3vFbQFxWZF4FuEKsUKww4a2Nu7rsQzAy9USur0lTqg",
+            "wears": [
+              "Normal"
+            ]
+          },
+          {
+            "id": "comm-res-4",
+            "name": "Sticker | Evidence (Holo)",
+            "marketHashNameBase": "Sticker | Evidence (Holo)",
+            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMmuOHaC619h7cj35VTqVBP4io_fr3IJur2mZ6hiH_WFB2OVz-1z_rloFiyxlBwh4jnXydevc3rDagR0WMR3RuVZskLulNXlZO6w4lDbiIJbjXKpuprLW0s",
+            "wears": [
+              "Normal"
+            ]
+          },
+          {
+            "id": "comm-res-5",
+            "name": "Sticker | CT Tracks (Glitter)",
+            "marketHashNameBase": "Sticker | CT Tracks (Glitter)",
+            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMmuOHaC619h7cj35VTqVBP4io_fr3IJur2pZK15NPWBMWSE_vpkseJiXGflkRgmsmvUw9_7dn-XawdzCMMhQLUC5Ba9lNS0Y7i3sVPZj4gQnnmskGoXuVhZLVfR",
+            "wears": [
+              "Normal"
+            ]
+          },
+          {
+            "id": "comm-res-6",
+            "name": "Sticker | Bomb Planted (Holo)",
+            "marketHashNameBase": "Sticker | Bomb Planted (Holo)",
+            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMmuOHaC619h7cj35VTqVBP4io_fr3IJur2mZ6hiH_KcA2Wv0eJ3vvVsS2flk0gmtz7WydqvdC-fP1NyA5IjRu8JsRHtkNPgP77h4lfcjtoTyiSrkGoXuRcLwdv4",
+            "wears": [
+              "Normal"
+            ]
+          },
+          {
+            "id": "comm-res-7",
+            "name": "Sticker | T Tracks (Glitter)",
+            "marketHashNameBase": "Sticker | T Tracks (Glitter)",
+            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMmuOHaC619h7cj35VTqVBP4io_fr3IJur2pZK15NPWBMXOv1fx3s-p6AX_jzE8i4jzRnNb7cn-SbQcmDcEkE-QO40O9ldzkZO3j5lTf2YsRxCXgznQeYrjJhnE",
+            "wears": [
+              "Normal"
+            ]
+          },
+          {
+            "id": "comm-res-8",
+            "name": "Sticker | Overloaded (Glitter)",
+            "marketHashNameBase": "Sticker | Overloaded (Glitter)",
+            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMmuOHaC619h7cj35VTqVBP4io_fr3IJur2pZK15NPWBMWiGxPx6v-BtSi39w0km5mjUz46pcy7DbQd1XJUlQLNZskG4l9zuMLzq4wzW3t1Mznr7hzQJsHgO_38YFQ",
+            "wears": [
+              "Normal"
+            ]
+          }
+        ],
+        "chance": 16,
+        "odds": 6.25
+      },
+      {
+        "id": "milspec",
+        "name": "Mil-Spec",
+        "color": "#4b69ff",
+        "skins": [
+          {
+            "id": "comm-ms-1",
+            "name": "Sticker | Eyes of Farlow",
+            "marketHashNameBase": "Sticker | Eyes of Farlow",
+            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMmuOHaC619h7cj35VTqVBP4io_fr3IJur2-abRoMs-WF2KD_uFwj-doXSW8glMjsWzWyY39eX3BOA4iApF5R-YMsBG_l9yyZOuw7gzejdhNny6v2ypK8G81tFhUX_uT",
+            "wears": [
+              "Normal"
+            ]
+          },
+          {
+            "id": "comm-ms-2",
+            "name": "Sticker | Vice Cursor",
+            "marketHashNameBase": "Sticker | Vice Cursor",
+            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMmuOHaC619h7cj35VTqVBP4io_fr3IJur2-abRoMs-FB2SV_u1jovJmXWewxk9_5TnUn9v4cXjDP1B2A8RyReUD4UaxktzjZuvj7g3cjolNxHn4kGoXubqx93os",
+            "wears": [
+              "Normal"
+            ]
+          },
+          {
+            "id": "comm-ms-3",
+            "name": "Sticker | Sent With Love",
+            "marketHashNameBase": "Sticker | Sent With Love",
+            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMmuOHaC619h7cj35VTqVBP4io_fr3IJur2-abRoMs-AC2mE_vl_pOlWQyalkFNxt22Dw46gcHmUOlMnWZJ3ROBesxbtxNHlP-jltFTb2YsUxX6sjShI8G81tNymS-YC",
+            "wears": [
+              "Normal"
+            ]
+          },
+          {
+            "id": "comm-ms-4",
+            "name": "Sticker | Cubix Connexion",
+            "marketHashNameBase": "Sticker | Cubix Connexion",
+            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMmuOHaC619h7cj35VTqVBP4io_fr3IJur2-abRoMs-QG2WZ2dF1v-9nSjG6mhNp5WrWm9r8JX-SO1AkA8ciR-RY5hbsx9S2M7vitlePjYgTmHiqhylK6DErvbhmAtbhFw",
+            "wears": [
+              "Normal"
+            ]
+          },
+          {
+            "id": "comm-ms-5",
+            "name": "Sticker | Pop Pup",
+            "marketHashNameBase": "Sticker | Pop Pup",
+            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMmuOHaC619h7cj35VTqVBP4io_fr3IJur2-abRoMs-DAXev0ftm_uVvTnG2wBkm4TmAyd-hJX_GOFIjCcR0RLINtxG_w92yPuuwtFGKi4JbjXKpS9tPAHQ",
+            "wears": [
+              "Normal"
+            ]
+          },
+          {
+            "id": "comm-ms-6",
+            "name": "Sticker | Skelly Stabby",
+            "marketHashNameBase": "Sticker | Skelly Stabby",
+            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMmuOHaC619h7cj35VTqVBP4io_fr3IJur2-abRoMs-ABWKczfdlpOBrAXqxlE1-4WnUzor_ciqXblMjDpIlQLZb4Ri5kIbkN77hs1OKg4lGmCjgznQeAzF85mA",
+            "wears": [
+              "Normal"
+            ]
+          },
+          {
+            "id": "comm-ms-7",
+            "name": "Sticker | Candy Apples",
+            "marketHashNameBase": "Sticker | Candy Apples",
+            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMmuOHaC619h7cj35VTqVBP4io_fr3IJur2-abRoMs-QD2mU2NF3oPFlSjr9kEQj626Dz9yoICrDbwYiDpMjEOYMuxG4ltbiY-nj5g2Mj9hEnnj9jjQJsHgM7b-9xg",
+            "wears": [
+              "Normal"
+            ]
+          },
+          {
+            "id": "comm-ms-8",
+            "name": "Sticker | Gloves On",
+            "marketHashNameBase": "Sticker | Gloves On",
+            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMmuOHaC619h7cj35VTqVBP4io_fr3IJur2-abRoMs-UAmiGxP1Jv-8nGH_kwR53sW6AmNn4cCqRZgAoCJchRLJc5kK9lt3kZbm0tFDcg9kRzDK-0H3OdZyvtg",
+            "wears": [
+              "Normal"
+            ]
+          },
+          {
+            "id": "comm-ms-9",
+            "name": "Sticker | Lock In",
+            "marketHashNameBase": "Sticker | Lock In",
+            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMmuOHaC619h7cj35VTqVBP4io_fr3IJur2-abRoMs-fAWSb_ud4_rc8TCvrkRh3tTmGmdisIniVZlVxWcMhE-JY4UO5x9y2Zu_m7gCP3dlbjXKp_U45nNM",
+            "wears": [
+              "Normal"
+            ]
+          },
+          {
+            "id": "comm-ms-10",
+            "name": "Sticker | Fade Mangos",
+            "marketHashNameBase": "Sticker | Fade Mangos",
+            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMmuOHaC619h7cj35VTqVBP4io_fr3IJur2-abRoMs-VD2OV_uN3vuZmXGfnxUx_5GrcmdahICrBbQdzWZtxTeFZ5xm_lYLiZruxtALW3o1Mn3qqkGoXuSbk2rYJ",
+            "wears": [
+              "Normal"
+            ]
+          },
+          {
+            "id": "comm-ms-11",
+            "name": "Sticker | Mimicapsule",
+            "marketHashNameBase": "Sticker | Mimicapsule",
+            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMmuOHaC619h7cj35VTqVBP4io_fr3IJur2-abRoMs-eB2qZwu9mo_RlSmexzU0ht23Tzon9JC-VZgJ1XJMlRe4P4RLqldWxNOrk5lHfg4JFz3qskGoXuV7c45h1",
+            "wears": [
+              "Normal"
+            ]
+          },
+          {
+            "id": "comm-ms-12",
+            "name": "Sticker | POTS",
+            "marketHashNameBase": "Sticker | POTS",
+            "image": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMmuOHaC619h7cj35VTqVBP4io_fr3IJur2-abRoMs-DAXODj74m4OcwGn7qzR5z5WyBntb9dnvBZgEhC5AjQ7MJ5xW_x9PnY-jj5FPAy9USWNVhe_4",
+            "wears": [
+              "Normal"
+            ]
+          }
+        ],
+        "chance": 80,
+        "odds": 1.25
       }
     ]
   }

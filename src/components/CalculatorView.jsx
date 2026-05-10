@@ -87,7 +87,21 @@ export default function CalculatorView({
     const parsedItems = [];
 
     if (activeSimulation && activeSimulation.items) {
-      Object.entries(activeSimulation.items).forEach(([key, qty]) => {
+      Object.entries(activeSimulation.items).forEach(([key, rawValue]) => {
+        let qty = 0;
+        let initialPrice = null;
+        let addedAt = null;
+        let initialCurrency = null;
+        
+        if (typeof rawValue === 'number') {
+          qty = rawValue;
+        } else if (typeof rawValue === 'object' && rawValue !== null) {
+          qty = rawValue.qty;
+          initialPrice = rawValue.initialPrice;
+          addedAt = rawValue.addedAt;
+          initialCurrency = rawValue.currency;
+        }
+
         if (qty <= 0) return;
         const parts = key.split('|');
         const colId = parts[0];
@@ -97,12 +111,31 @@ export default function CalculatorView({
         totalItems += qty;
         totalStars += (col.costStars * qty);
         
+        let isRandom = false;
+        let skinId = null;
+        let wear = null;
+
         if (parts.length === 1) {
+          isRandom = true;
+        } else if (parts.length >= 3 && parts[1] === 'random') {
+          isRandom = true;
+        } else if (parts.length === 3 && parts[1] !== 'random') {
+          isRandom = false;
+          skinId = parts[1];
+          wear = parts[2];
+        } else if (parts.length === 4) {
+          isRandom = false;
+          skinId = parts[1];
+          wear = parts[2];
+        }
+
+        if (isRandom) {
           const roiData = priceCache.getCollectionROI(col, includeFee);
           const avgValue = roiData ? roiData.avgValue : 0;
           expectedReturn += (avgValue * qty);
           parsedItems.push({
             key, col, qty, 
+            initialPrice, addedAt, initialCurrency,
             name: `Random ${col.name}`,
             wear: 'Average',
             rarityColor: '#fff',
@@ -116,9 +149,6 @@ export default function CalculatorView({
             isRandom: true
           });
         } else {
-          const skinId = parts[1];
-          const wear = parts[2];
-          
           let skinObj = null;
           let rarityColor = '#fff';
           col.rarities.forEach(r => {
@@ -137,6 +167,7 @@ export default function CalculatorView({
             
             parsedItems.push({
               key, col, qty,
+              initialPrice, addedAt, initialCurrency,
               name: skinObj.name,
               wear: wear === 'Normal' ? 'Default' : wear,
               rarityColor,
@@ -228,21 +259,48 @@ export default function CalculatorView({
   };
 
   const handleAdd = () => {
-    if (!activeCol || addQty <= 0) return;
+    if (!activeCol) return;
+    const timestamp = Date.now();
     const key = selectedProduct === 'random' 
-      ? activeCol.id 
-      : `${activeCol.id}|${selectedProduct}`;
+      ? `${activeCol.id}|random|${timestamp}`
+      : `${activeCol.id}|${selectedProduct}|${timestamp}`;
     
     const currentItems = { ...activeSimulation.items };
+    const safeQty = 1;
     
-    const newStars = activeCol.costStars * addQty;
-    let safeQty = addQty;
-    if (stats.totalStars + newStars > 200) {
-      safeQty = Math.floor((200 - stats.totalStars) / activeCol.costStars);
-    }
-    
-    if (safeQty > 0) {
-      currentItems[key] = (currentItems[key] || 0) + safeQty;
+    if (stats.totalStars + activeCol.costStars <= 200) {
+      let initialPrice = undefined;
+      
+      if (selectedProduct === 'random') {
+        const roiData = priceCache.getCollectionROI(activeCol, includeFee);
+        initialPrice = roiData ? roiData.avgValue : 0;
+      } else {
+        const parts = selectedProduct.split('|');
+        const skinId = parts[0];
+        const wear = parts[1];
+        let skinObj = null;
+        activeCol.rarities.forEach(r => {
+          const s = r.skins.find(x => x.id === skinId);
+          if (s) { skinObj = s; }
+        });
+        if (skinObj) {
+          const skinData = priceCache.getPrice(skinObj.marketHashNameBase);
+          const wearData = skinData ? skinData[wear] : null;
+          const rawPrice = wearData && wearData.success ? wearData.price : 0;
+          const feeMultiplier = includeFee ? 0.85 : 1;
+          initialPrice = rawPrice ? rawPrice * feeMultiplier : 0;
+        } else {
+          initialPrice = 0;
+        }
+      }
+
+      currentItems[key] = {
+        qty: safeQty,
+        initialPrice: initialPrice,
+        addedAt: new Date().toISOString(),
+        currency: activeCurrency
+      };
+
       setSimulationItems(currentItems);
     }
     setAddQty(1);
@@ -369,21 +427,10 @@ export default function CalculatorView({
           ))}
         </select>
 
-        <div className="qty-input-group">
-          <input 
-            type="number" 
-            min="1" 
-            max="100" 
-            value={addQty} 
-            onChange={(e) => setAddQty(parseInt(e.target.value) || 1)}
-            title="Quantity"
-          />
-        </div>
-
         <button 
           onClick={handleAdd} 
           className="btn-primary add-btn"
-          disabled={!activeCol || (stats.totalStars + (activeCol?.costStars * addQty)) > 200}
+          disabled={!activeCol || (stats.totalStars + (activeCol?.costStars || 0)) > 200}
         >
           <Plus size={16} /> Add Item
         </button>
@@ -397,7 +444,9 @@ export default function CalculatorView({
               <th>Wear</th>
               <th>Qty</th>
               <th>Cost (★)</th>
-              <th>Price</th>
+              <th>Added Date</th>
+              <th>Initial Price</th>
+              <th>Current Price</th>
               <th>Total Value</th>
               <th>Profit</th>
               <th>Actions</th>
@@ -408,7 +457,7 @@ export default function CalculatorView({
           <tbody>
               {stats.parsedItems.length === 0 ? (
                 <tr>
-                  <td colSpan="8" className="empty-state">No items added to this simulation yet.</td>
+                  <td colSpan="10" className="empty-state">No items added to this simulation yet.</td>
                 </tr>
 
             ) : (
@@ -425,16 +474,21 @@ export default function CalculatorView({
                     <td className="wear-cell">{item.wear}</td>
                     <td>
                       <div className="table-qty">
-                        <button onClick={() => updateItemQty(item.key, -1, item.col.costStars)}><Minus size={14} /></button>
                         <span>{item.qty}</span>
-                        <button 
-                          onClick={() => updateItemQty(item.key, 1, item.col.costStars)}
-                          disabled={stats.totalStars + item.col.costStars > 200}
-                        ><Plus size={14} /></button>
                       </div>
                     </td>
                     <td>{item.qty * item.col.costStars} ★</td>
-                    <td>{formatCurrency(item.unitReturn, activeCurrency)}</td>
+                    <td>{item.addedAt ? new Date(item.addedAt).toLocaleDateString() : '—'}</td>
+                    <td>{item.initialPrice !== undefined && item.initialPrice !== null ? formatCurrency(item.initialPrice, item.initialCurrency || activeCurrency) : '—'}</td>
+                    <td>
+                      {formatCurrency(item.unitReturn, activeCurrency)}
+                      {item.initialPrice !== undefined && item.initialPrice !== null && (
+                        <div style={{ fontSize: '0.8rem', color: item.unitReturn > item.initialPrice ? '#4ade80' : item.unitReturn < item.initialPrice ? '#f87171' : 'var(--text-muted)' }}>
+                          {item.unitReturn > item.initialPrice ? '+' : ''}
+                          {formatCurrency(item.unitReturn - item.initialPrice, activeCurrency)}
+                        </div>
+                      )}
+                    </td>
                     <td>{formatCurrency(item.returnValue, activeCurrency)}</td>
 
 
