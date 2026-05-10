@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
-import { getCorrectRarityChances, WEAR_CHANCES, STAR_COST_VND, STAR_COST_USD } from '../utils/constants';
+import { getCorrectRarityChances, WEAR_CHANCES, getWearChances, STAR_COST_VND, STAR_COST_USD } from '../utils/constants';
 
 import {
   isSupabaseConfigured,
@@ -157,9 +157,9 @@ export function usePriceCache(currencyCode = 15) {
 
   /**
    * Get WEIGHTED average price for a skin across all cached wears.
-   * Uses CSROI.com's wear distribution: FN 3%, MW 24%, FT 33%, WW 24%, BS 16%
+   * Uses accurate CS2 float distribution.
    */
-  const getWeightedAvgPrice = useCallback((marketHashNameBase, supportedWears) => {
+  const getWeightedAvgPrice = useCallback((marketHashNameBase, supportedWears, minFloat = 0, maxFloat = 1) => {
     const cached = skinPrices[marketHashNameBase];
     if (!cached) return null;
 
@@ -175,8 +175,10 @@ export function usePriceCache(currencyCode = 15) {
 
     let weightedSum = 0;
     let totalWeight = 0;
+    
+    const wearsToUse = getWearChances(minFloat, maxFloat);
 
-    for (const [wear, chance] of Object.entries(WEAR_CHANCES)) {
+    for (const [wear, chance] of Object.entries(wearsToUse)) {
       if (supportedWears && !supportedWears.includes(wear)) continue;
       const wearData = cached[wear];
       if (wearData && wearData.success && wearData.price) {
@@ -229,7 +231,7 @@ export function usePriceCache(currencyCode = 15) {
 
       const probability = chanceData.chance / 100;
       const skinAvgs = rarity.skins
-        .map(skin => getWeightedAvgPrice(skin.marketHashNameBase, skin.wears))
+        .map(skin => getWeightedAvgPrice(skin.marketHashNameBase, skin.wears, skin.min_float, skin.max_float))
         .filter(p => p !== null);
 
       if (skinAvgs.length > 0) {
@@ -270,7 +272,8 @@ export function usePriceCache(currencyCode = 15) {
             profitProbability += skinProb;
           }
         } else {
-          for (const [wear, wearChancePct] of Object.entries(WEAR_CHANCES)) {
+          const wearsToUse = getWearChances(skin.min_float !== undefined ? skin.min_float : 0, skin.max_float !== undefined ? skin.max_float : 1);
+          for (const [wear, wearChancePct] of Object.entries(wearsToUse)) {
             if (!skin.wears.includes(wear)) continue;
             const wearData = cached[wear];
             if (wearData && wearData.success && wearData.price && wearData.price > cost) {

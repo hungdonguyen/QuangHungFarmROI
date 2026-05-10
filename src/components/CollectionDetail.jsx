@@ -144,7 +144,7 @@ export default function CollectionDetail({ onSelectSkin, priceCache, includeFee,
     for (const rarity of collection.rarities) {
       for (const skin of rarity.skins) {
         if (activeRarities.size > 0 && !activeRarities.has(rarity.id)) continue;
-        const avgPrice = priceCache?.getWeightedAvgPrice(skin.marketHashNameBase, skin.wears);
+        const avgPrice = priceCache?.getWeightedAvgPrice(skin.marketHashNameBase, skin.wears, skin.min_float, skin.max_float);
         items.push({ skin, rarity, avgPrice });
       }
     }
@@ -217,8 +217,8 @@ export default function CollectionDetail({ onSelectSkin, priceCache, includeFee,
               const chanceData = correctChances[idx];
               // Sort skins within rarity by price (highest first)
               const sortedSkins = [...rarity.skins].sort((a, b) => {
-                const priceA = priceCache?.getWeightedAvgPrice(a.marketHashNameBase, a.wears) || 0;
-                const priceB = priceCache?.getWeightedAvgPrice(b.marketHashNameBase, b.wears) || 0;
+                const priceA = priceCache?.getWeightedAvgPrice(a.marketHashNameBase, a.wears, a.min_float, a.max_float) || 0;
+                const priceB = priceCache?.getWeightedAvgPrice(b.marketHashNameBase, b.wears, b.min_float, b.max_float) || 0;
                 return priceB - priceA;
               });
               return (
@@ -231,7 +231,7 @@ export default function CollectionDetail({ onSelectSkin, priceCache, includeFee,
                   </div>
                   <div className="rarity-items">
                     {sortedSkins.map(skin => {
-                      const avgPrice = priceCache?.getWeightedAvgPrice(skin.marketHashNameBase, skin.wears);
+                      const avgPrice = priceCache?.getWeightedAvgPrice(skin.marketHashNameBase, skin.wears, skin.min_float, skin.max_float);
                       return (
                         <button key={skin.id} className="skin-card"
                           onClick={() => onSelectSkin({ skin, color: rarity.color, collection })}>

@@ -21,6 +21,49 @@ export const WEAR_CHANCES = {
   'Battle-Scarred': 16.00,
 };
 
+/**
+ * Calculates correct wear drop chances for a skin with custom min/max float.
+ * CS2 generates base float using a piecewise uniform distribution, then scales it.
+ */
+export function getWearChances(minFloat = 0, maxFloat = 1) {
+  if (minFloat === 0 && maxFloat === 1) return WEAR_CHANCES;
+  
+  const ranges = [
+    { name: 'Factory New', rMin: 0, rMax: 0.07, prob: 0.03, wMin: 0, wMax: 0.07 },
+    { name: 'Minimal Wear', rMin: 0.07, rMax: 0.15, prob: 0.24, wMin: 0.07, wMax: 0.15 },
+    { name: 'Field-Tested', rMin: 0.15, rMax: 0.38, prob: 0.33, wMin: 0.15, wMax: 0.38 },
+    { name: 'Well-Worn', rMin: 0.38, rMax: 0.45, prob: 0.24, wMin: 0.38, wMax: 0.45 },
+    { name: 'Battle-Scarred', rMin: 0.45, rMax: 1.00, prob: 0.16, wMin: 0.45, wMax: 1.00 }
+  ];
+
+  const result = {};
+  let totalProb = 0;
+
+  for (const range of ranges) {
+    let prob = 0;
+    // We want the probability that f falls into [range.wMin, range.wMax]
+    for (const r of ranges) {
+      const density = r.prob / (r.rMax - r.rMin);
+      const overlapMin = Math.max(r.rMin, (range.wMin - minFloat) / (maxFloat - minFloat));
+      const overlapMax = Math.min(r.rMax, (range.wMax - minFloat) / (maxFloat - minFloat));
+      if (overlapMin < overlapMax) {
+        prob += (overlapMax - overlapMin) * density;
+      }
+    }
+    result[range.name] = prob * 100;
+    totalProb += prob;
+  }
+
+  // Normalize in case floating point math misses by a tiny fraction
+  if (totalProb > 0) {
+    for (const key in result) {
+      result[key] = (result[key] / totalProb);
+    }
+  }
+
+  return result;
+}
+
 /** All supported wear states */
 export const ALL_WEARS = ['Factory New', 'Minimal Wear', 'Field-Tested', 'Well-Worn', 'Battle-Scarred'];
 

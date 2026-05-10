@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { WEAR_NAMES } from '../data';
 import { fetchItemPrice } from '../api';
 import { formatCurrency, getSteamMarketUrl } from '../utils/formatters';
-import { WEAR_CHANCES } from '../utils/constants';
+import { WEAR_CHANCES, getWearChances } from '../utils/constants';
 import { RefreshCw, ExternalLink, X } from 'lucide-react';
 
 export default function SkinModal({ data, onClose, priceCache, includeFee, activeCurrency }) {
@@ -16,7 +16,7 @@ export default function SkinModal({ data, onClose, priceCache, includeFee, activ
   const isNormalOnly = skin.wears.includes('Normal') && skin.wears.length === 1;
   const wearsToRender = isNormalOnly 
     ? { 'Normal': 100 } 
-    : WEAR_CHANCES;
+    : getWearChances(skin.min_float !== undefined ? skin.min_float : 0, skin.max_float !== undefined ? skin.max_float : 1);
 
   // Check if any wear is missing price
   const hasMissingPrices = () => {
@@ -82,7 +82,7 @@ export default function SkinModal({ data, onClose, priceCache, includeFee, activ
     let weightedSum = 0;
     let totalWeight = 0;
 
-    for (const [wear, chancePct] of Object.entries(WEAR_CHANCES)) {
+    for (const [wear, chancePct] of Object.entries(wearsToRender)) {
       if (!skin.wears.includes(wear)) continue;
       const wearData = prices[wear];
       if (wearData?.price) {

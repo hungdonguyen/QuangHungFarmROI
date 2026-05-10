@@ -163,7 +163,9 @@ function groupByRarity(items, isSticker = false) {
       name: item.name,
       marketHashNameBase: marketName,
       image: item.image || '',
-      wears: wears
+      wears: wears,
+      min_float: item.min_float !== undefined ? item.min_float : null,
+      max_float: item.max_float !== undefined ? item.max_float : null
     });
   }
 

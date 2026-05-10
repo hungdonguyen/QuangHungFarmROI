@@ -95,7 +95,7 @@ export default function Sidebar({
               return sortedRarities.map((rarity, idx) => {
                 const chanceData = correctChances[idx];
                 const avgPrices = rarity.skins
-                  .map(s => priceCache?.getWeightedAvgPrice(s.marketHashNameBase, s.wears))
+                  .map(s => priceCache?.getWeightedAvgPrice(s.marketHashNameBase, s.wears, s.min_float, s.max_float))
                   .filter(p => p !== null);
                 const tierAvg = avgPrices.length > 0
                   ? avgPrices.reduce((a, b) => a + b, 0) / avgPrices.length
