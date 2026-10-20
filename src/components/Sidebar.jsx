@@ -42,7 +42,7 @@ export default function Sidebar({
   return (
     <aside className="sidebar">
       <Link to="/" className="logo">
-        <img src="/logo.png" alt="HungChikaFarm ROI" className="logo-img" />
+        <img src="/logo.png" alt="QuangHungFarm ROI" className="logo-img" />
       </Link>
 
       {collection ? (
