@@ -8,22 +8,25 @@ A web tool I built to track real-time return on investment (ROI) for Counter-Str
 
 ---
 
-## Screenshots
+## Screenshots (6 Views)
 
-### 1. Armory Pass ROI Dashboard
-Tracks star cost, expected unboxing value, ROI percentage, and profitable unbox probability across all active Armory collections, charms, cases, and stickers.
+### 1. Armory Pass ROI Dashboard (VND) & 2. Train 2025 Rarity Breakdown
+<p align="center">
+  <img src="public/screenshots/01-armory-dashboard.png" alt="Armory Dashboard" width="49%" />
+  <img src="public/screenshots/02-collection-detail.png" alt="Collection Rarity Breakdown" width="49%" />
+</p>
 
-![Armory Dashboard](public/screenshots/01-armory-dashboard.png)
+### 3. Pass Farming & ROI Calculator & 4. Items Within Collection Filter
+<p align="center">
+  <img src="public/screenshots/03-roi-calculator.png" alt="ROI Calculator" width="49%" />
+  <img src="public/screenshots/04-items-within.png" alt="Items Within Collection" width="49%" />
+</p>
 
-### 2. Collection Rarity & Float Breakdown
-Breaks down expected value per rarity tier (`Covert`, `Classified`, `Restricted`, `Mil-Spec`, `Industrial`) and calculates weighted average prices based on each skin's actual CS2 float caps (`min_float` to `max_float`).
-
-![Collection Detail](public/screenshots/02-collection-detail.png)
-
-### 3. Pass Farming & ROI Calculator
-Lets you plan or log star redemptions across multiple passes, compare initial vs. current market prices, toggle the 15% Steam market fee, and save historical snapshots.
-
-![ROI Calculator](public/screenshots/03-roi-calculator.png)
+### 5. Skin Float & Wear Probability Modal & 6. Overpass 2024 Collection (USD + 15% Steam Fee)
+<p align="center">
+  <img src="public/screenshots/05-skin-wear-modal.png" alt="Skin Wear Modal" width="49%" />
+  <img src="public/screenshots/06-usd-fee-comparison.png" alt="USD & Steam Fee Comparison" width="49%" />
+</p>
 
 ---
 
